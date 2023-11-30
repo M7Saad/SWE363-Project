@@ -40,17 +40,38 @@
 </template>
 
 <script>
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 export default {
-  name: "LogIn",
   data() {
     return {
-      Email: "",
+      email: "",
       password: "",
     };
   },
   methods: {
-    login() {
-      this.$router.push("/home");
+    login(submitEvent) {
+      this.email = submitEvent.target.elements.email.value;
+      this.password = submitEvent.target.elements.password.value;
+
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then(() => {
+          this.$router.push("/dashboard");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+          let alert_1 = document.querySelector("#alert_1");
+          alert_1.classList.remove("d-none");
+          alert_1.innerHTML = errorMessage;
+          console.log(alert_1);
+        });
+    },
+    moveToRegister() {
+      this.$router.push("/register");
     },
   },
 };
