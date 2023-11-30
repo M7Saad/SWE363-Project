@@ -1,32 +1,50 @@
 <template>
-  <div v-if="user">
+  <div v-if="loading">
+    <p>Loading...</p>
+  </div>
+  <div v-else>
     <h2>{{ user.displayName }}</h2>
     <p>Email: {{ user.email }}</p>
     <img :src="user.photoURL" alt="User Avatar" />
     <p>Email Verified: {{ user.emailVerified }}</p>
     <p>User ID: {{ user.uid }}</p>
-  </div>
-  <div v-else>
-    <p>Loading...</p>
+    <p>Bio: {{ bio }}</p>
   </div>
 </template>
 
 <script>
 import { ref, onMounted } from "vue";
 import { getAuth } from "firebase/auth";
+import axios from "axios";
 
 export default {
   name: "Profile",
   setup() {
     const user = ref(null);
+    const bio = ref("");
+    const loading = ref(true);
 
-    onMounted(() => {
+    onMounted(async () => {
       const auth = getAuth();
       user.value = auth.currentUser;
+
+      if (user.value) {
+        try {
+          const response = await axios.get(`http://localhost:6969/user/john`);
+          bio.value = response.data.bio;
+          console.log(response.data.bio);
+        } catch (error) {
+          console.error("Failed to load bio:", error);
+        }
+      }
+
+      loading.value = false;
     });
 
     return {
       user,
+      bio,
+      loading,
     };
   },
 };
