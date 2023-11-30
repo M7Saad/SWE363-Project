@@ -28,7 +28,7 @@
         <label for="password">Password</label>
       </div>
       <br />
-      <router-link to="/sign-up"
+      <router-link to="/signup"
         >Don't have a Mustasharak account? Sign up here</router-link
       >
       <br />
@@ -57,21 +57,19 @@ export default {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
-          this.$router.push("/dashboard");
+          this.$router.push("/");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode);
           console.log(errorMessage);
-          let alert_1 = document.querySelector("#alert_1");
-          alert_1.classList.remove("d-none");
-          alert_1.innerHTML = errorMessage;
-          console.log(alert_1);
+          password.value = "";
+          alert(`Error: ${errorMessage}`);
         });
     },
     moveToRegister() {
-      this.$router.push("/register");
+      this.$router.push("/signup");
     },
   },
 };

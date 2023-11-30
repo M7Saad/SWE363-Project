@@ -9,6 +9,7 @@
     <form @submit.prevent="signUp">
       <div class="form-floating mb-3">
         <input
+          name="email"
           type="email"
           class="form-control"
           id="email"
@@ -19,6 +20,7 @@
       </div>
       <div class="form-floating">
         <input
+          name="password"
           type="password"
           class="form-control"
           id="password"
@@ -28,18 +30,18 @@
         <label for="password">Password</label>
       </div>
       <br />
-      <router-link to="/"
-        >Already have a Mustasharak account? login</router-link
-      >
-      <br />
-      <br />
-
-      <button type="submit">Login</button>
+      <button type="submit">Sign up</button>
     </form>
+    <br />
+    <br />
+    <router-link to="/login"
+      >Already have a Mustasharak account? login</router-link
+    >
   </div>
 </template>
 
 <script>
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export default {
   name: "SignUp",
   data() {
@@ -49,8 +51,28 @@ export default {
     };
   },
   methods: {
-    signUp() {
-      this.$router.push("/profile-info");
+    signUp(submitEvent) {
+      console.log("register");
+      // data update
+      this.email = submitEvent.target.elements.email.value;
+      this.password = submitEvent.target.elements.password.value;
+
+      // firebase registration
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          console.log("Registration completed");
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+          alert(`Error: ${errorMessage}`);
+        });
     },
   },
 };

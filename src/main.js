@@ -1,19 +1,26 @@
 import { createApp } from "vue";
-import { createAuth0 } from "@auth0/auth0-vue";
+
 import "./style.css";
 import App from "./App.vue";
-import router from "./routers";
+import router from "./router";
+import "bootstrap/dist/css/bootstrap.css";
 
-const app = createApp(App);
+//create app
+createApp(App).use(router).mount("#app");
 
-app.use(
-  createAuth0({
-    domain: "dev-ywpikhubj75g1a4r.us.auth0.com",
-    clientId: "rbFlJCv2fPIIJ1ac5Ta0h3t9Sotvvfxa",
-    authorizationParams: {
-      redirect_uri: window.location.origin,
-    },
-  })
-);
+//firebase
+import { initializeApp } from "firebase/app";
+const firebaseConfig = {
+  apiKey: "AIzaSyB7zsTwdGw3dOB7c97hlJrPlopL6U3IbJ8",
+  authDomain: "swe363-321-project.firebaseapp.com",
+  projectId: "swe363-321-project",
+  storageBucket: "swe363-321-project.appspot.com",
+  messagingSenderId: "18940924314",
+  appId: "1:18940924314:web:e8c43c8d4156555f932a23",
+  measurementId: "G-T04JL9XZF3",
+};
 
-app.use(router).mount("#app");
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+export { app };
