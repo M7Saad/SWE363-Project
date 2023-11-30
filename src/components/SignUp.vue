@@ -9,6 +9,27 @@
     <form @submit.prevent="signUp">
       <div class="form-floating mb-3">
         <input
+          name="name"
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="name"
+          required
+        />
+        <label for="name">Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          name="photoURL"
+          type="link"
+          class="form-control"
+          id="photoURL"
+          placeholder="photoURL"
+        />
+        <label for="photoURL">photoURL (Optional)</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
           name="email"
           type="email"
           class="form-control"
@@ -56,13 +77,19 @@ export default {
       // data update
       this.email = submitEvent.target.elements.email.value;
       this.password = submitEvent.target.elements.password.value;
+      this.name = submitEvent.target.elements.name.value;
+      this.photoURL = submitEvent.target.elements.photoURL.value;
 
       // firebase registration
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           const user = userCredential.user;
+          //add name, photoURL
+          user.displayName = this.name;
+          user.photoURL = this.photoURL;
           console.log(user);
+          console.log(user.displayName);
           console.log("Registration completed");
           this.$router.push("/");
         })

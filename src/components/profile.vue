@@ -1,6 +1,36 @@
-<template></template>
+<template>
+  <div v-if="user">
+    <h2>{{ user.displayName }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <img :src="user.photoURL" alt="User Avatar" />
+    <p>Email Verified: {{ user.emailVerified }}</p>
+    <p>User ID: {{ user.uid }}</p>
+  </div>
+  <div v-else>
+    <p>Loading...</p>
+  </div>
+</template>
 
-<script></script>
+<script>
+import { ref, onMounted } from "vue";
+import { getAuth } from "firebase/auth";
+
+export default {
+  name: "Profile",
+  setup() {
+    const user = ref(null);
+
+    onMounted(() => {
+      const auth = getAuth();
+      user.value = auth.currentUser;
+    });
+
+    return {
+      user,
+    };
+  },
+};
+</script>
 
 <style>
 /* Add your custom styles here */
