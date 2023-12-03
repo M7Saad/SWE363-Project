@@ -1,26 +1,109 @@
 <template>
-  <img
-    src="../assets/mustasharak-logo.png"
-    alt="Mustasharak Logo"
-    class="logo"
-  />
-  <h2>This is your home page</h2>
-  <p>
-    You can access this page without logging in. However, if you try to access
-    the <router-link to="/profile">Profile</router-link> page, you will be
-    redirected to the login page.
-  </p>
-  <p>
-    you can login by clicking on the button below
-    <router-link to="/login">login</router-link>
-  </p>
+  <div id="app">
+    <header>
+      <h1>Mustashark</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Welcome to Mustashark!</h1>
+            <p>
+              Mustashark is your comprehensive financial consultancy web application. We connect you with seasoned finance consultants to provide expert advice personalized to your unique financial situation. Our platform offers personal and investment financial consultancy, powerful budgeting and expense-tracking tools, insightful interactive dashboards, a wealth of educational resources, comprehensive financial reports, and AI-driven responses. Start your journey to financial success with Mustashark today.
+            </p>
+            <button @click="goToConsultants">Explore Consultants</button>
+          </div>
+          <div class="col">
+            <img :src="imageUrl" alt="Illustration">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2024 Mustashark. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      imageUrl: 'https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg',  
+    };
+  },
+  methods: {
+    goToConsultants() {
+      this.$router.push('/Explore'); 
+    },
+  },
+};
+</script>
 
 <style scoped>
-.logo {
-  width: 800px;
-  margin-bottom: 50px;
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+header {
+  background-color: indigo;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+main {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  flex: 1;
+}
+
+button {
+  background-color: indigo;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+footer {
+  background-color: indigo;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 </style>

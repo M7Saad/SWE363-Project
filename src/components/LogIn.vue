@@ -1,10 +1,13 @@
 <template>
+   <header>
+      <h1>Mustashark</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
   <div>
-    <img
-      src="../assets/mustasharak-logo.png"
-      alt="Mustasharak Logo"
-      class="logo"
-    />
     <h2>Login</h2>
     <form @submit.prevent="login">
       <div class="form-floating mb-3">
@@ -37,6 +40,9 @@
       <button type="submit">Login</button>
     </form>
   </div>
+  <footer>
+      <p>© 2024 Mustashark. All rights reserved.</p>
+    </footer>
 </template>
 
 <script>
@@ -79,5 +85,38 @@ export default {
 .logo {
   width: 800px;
   margin-bottom: 50px;
+}
+header {
+  background-color: indigo;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+button {
+  background-color: indigo;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+footer {
+  background-color: indigo;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 </style>

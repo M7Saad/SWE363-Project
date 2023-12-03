@@ -4,6 +4,15 @@ import Home from "../components/Home.vue";
 import LogIn from "../components/LogIn.vue";
 import SignUp from "../components/SignUp.vue";
 import profile from "../components/profile.vue";
+import Explore from "../components/Explore.vue";
+import Consultant from "../components/Consultant.vue";
+import Admin from "../components/Admin.vue";
+import ConsultantInfo from "../components/ConsultantInfo.vue";
+import ConsultantDetials from "../components/ConsultantDetials.vue";
+
+
+
+
 
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -27,6 +36,31 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: profile,
+  },
+  {
+    path: "/explore",
+    name: "explore",
+    component:  Explore,
+  },
+  {
+    path: "/Consultant",
+    name: "Consultant",
+    component:  Consultant,
+  },
+  {
+    path: "/Admin",
+    name: "Admin",
+    component:  Admin,
+  },
+  {
+    path: "/ConsultantInfo",
+    name: "ConsultantInfo",
+    component:  ConsultantInfo,
+  },
+  {
+    path: "/ConsultantDetials",
+    name: "ConsultantDetials",
+    component:  ConsultantDetials,
   },
 ];
 
