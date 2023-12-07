@@ -10,6 +10,8 @@ import Admin from "../components/Admin.vue";
 import ConsultantInfo from "../components/ConsultantInfo.vue";
 import ConsultantDetails from "../components/ConsultantDetails.vue";
 import test from '../components/test.vue'; 
+import contactUs from '../components/contactUs.vue'; 
+
 
 
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -64,6 +66,11 @@ const routes = [
     path: "/test",
     name: "test",
     component: test,
+  },
+  {
+    path: "/contactUs",
+    name: "contactUs",
+    component: contactUs,
   },
 ];
 
