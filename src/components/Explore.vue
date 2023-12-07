@@ -8,19 +8,30 @@
         <a href="#">Contact</a>
       </nav>
     </header>
-    
+
     <main class="consultants-page">
       <h1>Consultants</h1>
 
-      <input type="text" v-model="searchTerm" placeholder="Search consultants..." class="search-bar" />
+      <input
+        type="text"
+        v-model="searchTerm"
+        placeholder="Search consultants..."
+        class="search-bar"
+      />
 
       <div class="consultants-grid">
-        <div class="consultant-card" v-for="consultant in filteredConsultants" :key="consultant.id">
-          <img :src="consultant.image" alt="Consultant photo" />
+        <div
+          class="consultant-card"
+          v-for="consultant in filteredConsultants"
+          :key="consultant.id"
+        >
+          <img :src="consultant.photo" alt="Consultant photo" />
           <h2>{{ consultant.name }}</h2>
           <p>{{ consultant.type }}</p>
           <p>{{ consultant.price }}</p>
-          <button class="book-button" @click="bookConsultant(consultant.id)">Book</button>
+          <button class="book-button" @click="bookConsultant(consultant)">
+            Book
+          </button>
         </div>
       </div>
     </main>
@@ -32,18 +43,28 @@
 </template>
 
 <script>
+import Consultant from "../classes.js";
 export default {
   data() {
     return {
-      searchTerm: '',
+      searchTerm: "",
       consultants: [
-        {
-          id: 1,
-          name: 'Alii afifi',
-          type: 'Financial',
-          price: '$100/hr',
-          image: 'https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg',
-        },
+        new Consultant(
+          "Ali Afif",
+          "Financial Advisor, Career Counselor",
+          120,
+          "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
+          ["Certified Financial Planner", "MBA in Finance"],
+          ["Financial Advisor", "Career Counselor"]
+        ),
+        new Consultant(
+          "khaled Afif",
+          "Financial Advisor, Career Counselor",
+          120,
+          "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
+          ["Certified Financial Planner", "MBA in Finance"],
+          ["Financial Advisor", "Career Counselor"]
+        ),
       ],
     };
   },
@@ -55,8 +76,9 @@ export default {
     },
   },
   methods: {
-    bookConsultant() {
-      this.$router.push('/consultantInfo');
+    bookConsultant(consultant) {
+      localStorage.setItem("chosenConsultant", JSON.stringify(consultant));
+      this.$router.push("/consultantInfo");
     },
   },
 };

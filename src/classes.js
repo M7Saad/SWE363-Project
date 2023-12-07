@@ -8,3 +8,7 @@ class Consultant {
     this.consultancyTypes = consultancyTypes;
   }
 }
+
+
+
+export default Consultant;

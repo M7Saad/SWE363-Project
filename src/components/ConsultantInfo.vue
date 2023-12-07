@@ -64,18 +64,12 @@
 </template>
 
 <script>
+import Consultant from "../classes.js";
 export default {
   name: "ConsultantInfo",
   data() {
     return {
-      consultant: {
-        photo:
-          "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
-        name: "Ali Afif",
-        consultancyTypes: ["Financial Advisor", "Career Counselor"],
-        qualifications: ["Certified Financial Planner", "MBA in Finance"],
-        price: 120,
-      },
+      consultant: JSON.parse(localStorage.getItem("chosenConsultant")),
     };
   },
   methods: {
