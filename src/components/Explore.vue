@@ -44,29 +44,35 @@
 
 <script>
 import Consultant from "../classes.js";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 export default {
   data() {
     return {
       searchTerm: "",
-      consultants: [
-        new Consultant(
-          "Ali Afif",
-          "Financial Advisor, Career Counselor",
-          120,
-          "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
-          ["Certified Financial Planner", "MBA in Finance"],
-          ["Financial Advisor", "Career Counselor"]
-        ),
-        new Consultant(
-          "khaled Afif",
-          "Financial Advisor, Career Counselor",
-          120,
-          "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
-          ["Certified Financial Planner", "MBA in Finance"],
-          ["Financial Advisor", "Career Counselor"]
-        ),
-      ],
+      consultants: [],
     };
+  },
+  created() {
+    console.log("created");
+    const db = getDatabase();
+    const consultantsRef = ref(db, "consultants");
+    onValue(consultantsRef, (snapshot) => {
+      console.log(snapshot.val());
+      const data = snapshot.val();
+      for (let id in data) {
+        this.consultants.push(
+          new Consultant(
+            data[id].name,
+            data[id].expertise,
+            data[id].price,
+            data[id].photo,
+            data[id].qualifications,
+            data[id].consultancyTypes
+          )
+        );
+      }
+    });
   },
   computed: {
     filteredConsultants() {
