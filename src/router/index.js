@@ -9,9 +9,7 @@ import Consultant from "../components/Consultant.vue";
 import Admin from "../components/Admin.vue";
 import ConsultantInfo from "../components/ConsultantInfo.vue";
 import ConsultantDetials from "../components/ConsultantDetials.vue";
-
-
-
+import test from '../components/test.vue'; 
 
 
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -40,27 +38,32 @@ const routes = [
   {
     path: "/explore",
     name: "explore",
-    component:  Explore,
+    component: Explore,
   },
   {
     path: "/Consultant",
     name: "Consultant",
-    component:  Consultant,
+    component: Consultant,
   },
   {
     path: "/Admin",
     name: "Admin",
-    component:  Admin,
+    component: Admin,
   },
   {
     path: "/ConsultantInfo",
     name: "ConsultantInfo",
-    component:  ConsultantInfo,
+    component: ConsultantInfo,
   },
   {
     path: "/ConsultantDetials",
     name: "ConsultantDetials",
-    component:  ConsultantDetials,
+    component: ConsultantDetials,
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: test,
   },
 ];
 
