@@ -8,7 +8,7 @@ import Explore from "../components/Explore.vue";
 import Consultant from "../components/Consultant.vue";
 import Admin from "../components/Admin.vue";
 import ConsultantInfo from "../components/ConsultantInfo.vue";
-import ConsultantDetials from "../components/ConsultantDetials.vue";
+import ConsultantDetails from "../components/ConsultantDetails.vue";
 import test from '../components/test.vue'; 
 
 
@@ -56,9 +56,9 @@ const routes = [
     component: ConsultantInfo,
   },
   {
-    path: "/ConsultantDetials",
-    name: "ConsultantDetials",
-    component: ConsultantDetials,
+    path: "/ConsultantDetails",
+    name: "ConsultantDetails",
+    component: ConsultantDetails,
   },
   {
     path: "/test",

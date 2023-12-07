@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     bookConsultation() {
-      this.$router.push("/ConsultantDetials");
+      this.$router.push("/ConsultantDetails");
     },
   },
 };
