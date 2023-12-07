@@ -1,12 +1,12 @@
 <template>
-   <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+  <header>
+    <h1>Mustashark</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
   <div>
     <h2>Login</h2>
     <form @submit.prevent="login">
@@ -41,14 +41,22 @@
     </form>
   </div>
   <footer>
-      <p>© 2024 Mustashark. All rights reserved.</p>
-    </footer>
+    <p>© 2024 Mustashark. All rights reserved.</p>
+  </footer>
 </template>
 
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
+  beforeRouteEnter(to, from, next) {
+    const auth = getAuth();
+    if (auth.currentUser) {
+      next("/");
+    } else {
+      next();
+    }
+  },
   data() {
     return {
       email: "",

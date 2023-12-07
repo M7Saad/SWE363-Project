@@ -1,12 +1,12 @@
 <template>
   <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+    <h1>Mustashark</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
   <div>
     <h2>Sign up</h2>
     <form @submit.prevent="signUp">
@@ -63,13 +63,21 @@
     >
   </div>
   <footer>
-      <p>© 2024 Mustashark. All rights reserved.</p>
-    </footer>
+    <p>© 2024 Mustashark. All rights reserved.</p>
+  </footer>
 </template>
 
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export default {
+  beforeRouteEnter(to, from, next) {
+    const auth = getAuth();
+    if (auth.currentUser) {
+      next("/");
+    } else {
+      next();
+    }
+  },
   name: "SignUp",
   data() {
     return {
@@ -112,7 +120,6 @@ export default {
 </script>
 
 <style scoped>
-
 header {
   background-color: indigo;
   color: white;
