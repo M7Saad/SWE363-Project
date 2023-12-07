@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Consultant from "../classes.js";
+import { Consultant } from "../classes.js";
 import { getDatabase, ref, onValue } from "firebase/database";
 
 export default {

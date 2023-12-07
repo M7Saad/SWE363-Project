@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import Consultant from "../classes.js";
+import { Consultant } from "../classes.js";
 export default {
   name: "ConsultantInfo",
   data() {

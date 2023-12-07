@@ -1,4 +1,4 @@
-class Consultant {
+export class Consultant {
   constructor(name, expertise, price, photo, qualifications, consultancyTypes) {
     this.name = name;
     this.expertise = expertise;
@@ -9,6 +9,10 @@ class Consultant {
   }
 }
 
-
-
-export default Consultant;
+export class ContactMsg {
+  constructor(name, email, message) {
+    this.name = name;
+    this.email = email;
+    this.message = message;
+  }
+}

@@ -24,7 +24,7 @@
 
 <script>
 import { getDatabase, ref as dbRef, set } from "firebase/database";
-import Consultant from "../classes.js";
+import { Consultant } from "../classes.js";
 
 export default {
   data() {
