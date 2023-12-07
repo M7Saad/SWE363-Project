@@ -1,14 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
-
+    <Navbar />
     <main class="consultants-page">
       <h1>Consultants</h1>
 
@@ -88,6 +80,10 @@ export default {
     },
   },
 };
+</script>
+
+<script setup>
+import Navbar from "../components/Navbar.vue";
 </script>
 
 <style scoped>
