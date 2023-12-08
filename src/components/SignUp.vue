@@ -70,7 +70,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     const auth = getAuth();
     if (auth.currentUser) {
-      next("/");
+      next("/:notFound");
     } else {
       next();
     }

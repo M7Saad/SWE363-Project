@@ -17,7 +17,19 @@
 </template>
 
 <script>
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default {
+  beforeRouteEnter(to, from, next) {
+    const auth = getAuth();
+    if (auth.currentUser && true) {
+      //TODO, change it to the UID of the admin
+      const uid = auth.currentUser.uid;
+      console.log(uid);
+      next();
+    } else {
+      next("/:notFound");
+    }
+  },
   data() {
     return {
       requests: [
