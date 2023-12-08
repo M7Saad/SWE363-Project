@@ -33,9 +33,8 @@
       <button type="submit">Login</button>
     </form>
   </div>
-  <footer>
-    <p>© 2024 Mustashark. All rights reserved.</p>
-  </footer>
+  <Footer />
+
 </template>
 
 <script>
@@ -83,6 +82,7 @@ export default {
 </script>
 <script setup>
 import Navbar from "./Navbar.vue";
+import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
@@ -90,20 +90,7 @@ import Navbar from "./Navbar.vue";
   width: 800px;
   margin-bottom: 50px;
 }
-header {
-  background-color: indigo;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  align-items: center;
-}
-nav a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-}
+
 
 button {
   background-color: indigo;
@@ -114,13 +101,5 @@ button {
   cursor: pointer;
 }
 
-footer {
-  background-color: indigo;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
 </style>

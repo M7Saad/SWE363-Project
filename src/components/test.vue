@@ -9,9 +9,8 @@
       <button @click="pushToFirebase(test)">Push to Firebase</button>
     </main>
 
-    <footer>
-      <p>© 2024 Mustashark. All rights reserved.</p>
-    </footer>
+    <Footer />
+
   </div>
 </template>
 
@@ -61,4 +60,5 @@ export default {
 </script>
 <script setup>
 import Navbar from "./Navbar.vue";
+import Footer from "./Footer.vue";
 </script>

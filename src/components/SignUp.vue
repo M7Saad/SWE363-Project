@@ -59,9 +59,8 @@
         </div>
       </div>
     </main>
-    <footer>
-      <p>© 2024 Mustashark. All rights reserved.</p>
-    </footer>
+    <Footer />
+
   </div>
 </template>
 
@@ -118,23 +117,11 @@ export default {
 </script>
 <script setup>
 import Navbar from "./Navbar.vue";
+import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
-header {
-  background-color: indigo;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  align-items: center;
-}
-nav a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-}
+
 .main {
   display: flex;
   justify-content: center;
@@ -190,15 +177,7 @@ button {
   text-align: center;
 }
 
-footer {
-  background-color: indigo;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
 .signup-header {
   text-align: center;
   margin-bottom: 20px;
