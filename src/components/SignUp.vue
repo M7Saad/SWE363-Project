@@ -52,7 +52,7 @@
         </form>
         <div class="login-link">
           <router-link to="/login"
-            >Already have a Mustasharak account? Login</router-link
+            >Already have an account? Sign in</router-link
           >
         </div>
       </div>

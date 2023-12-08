@@ -1,11 +1,18 @@
 <template>
   <header>
-    <h1>Mustashark</h1>
+    <div class="logo-container">
+      <img src="./assets/logo.png" alt="Logo" class="logo">
+      <h1>Mustashark</h1>
+    </div>
+
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Dashboard</a>
-      <a href="#/contactUs">Contact</a>
-      <div
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#/contactUs">Contact</a>
+      </div>
+      
+      <div class="user-container"
         v-if="user"
         @mouseover="showSlide = true"
         @mouseleave="showSlide = false"
@@ -22,6 +29,7 @@
           </div>
         </transition>
       </div>
+      
       <button v-else @click="signIn">Sign In</button>
     </nav>
   </header>
@@ -75,11 +83,22 @@ header {
   align-items: center;
 }
 
-nav a {
-  margin: 0 10px;
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  margin: 0 15px;
   color: white;
+
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.user-container {
+  position: relative;
 }
 
 button {
@@ -90,17 +109,31 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .user-photo {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  margin: 18px;
   cursor: pointer;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  width: 95px;
 }
 
 .slide {
   position: absolute;
+  width: 120px;
+  right: 0;
   background-color: white;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }

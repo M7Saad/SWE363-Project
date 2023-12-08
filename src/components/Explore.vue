@@ -2,14 +2,22 @@
   <div id="app">
     <Navbar />
     <main class="consultants-page">
-      <h1>Consultants</h1>
+      <p class="head"> Explore Our Consultants </p>
 
-      <input
-        type="text"
-        v-model="searchTerm"
-        placeholder="Search consultants..."
-        class="search-bar"
-      />
+      <div class="search-bar-container">
+        <input
+          type="text"
+          v-model="searchTerm"
+          placeholder="Search consultants..."
+          class="search-bar"
+        />
+
+        <select v-model="searchType" class="search-bar">
+          <option disabled value="">Select a type...</option>
+          <option value="">Any type</option>
+          <option v-for="type in consultancyTypes" :key="type">{{ type }}</option>
+        </select>
+      </div>
 
       <div class="consultants-grid">
         <div
@@ -17,11 +25,16 @@
           v-for="consultant in filteredConsultants"
           :key="consultant.id"
         >
-          <img :src="consultant.photo" alt="Consultant photo" />
-          <h2>{{ consultant.name }}</h2>
-          <p>{{ consultant.type }}</p>
-          <p>{{ consultant.price }}</p>
-          <button class="book-button" @click="bookConsultant(consultant)">
+          <img :src="consultant.photo" alt="card-img-top" />
+          <p class="name">{{ consultant.name }}</p>
+          
+          <div v-for="type in consultant.consultancyTypes" :key="type" class="tag">
+            {{type}}
+          </div>
+
+          <div class="price">{{ consultant.price }}$</div>
+
+          <button class="btn btn-primary" @click="bookConsultant(consultant)">
             Book
           </button>
         </div>
@@ -40,8 +53,28 @@ export default {
   data() {
     return {
       searchTerm: "",
+      searchType: "",
       consultants: [],
     };
+  },
+  computed: {
+    consultancyTypes() {
+      const types = new Set();
+      for (const consultant of this.consultants) {
+        for (const type of consultant.consultancyTypes) {
+          types.add(type);
+        }
+      }
+      return Array.from(types);
+    },
+    filteredConsultants() {
+      return this.consultants.filter((consultant) =>
+        consultant.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
+        (this.searchType === "" || consultant.consultancyTypes.some(type => 
+          type.toLowerCase().includes(this.searchType.toLowerCase()))
+        )
+      );
+    },
   },
   created() {
     console.log("created");
@@ -64,13 +97,6 @@ export default {
       }
     });
   },
-  computed: {
-    filteredConsultants() {
-      return this.consultants.filter((consultant) =>
-        consultant.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    },
-  },
   methods: {
     bookConsultant(consultant) {
       localStorage.setItem("chosenConsultant", JSON.stringify(consultant));
@@ -90,10 +116,16 @@ import Footer from "./Footer.vue";
   padding: 20px;
 }
 
+.search-bar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .search-bar {
-  margin: 20px 0;
+  flex: 1;
+  margin-right: 10px;
   padding: 10px;
-  width: 100%;
   font-size: 1.2em;
 }
 
@@ -104,14 +136,45 @@ import Footer from "./Footer.vue";
 }
 
 .consultant-card {
+  width: 200px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
 .consultant-card img {
-  width: 100%;
+  width: 180px;
+  border-radius: 10px;
   height: auto;
 }
+.name{
+  font-size: large;
+  font-weight: bold;
+  color: darkslategray;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.tag {
+  display: inline-block;
+  background-color:bisque;
+  padding: 1px 8px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.price {
+  margin-top: 4px;
+
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.head{
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+
 </style>

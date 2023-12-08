@@ -3,7 +3,7 @@
   <div class="main-container">
     
     <div class="login-container">
-      <h2>Login</h2>
+      <h2>Sign in</h2>
       <form @submit.prevent="login">
         <div class="form-floating mb-3">
           <input
