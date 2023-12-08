@@ -59,14 +59,21 @@
             <h2 class="head">Our Partners</h2>
             <div class="partners">
               <transition-group name="fade" tag="div" class="partners-row">
-                <div v-for="(partner, index) in partners" :key="index" class="partner">
-                  <img :src="partner.logoUrl" :alt="partner.name" class="img-fluid" />
+                <div
+                  v-for="(partner, index) in partners"
+                  :key="index"
+                  class="partner"
+                >
+                  <img
+                    :src="partner.logoUrl"
+                    :alt="partner.name"
+                    class="img-fluid"
+                  />
                 </div>
               </transition-group>
             </div>
           </div>
         </div>
-
       </div>
     </main>
     <Footer />
@@ -80,8 +87,16 @@ export default {
       imageUrl:
         "https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg",
       partners: [
-        { name: 'Partner1', logoUrl: 'https://upload.wikimedia.org/wikipedia/ar/archive/3/37/20180719130502%21King_Fahd_University_of_Petroleum_%26_Minerals_Logo.png' },
-        { name: 'Partner2', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png' },
+        {
+          name: "Partner1",
+          logoUrl:
+            "https://upload.wikimedia.org/wikipedia/ar/archive/3/37/20180719130502%21King_Fahd_University_of_Petroleum_%26_Minerals_Logo.png",
+        },
+        {
+          name: "Partner2",
+          logoUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png",
+        },
         // Add more partners as needed
       ],
     };
@@ -124,7 +139,6 @@ img {
   padding: 0;
   margin-right: 10px;
   margin-bottom: 30px;
-
 }
 
 .row {
@@ -183,5 +197,5 @@ img {
 .head {
   margin-top: 30px;
   text-align: center;
-}</style>
-
+}
+</style>

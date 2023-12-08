@@ -3,7 +3,7 @@
     <Navbar />
 
     <main>
-      <div  class="consultation-container">
+      <div class="consultation-container">
         <div class="consultation-card">
           <h2 class="my-3">Consultation Details</h2>
           <form @submit.prevent="submitForm">
@@ -151,7 +151,7 @@ button {
 }
 
 .consultation-container {
-  max-width:800px; /* Adjust the maximum width as needed */
+  max-width: 800px; /* Adjust the maximum width as needed */
   width: 100%;
 }
 </style>

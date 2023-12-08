@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo-container">
-      <img src="./assets/logo.png" alt="Logo" class="logo">
+      <img src="./assets/logo.png" alt="Logo" class="logo" />
       <h1>Mustashark</h1>
     </div>
 
@@ -11,8 +11,9 @@
         <a href="#">Dashboard</a>
         <a href="#/contactUs">Contact</a>
       </div>
-      
-      <div class="user-container"
+
+      <div
+        class="user-container"
         v-if="user"
         @mouseover="showSlide = true"
         @mouseleave="showSlide = false"
@@ -29,7 +30,7 @@
           </div>
         </transition>
       </div>
-      
+
       <button v-else @click="signIn">Sign In</button>
     </nav>
   </header>

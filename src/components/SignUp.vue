@@ -1,63 +1,61 @@
 <template>
-    <Navbar />
-    <div class="main-container">
-      <div class="login-container">
-        <h2>Sign up</h2>
-        <form @submit.prevent="signUp" class="signup-form">
-          <div class="form-floating mb-3">
-            <input
-              name="name"
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="name"
-              required
-            />
-            <label for="name">Name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              name="photoURL"
-              type="link"
-              class="form-control"
-              id="photoURL"
-              placeholder="photoURL"
-            />
-            <label for="photoURL">photoURL (Optional)</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              name="email"
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="name@example.com"
-              required
-            />
-            <label for="email">Email address</label>
-          </div>
-          <div class="form-floating">
-            <input
-              name="password"
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Password"
-              required
-            />
-            <label for="password">Password</label>
-          </div>
-          <br />
-          <button type="submit">Sign up</button>
-        </form>
-        <div class="login-link">
-          <router-link to="/login"
-            >Already have an account? Sign in</router-link
-          >
+  <Navbar />
+  <div class="main-container">
+    <div class="login-container">
+      <h2>Sign up</h2>
+      <form @submit.prevent="signUp" class="signup-form">
+        <div class="form-floating mb-3">
+          <input
+            name="name"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="name"
+            required
+          />
+          <label for="name">Name</label>
         </div>
+        <div class="form-floating mb-3">
+          <input
+            name="photoURL"
+            type="link"
+            class="form-control"
+            id="photoURL"
+            placeholder="photoURL"
+          />
+          <label for="photoURL">photoURL (Optional)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            name="email"
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="name@example.com"
+            required
+          />
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <label for="password">Password</label>
+        </div>
+        <br />
+        <button type="submit">Sign up</button>
+      </form>
+      <div class="login-link">
+        <router-link to="/login">Already have an account? Sign in</router-link>
       </div>
     </div>
-    <Footer />
+  </div>
+  <Footer />
 </template>
 
 <script>
@@ -192,5 +190,4 @@ button {
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
 </style>

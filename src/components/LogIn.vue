@@ -1,7 +1,6 @@
 <template>
   <Navbar />
   <div class="main-container">
-    
     <div class="login-container">
       <h2>Sign in</h2>
       <form @submit.prevent="login">

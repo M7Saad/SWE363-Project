@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
     <main class="consultants-page">
-      <p class="head"> Explore Our Consultants </p>
+      <p class="head">Explore Our Consultants</p>
 
       <div class="search-bar-container">
         <input
@@ -15,7 +15,9 @@
         <select v-model="searchType" class="search-bar">
           <option disabled value="">Select a type...</option>
           <option value="">Any type</option>
-          <option v-for="type in consultancyTypes" :key="type">{{ type }}</option>
+          <option v-for="type in consultancyTypes" :key="type">
+            {{ type }}
+          </option>
         </select>
       </div>
 
@@ -27,9 +29,13 @@
         >
           <img :src="consultant.photo" alt="card-img-top" />
           <p class="name">{{ consultant.name }}</p>
-          
-          <div v-for="type in consultant.consultancyTypes" :key="type" class="tag">
-            {{type}}
+
+          <div
+            v-for="type in consultant.consultancyTypes"
+            :key="type"
+            class="tag"
+          >
+            {{ type }}
           </div>
 
           <div class="price">{{ consultant.price }}$</div>
@@ -68,11 +74,15 @@ export default {
       return Array.from(types);
     },
     filteredConsultants() {
-      return this.consultants.filter((consultant) =>
-        consultant.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
-        (this.searchType === "" || consultant.consultancyTypes.some(type => 
-          type.toLowerCase().includes(this.searchType.toLowerCase()))
-        )
+      return this.consultants.filter(
+        (consultant) =>
+          consultant.name
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase()) &&
+          (this.searchType === "" ||
+            consultant.consultancyTypes.some((type) =>
+              type.toLowerCase().includes(this.searchType.toLowerCase())
+            ))
       );
     },
   },
@@ -149,7 +159,7 @@ import Footer from "./Footer.vue";
   border-radius: 10px;
   height: auto;
 }
-.name{
+.name {
   font-size: large;
   font-weight: bold;
   color: darkslategray;
@@ -159,7 +169,7 @@ import Footer from "./Footer.vue";
 
 .tag {
   display: inline-block;
-  background-color:bisque;
+  background-color: bisque;
   padding: 1px 8px;
   border-radius: 5px;
   font-size: 0.8em;
@@ -171,11 +181,9 @@ import Footer from "./Footer.vue";
   font-size: 1.1em;
   font-weight: bold;
 }
-.head{
+.head {
   font-size: xx-large;
   font-weight: bold;
   text-align: center;
 }
-
-
 </style>
