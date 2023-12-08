@@ -3,7 +3,7 @@
     <h1>Mustashark</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#">About</a>
+      <a href="#">Dashboard</a>
       <a href="#/contactUs">Contact</a>
     </nav>
   </header>
