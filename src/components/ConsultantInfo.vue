@@ -72,7 +72,6 @@
     </main>
 
     <Footer />
-
   </div>
 </template>
 
@@ -99,8 +98,6 @@ import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
-
-
 html,
 body,
 #app {
@@ -108,7 +105,6 @@ body,
   padding: 0;
   height: 100%;
 }
-
 
 main {
   padding: 20px;
@@ -122,8 +118,6 @@ button {
   text-transform: uppercase;
   cursor: pointer;
 }
-
-
 
 img {
   max-width: 100%;

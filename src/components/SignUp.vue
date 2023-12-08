@@ -6,7 +6,6 @@
         <h2>Sign up</h2>
       </div>
       <div class="signup-container">
-        
         <form @submit.prevent="signUp" class="signup-form">
           <div class="form-floating mb-3">
             <input
@@ -55,12 +54,13 @@
           <button type="submit">Sign up</button>
         </form>
         <div class="login-link">
-          <router-link to="/login">Already have a Mustasharak account? Login</router-link>
+          <router-link to="/login"
+            >Already have a Mustasharak account? Login</router-link
+          >
         </div>
       </div>
     </main>
     <Footer />
-
   </div>
 </template>
 
@@ -121,7 +121,6 @@ import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
-
 .main {
   display: flex;
   justify-content: center;
@@ -176,7 +175,6 @@ button {
   margin-top: 20px;
   text-align: center;
 }
-
 
 .signup-header {
   text-align: center;

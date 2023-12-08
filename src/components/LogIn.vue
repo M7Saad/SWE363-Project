@@ -34,7 +34,6 @@
     </form>
   </div>
   <Footer />
-
 </template>
 
 <script>
@@ -91,7 +90,6 @@ import Footer from "./Footer.vue";
   margin-bottom: 50px;
 }
 
-
 button {
   background-color: indigo;
   color: white;
@@ -100,6 +98,4 @@ button {
   text-transform: uppercase;
   cursor: pointer;
 }
-
-
 </style>

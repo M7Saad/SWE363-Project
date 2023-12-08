@@ -29,7 +29,6 @@
     </main>
 
     <Footer />
-
   </div>
 </template>
 
@@ -87,8 +86,6 @@ import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
-
-
 .consultants-page {
   padding: 20px;
 }
@@ -117,5 +114,4 @@ import Footer from "./Footer.vue";
   width: 100%;
   height: auto;
 }
-
 </style>

@@ -9,10 +9,8 @@ import Consultant from "../components/Consultant.vue";
 import Admin from "../components/Admin.vue";
 import ConsultantInfo from "../components/ConsultantInfo.vue";
 import ConsultantDetails from "../components/ConsultantDetails.vue";
-import test from '../components/test.vue'; 
-import contactUs from '../components/contactUs.vue'; 
-
-
+import test from "../components/test.vue";
+import contactUs from "../components/contactUs.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 

@@ -8,21 +8,30 @@
         <div class="col">
           <label for="message">Description:</label>
           <textarea id="description" rows="4" cols="50" required></textarea>
-          <br>
+          <br />
           <div>
             <label for="number">Your price per hour:</label>
-            <input type="number" id="price" min="100" max="3000" placeholder="300$" required>
+            <input
+              type="number"
+              id="price"
+              min="100"
+              max="3000"
+              placeholder="300$"
+              required
+            />
           </div>
           <label for="type">Types:</label>
           <select id="types" required>
             <option value="financial">Financial Consulting</option>
             <option value="human resources">Human Resources Consulting</option>
             <option value="strategy">Strategy Consulting</option>
-            <option value="information technology">Information Technology Consulting</option>
+            <option value="information technology">
+              Information Technology Consulting
+            </option>
             <option value="operations">Operations Consulting</option>
           </select>
-          <br>
-          <input type="submit" value="Add">
+          <br />
+          <input type="submit" value="Add" />
         </div>
       </form>
 
@@ -33,7 +42,6 @@
     </div>
 
     <Footer />
-
   </div>
 </template>
 
@@ -46,7 +54,11 @@ export default {
       var caseElement = document.createElement("div");
       caseElement.className = "case";
 
-      caseElement.innerHTML = "<strong>Name:</strong> " + name + "<br><strong>Phone:</strong> " + phoneNumber;
+      caseElement.innerHTML =
+        "<strong>Name:</strong> " +
+        name +
+        "<br><strong>Phone:</strong> " +
+        phoneNumber;
 
       var selectBox = document.createElement("div");
       selectBox.className = "select-box";
@@ -151,8 +163,6 @@ body,
   padding: 0;
   height: 100%;
 }
-
-
 
 main {
   padding: 20px;
