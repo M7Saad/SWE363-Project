@@ -11,6 +11,7 @@ import ConsultantInfo from "../components/ConsultantInfo.vue";
 import ConsultantDetails from "../components/ConsultantDetails.vue";
 import test from "../components/test.vue";
 import contactUs from "../components/contactUs.vue";
+import NotFound from "../components/NotFound.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -69,6 +70,10 @@ const routes = [
     path: "/contactUs",
     name: "contactUs",
     component: contactUs,
+  },
+  {
+    path: "/:notFound",
+    component: NotFound,
   },
 ];
 
