@@ -14,7 +14,7 @@ import contactUs from "../components/contactUs.vue";
 import NotFound from "../components/NotFound.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
-
+import { getAuth } from "firebase/auth";
 const routes = [
   {
     path: "/",
@@ -60,6 +60,17 @@ const routes = [
     path: "/ConsultantDetails",
     name: "ConsultantDetails",
     component: ConsultantDetails,
+    beforeEnter: (to, from, next) => {
+      const auth = getAuth();
+      if (auth.currentUser) {
+        next();
+      } else {
+        next({
+          path: "/login",
+          query: { redirect: to.fullPath },
+        });
+      }
+    },
   },
   {
     path: "/test",
