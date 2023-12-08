@@ -94,7 +94,6 @@
   </section>
 
   <Footer />
-
 </template>
 
 <script>
