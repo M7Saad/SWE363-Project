@@ -91,7 +91,8 @@ export default {
             data[id].price,
             data[id].photo,
             data[id].qualifications,
-            data[id].consultancyTypes
+            data[id].consultancyTypes,
+            data[id].bio
           )
         );
       }

@@ -1,11 +1,12 @@
 export class Consultant {
-  constructor(name, expertise, price, photo, qualifications, consultancyTypes) {
+  constructor(name, expertise, price, photo, qualifications, consultancyTypes, bio) {
     this.name = name;
     this.expertise = expertise;
     this.price = price;
     this.photo = photo;
     this.qualifications = qualifications;
     this.consultancyTypes = consultancyTypes;
+    this.bio = bio;
   }
 }
 

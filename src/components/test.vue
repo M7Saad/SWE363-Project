@@ -29,7 +29,8 @@ export default {
         120,
         "https://pbs.twimg.com/profile_images/1128330688976044032/-icjAsNR_400x400.jpg",
         ["Certified Financial Planner", "MBA in Finance"],
-        ["Financial Advisor", "Career Counselor"]
+        ["Financial Advisor", "Career Counselor"],
+        "biooooooooooooooooo"
       ),
     };
   },
@@ -51,6 +52,7 @@ export default {
         photo: test.photo,
         qualifications: test.qualifications,
         consultancyTypes: test.consultancyTypes,
+        bio: test.bio,
       });
       console.log("Consultant stored in Firebase!");
     },

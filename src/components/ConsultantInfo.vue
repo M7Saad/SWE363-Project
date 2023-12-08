@@ -17,7 +17,8 @@
                 {{ consultant.name }}
               </div>
               <div class="card-header" style="margin-bottom: 10px">
-                <span class="card-subtitle mb-2 text-muted">Description:</span> <p class="des"> Hi this is my silly description<!--{{ consultant.name }} --></p>
+                <span class="card-subtitle mb-2 text-muted">Description:</span>
+                <p class="des">{{ consultant.bio }}</p>
               </div>
             </div>
           </div>
@@ -42,7 +43,9 @@
                   :key="experience"
                   class="list-group-item"
                 > -->
-                  {{ consultant.expertise }}
+                {{
+                  consultant.expertise
+                }}
                 <!-- </li> -->
               </ul>
             </div>
@@ -138,7 +141,7 @@ img {
   border-radius: 10px 10px 0 0;
 }
 
-.des{
+.des {
   font-size: 14px;
   color: chocolate;
 }
