@@ -26,9 +26,10 @@
           v-for="(request, index) in requests"
           :key="index"
         >
-          <strong>Consultant Name:</strong> {{ request.consultant_name }}
+          <strong>Consultant Name:</strong><br> {{ request.consultant_name }}
           <br />
-          <strong>Team Link:</strong> {{ request.teamLink }}
+          <strong>Team Link:</strong><br><a :href="request.teamLink" target="_blank">(Visit Team)</a><br>
+          <strong>State:</strong><br>{{  request.state }}
         </div>
       </div>
     </main>
@@ -45,17 +46,20 @@ export default {
 
       requests: [
         {
-          consultant_name: "hey",
+          consultant_name: "Ali ahmed",
           teamLink: "https://www.google.com",
-        },
+          state: "not accepte yet",
+        }, 
         {
-          consultant_name: "allahy3een",
+          consultant_name: "Ahmed Ali",
           teamLink: "https://www.google.com",
-        },
+          state: "rejected",
+        }, 
         {
-          consultant_name: "allahy3een",
+          consultant_name: "Ahmed Ali",
           teamLink: "https://www.google.com",
-        },
+          state: "accepted",
+        }, 
       ],
     };
   },
@@ -145,11 +149,12 @@ p {
 .request-card {
   flex: 1 0 200px;
   max-width: 200px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
-  padding: 20px;
-  margin: 5px;
+  padding: 5px;
+  margin: 1px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
+
 </style>
