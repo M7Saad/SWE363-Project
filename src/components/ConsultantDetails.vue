@@ -3,68 +3,66 @@
     <Navbar />
 
     <main>
-      <div class="consultation-details-container">
-        <h2 class="my-3">Consultation Details</h2>
-
-        <form @submit.prevent="submitForm">
-          <div class="form-group">
-            <label for="issue">Your Issue</label>
-            <textarea
-              id="issue"
-              v-model="details.issue"
-              class="form-control"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="income">Income Information</label>
-            <input
-              id="income"
-              v-model="details.income"
-              class="form-control"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="phoneNumber">Phone Number</label>
-            <input
-              id="phoneNumber"
-              v-model="details.phoneNumber"
-              class="form-control"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              v-model="details.email"
-              class="form-control"
-              type="email"
-              required
-            />
-          </div>
-
-          <div class="form-check mb-3">
-            <input
-              type="checkbox"
-              id="paymentCheck"
-              v-model="details.paymentCheck"
-              class="form-check-input"
-              required
-            />
-            <label for="paymentCheck" class="form-check-label"
-              >Payment Information Added</label
-            >
-          </div>
-
-          <button type="submit" class="btn btn-success">
-            Confirm Consultation
-          </button>
-        </form>
+      <div  class="consultation-container">
+        <div class="consultation-card">
+          <h2 class="my-3">Consultation Details</h2>
+          <form @submit.prevent="submitForm">
+            <div class="form-group">
+              <label for="issue">Your Issue</label>
+              <textarea
+                id="issue"
+                v-model="details.issue"
+                class="form-control"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="income">Income Information</label>
+              <input
+                id="income"
+                v-model="details.income"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                id="phoneNumber"
+                v-model="details.phoneNumber"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                v-model="details.email"
+                class="form-control"
+                type="email"
+                required
+              />
+            </div>
+            <div class="form-check mb-3">
+              <div class="form-check-input-container">
+                <input
+                  type="checkbox"
+                  id="paymentCheck"
+                  v-model="details.paymentCheck"
+                  class="form-check-input"
+                  required
+                />
+                <label for="paymentCheck" class="form-check-label"
+                  >Payment Information Added</label
+                >
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">
+              Confirm Consultation
+            </button>
+          </form>
+        </div>
       </div>
     </main>
 
@@ -120,6 +118,10 @@ import Footer from "./Footer.vue";
 <style scoped>
 main {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
 .form-group {
@@ -139,5 +141,17 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.consultation-card {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px;
+}
+
+.consultation-container {
+  max-width:800px; /* Adjust the maximum width as needed */
+  width: 100%;
 }
 </style>

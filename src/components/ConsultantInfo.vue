@@ -5,18 +5,23 @@
     <main>
       <div class="consultant-info-container">
         <div class="consultant-card card border-dark mb-3 d-flex flex-row">
-          <div class="p-3">
-            <img
-              v-if="consultant.photo"
-              :src="consultant.photo"
-              alt="Consultant Image"
-              class="card-img-top"
-            />
+          <div class="column card border-dark mb-3 d-flex flex-cloumn">
+            <div class="p-3">
+              <img
+                v-if="consultant.photo"
+                :src="consultant.photo"
+                alt="Consultant Image"
+                class="card-img-top"
+              />
+              <div class="card-header" style="margin-bottom: 10px">
+                {{ consultant.name }}
+              </div>
+              <div class="card-header" style="margin-bottom: 10px">
+                <span class="card-subtitle mb-2 text-muted">Description:</span> <p class="des"> Hi this is my silly description<!--{{ consultant.name }} --></p>
+              </div>
+            </div>
           </div>
           <div class="card-body">
-            <div class="card-header" style="margin-bottom: 10px">
-              {{ consultant.name }}
-            </div>
             <div class="consultancy-types" style="margin-bottom: 10px">
               <h6 class="card-subtitle mb-2 text-muted">Consultancy Types:</h6>
               <ul class="list-group">
@@ -32,13 +37,13 @@
             <div class="experiences" style="margin-bottom: 10px">
               <h6 class="card-subtitle mb-2 text-muted">Experience:</h6>
               <ul class="list-group">
-                <li
-                  v-for="experience in consultant.experiences"
+                <!-- <li
+                  v-for="experience in consultant.expertise"
                   :key="experience"
                   class="list-group-item"
-                >
-                  {{ experience }}
-                </li>
+                > -->
+                  {{ consultant.expertise }}
+                <!-- </li> -->
               </ul>
             </div>
             <div class="qualifications" style="margin-bottom: 10px">
@@ -131,5 +136,10 @@ img {
 .card-img-top {
   max-width: 50%;
   border-radius: 10px 10px 0 0;
+}
+
+.des{
+  font-size: 14px;
+  color: chocolate;
 }
 </style>
