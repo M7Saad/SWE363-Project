@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 export default {
   beforeRouteEnter(to, from, next) {
     const auth = getAuth();

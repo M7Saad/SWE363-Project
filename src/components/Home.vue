@@ -7,19 +7,26 @@
           <div class="col">
             <h1>Welcome to Mustashark!</h1>
             <p>
-              Mustashark is your comprehensive financial consultancy web application. We connect you with seasoned finance consultants to provide expert advice personalized to your unique financial situation. Our platform offers personal and investment financial consultancy, powerful budgeting and expense-tracking tools, insightful interactive dashboards, a wealth of educational resources, comprehensive financial reports, and AI-driven responses. Start your journey to financial success with Mustashark today.
+              Mustashark is your comprehensive financial consultancy web
+              application. We connect you with seasoned finance consultants to
+              provide expert advice personalized to your unique financial
+              situation. Our platform offers personal and investment financial
+              consultancy, powerful budgeting and expense-tracking tools,
+              insightful interactive dashboards, a wealth of educational
+              resources, comprehensive financial reports, and AI-driven
+              responses. Start your journey to financial success with Mustashark
+              today.
             </p>
             <button @click="goToConsultants">Explore Consultants</button>
           </div>
           <div class="col">
-            <img :src="imageUrl" alt="Illustration">
+            <img :src="imageUrl" alt="Illustration" />
           </div>
         </div>
       </div>
     </main>
 
     <Footer />
-
   </div>
 </template>
 
@@ -27,12 +34,13 @@
 export default {
   data() {
     return {
-      imageUrl: 'https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg',  
+      imageUrl:
+        "https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg",
     };
   },
   methods: {
     goToConsultants() {
-      this.$router.push('/Explore'); 
+      this.$router.push("/Explore");
     },
   },
 };
@@ -76,19 +84,18 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter,
 .fade-leave-to
 
-/* .fade-leave-active in <2.1.8 */
-  {
+/* .fade-leave-active in <2.1.8 */ {
   opacity: 0;
 }
 
 .slide-up-enter-active {
-  transition: transform .5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .slide-up-enter,
@@ -108,7 +115,7 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color .3s ease-in-out, transform .3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 button:hover {
