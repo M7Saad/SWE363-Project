@@ -1,11 +1,8 @@
 <template>
-  <div>
     <Navbar />
-    <main>
-      <div class="signup-header">
+    <div class="main-container">
+      <div class="login-container">
         <h2>Sign up</h2>
-      </div>
-      <div class="signup-container">
         <form @submit.prevent="signUp" class="signup-form">
           <div class="form-floating mb-3">
             <input
@@ -59,9 +56,8 @@
           >
         </div>
       </div>
-    </main>
+    </div>
     <Footer />
-  </div>
 </template>
 
 <script>
@@ -123,8 +119,8 @@ import Footer from "./Footer.vue";
 <style scoped>
 .main {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-top: 0px;
   height: calc(100vh - 140px);
 }
 
@@ -172,7 +168,7 @@ button {
 }
 
 .login-link {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -181,4 +177,20 @@ button {
   margin-bottom: 20px;
   padding: 10px;
 }
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 </style>

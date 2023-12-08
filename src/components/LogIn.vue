@@ -1,39 +1,42 @@
 <template>
   <Navbar />
-  <div>
-    <h2>Login</h2>
-    <form @submit.prevent="login">
-      <div class="form-floating mb-3">
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="name@example.com"
-          required
-        />
-        <label for="email">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="Password"
-          required
-        />
-        <label for="password">Password</label>
-      </div>
-      <br />
-      <router-link to="/signup"
-        >Don't have a Mustasharak account? Sign up here</router-link
-      >
-      <br />
-      <br />
+  <div class="main-container">
+    
+    <div class="login-container">
+      <h2>Login</h2>
+      <form @submit.prevent="login">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="name@example.com"
+            required
+          />
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <label for="password">Password</label>
+        </div>
+        <br />
+        <router-link to="/signup"
+          >Don't have an account? Sign up here</router-link
+        >
+        <br />
+        <br />
 
-      <button type="submit">Login</button>
-    </form>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <Footer />
   </div>
-  <Footer />
 </template>
 
 <script>
@@ -79,14 +82,31 @@ export default {
   },
 };
 </script>
+
 <script setup>
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 </script>
 
 <style scoped>
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
-  width: 800px;
+  width: 200px;
   margin-bottom: 50px;
 }
 
@@ -97,5 +117,6 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
+  width: 100%;
 }
 </style>
