@@ -2,30 +2,59 @@
   <div id="app">
     <Navbar />
     <main>
-      <div class="container">
+      <div class="container py-5">
         <div class="row">
-          <div class="col">
+          <div class="col-lg-6">
             <h1>Welcome to Mustashark!</h1>
             <p>
               Mustashark is your comprehensive financial consultancy web
               application. We connect you with seasoned finance consultants to
               provide expert advice personalized to your unique financial
-              situation. Our platform offers personal and investment financial
-              consultancy, powerful budgeting and expense-tracking tools,
-              insightful interactive dashboards, a wealth of educational
-              resources, comprehensive financial reports, and AI-driven
-              responses. Start your journey to financial success with Mustashark
-              today.
+              situation.
             </p>
-            <button @click="goToConsultants">Explore Consultants</button>
+            <button class="btn btn-primary" @click="goToConsultants">
+              Explore Consultants
+            </button>
           </div>
-          <div class="col">
-            <img :src="imageUrl" alt="Illustration" />
+          <div class="col-lg-6">
+            <img :src="imageUrl" alt="Illustration" class="img-fluid" />
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Personal Consultancy</h5>
+                <p class="card-text">
+                  Get personalized financial advice from our expert consultants.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Budgeting Tools</h5>
+                <p class="card-text">
+                  Use our powerful tools to track your expenses and manage your
+                  budget.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">AI Consultant</h5>
+                <p class="card-text">
+                  Learn more about the future finance consultancy with our AI
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
-
     <Footer />
   </div>
 </template>
@@ -81,6 +110,13 @@ main {
 .image-section {
   transition: transform 1s ease-in-out;
 }
+.text-section {
+  transition: opacity 1s ease-in-out;
+}
+
+.image-section {
+  transition: transform 1s ease-in-out;
+}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -88,43 +124,7 @@ main {
 }
 
 .fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active in <2.1.8 */ {
+.fade-leave-to {
   opacity: 0;
-}
-
-.slide-up-enter-active {
-  transition: transform 0.5s ease-out;
-}
-
-.slide-up-enter,
-.slide-up-leave-to {
-  transform: translateY(20px);
-  opacity: 0;
-}
-
-.button-section {
-  text-align: center;
-}
-
-button {
-  background-color: indigo;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-button:hover {
-  background-color: darkslateblue;
-  transform: translateY(-3px);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 </style>
