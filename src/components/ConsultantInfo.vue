@@ -14,8 +14,8 @@
             />
           </div>
           <div class="card-body">
-            <div class="card-header">{{ consultant.name }}</div>
-            <div class="consultancy-types">
+            <div class="card-header" style="margin-bottom: 10px;">{{ consultant.name }}</div>
+            <div class="consultancy-types" style="margin-bottom: 10px;">
               <h6 class="card-subtitle mb-2 text-muted">Consultancy Types:</h6>
               <ul class="list-group">
                 <li
@@ -27,7 +27,19 @@
                 </li>
               </ul>
             </div>
-            <div class="qualifications">
+            <div class="experiences" style="margin-bottom: 10px;">
+              <h6 class="card-subtitle mb-2 text-muted">Experience:</h6>
+              <ul class="list-group">
+                <li
+                  v-for="experience in consultant.experiences"
+                  :key="experience"
+                  class="list-group-item"
+                >
+                  {{ experience }}
+                </li>
+              </ul>
+            </div>
+            <div class="qualifications" style="margin-bottom: 10px;">
               <h6 class="card-subtitle mb-2 text-muted">Qualifications:</h6>
               <ul class="list-group">
                 <li
@@ -39,10 +51,19 @@
                 </li>
               </ul>
             </div>
+            <div class="price" style="margin-bottom: 10px;">
+              <h6 class="card-subtitle mb-2 text-muted">Price:</h6>
+              <ul class="list-group">
+                <li
+                  class="list-group-item"
+                >
+                <p>{{ consultant.price }}</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="d-flex justify-content-between align-items-center mt-3">
-          <div class="price h4">${{ consultant.price }}</div>
           <button @click="bookConsultation" class="btn btn-success">
             Book Consultation
           </button>
@@ -62,6 +83,7 @@ export default {
   data() {
     return {
       consultant: JSON.parse(localStorage.getItem("chosenConsultant")),
+
     };
   },
   methods: {
@@ -117,4 +139,5 @@ img {
   max-width: 50%;
   border-radius: 10px 10px 0 0;
 }
+
 </style>
