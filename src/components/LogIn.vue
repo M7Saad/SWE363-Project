@@ -1,12 +1,5 @@
 <template>
-  <header>
-    <h1>Mustashark</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <Navbar />
   <div>
     <h2>Login</h2>
     <form @submit.prevent="login">
@@ -87,6 +80,9 @@ export default {
     },
   },
 };
+</script>
+<script setup>
+import Navbar from "./Navbar.vue";
 </script>
 
 <style scoped>

@@ -1,13 +1,6 @@
 <template>
     <div id="admin">
-        <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+      <Navbar />
   
       <div class="content">
         <h1>Consultant Requests</h1>
@@ -46,6 +39,9 @@
       }
     }
   };
+  </script>
+  <script setup>
+  import Navbar from "./Navbar.vue";
   </script>
   
   <style scoped>

@@ -1,13 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+    <Navbar />
 
     <div class="content">
       <form id="add_offer">
@@ -79,6 +72,9 @@ export default {
     addCase("Zahid Sami", "055545505");
   },
 };
+</script>
+<script setup>
+import Navbar from "./Navbar.vue";
 </script>
 
 <style scoped>

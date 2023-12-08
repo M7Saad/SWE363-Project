@@ -1,13 +1,6 @@
 <template>
   <div id="consultant">
-    <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+    <Navbar />
 
     <main>
       <div class="consultant-info-container">
@@ -78,6 +71,9 @@ export default {
     },
   },
 };
+</script>
+<script setup>
+import Navbar from "./Navbar.vue";
 </script>
 
 <style scoped>

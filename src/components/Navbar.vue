@@ -4,7 +4,7 @@
     <nav>
       <a href="#">Home</a>
       <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#/contactUs">Contact</a>
     </nav>
   </header>
 </template>

@@ -1,13 +1,6 @@
 <template>
   <div>
-    <header>
-      <h1>Mustashark</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
+    <Navbar />
     <main>
       <div class="signup-header">
         <h2>Sign up</h2>
@@ -122,6 +115,9 @@ export default {
     },
   },
 };
+</script>
+<script setup>
+import Navbar from "./Navbar.vue";
 </script>
 
 <style scoped>
