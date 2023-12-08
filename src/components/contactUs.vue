@@ -131,10 +131,11 @@ export default {
 };
 </script>
 
-<!-- <script setup>
+<script setup>
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
-</script> -->
+</script>
+
 <style>
 body {
   margin: 0;
