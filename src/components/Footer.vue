@@ -1,16 +1,14 @@
 <template>
-     <footer>
+  <footer>
     <p>© 2024 Mustashark. All rights reserved.</p>
   </footer>
 </template>
-
 
 <script>
 export default {
   name: "Footer",
 };
 </script>
-
 
 <style scoped>
 footer {

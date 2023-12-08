@@ -3,27 +3,18 @@
     <Navbar />
     <main>
       <div class="container">
-        <transition name="fade" appear>
-          <div class="row">
-            <div class="col text-section">
-              <h1 class="head">Welcome to Mustashark!</h1>
-              <p class="des">
-                Connect with top finance experts for personalized advice. Utilize our tools for budgeting, tracking, and
-                more to achieve financial success.
-              </p>
-            </div>
-            <div class="col image-section">
-              <img :src="imageUrl" alt="Illustration">
-            </div>
-          </div>
-        </transition>
-        <transition name="slide-up" appear>
-          <div class="button-section">
+        <div class="row">
+          <div class="col">
+            <h1>Welcome to Mustashark!</h1>
+            <p>
+              Mustashark is your comprehensive financial consultancy web application. We connect you with seasoned finance consultants to provide expert advice personalized to your unique financial situation. Our platform offers personal and investment financial consultancy, powerful budgeting and expense-tracking tools, insightful interactive dashboards, a wealth of educational resources, comprehensive financial reports, and AI-driven responses. Start your journey to financial success with Mustashark today.
+            </p>
             <button @click="goToConsultants">Explore Consultants</button>
           </div>
-        </transition>
-
-
+          <div class="col">
+            <img :src="imageUrl" alt="Illustration">
+          </div>
+        </div>
       </div>
     </main>
 
@@ -36,12 +27,12 @@
 export default {
   data() {
     return {
-      imageUrl: 'https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg',
+      imageUrl: 'https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg',  
     };
   },
   methods: {
     goToConsultants() {
-      this.$router.push('/Explore');
+      this.$router.push('/Explore'); 
     },
   },
 };
@@ -129,12 +120,4 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-.des {
-  font-size: x-large;
-  margin: 10px;
-}
-
-.head {
-  margin: 10px;
-}</style>
+</style>
