@@ -53,6 +53,7 @@ export default {
     signOut() {
       const auth = getAuth();
       auth.signOut();
+      this.$router.push("/");
     },
   },
   created() {
