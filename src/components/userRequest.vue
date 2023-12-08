@@ -1,34 +1,41 @@
 <template>
-    <div id="app">
-      <Navbar />
-      <main>
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-lg-6">
+  <div id="app">
+    <Navbar />
+    <main>
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-6">
             <div class="title">
               <h1>Mustashark request page</h1>
             </div>
-              <p>
-                Mustashark is your all-encompassing financial consultancy web application. 
-                Our dedicated consultants will respond soon to provide expert advice 
-                tailored to your unique financial situation.
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <img :src="imageUrl" alt="Illustration" class="img-fluid" />
-            </div>
+            <p>
+              Mustashark is your all-encompassing financial consultancy web
+              application. Our dedicated consultants will respond soon to
+              provide expert advice tailored to your unique financial situation.
+            </p>
           </div>
-
-          <div id="request">
-        <h1 id="cases">Your request</h1>
-        <div id="request_box"></div>
-      </div>
-
+          <div class="col-lg-6">
+            <img :src="imageUrl" alt="Illustration" class="img-fluid" />
+          </div>
         </div>
-      </main>
-      <Footer />
-    </div>
-  </template>
+      </div>
+      <h1 id="cases">Your requests</h1>
+      <div id="request_box">
+        <div
+          class="request-card"
+          v-for="(request, index) in requests"
+          :key="index"
+        >
+          <strong>Consultant Name:</strong><br> {{ request.consultant_name }}
+          <br />
+          <strong>Team Link:</strong><br><a :href="request.teamLink" target="_blank">(Visit Team)</a><br>
+          <strong>State:</strong><br>{{  request.state }}
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</template>
 
 <script>
 export default {
@@ -36,36 +43,33 @@ export default {
     return {
       imageUrl:
         "https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg",
+
+      requests: [
+        {
+          consultant_name: "Ali ahmed",
+          teamLink: "https://www.google.com",
+          state: "not accepte yet",
+        }, 
+        {
+          consultant_name: "Ahmed Ali",
+          teamLink: "https://www.google.com",
+          state: "rejected",
+        }, 
+        {
+          consultant_name: "Ahmed Ali",
+          teamLink: "https://www.google.com",
+          state: "accepted",
+        }, 
+      ],
     };
   },
-  mounted() {
-    const addRequest = (consultant_name, teamLink) => {
-      var requestBox = document.getElementById("request_box");
-
-      var requestElement = document.createElement("div");
-      requestElement.className = "request";
-
-      requestElement.innerHTML =
-        "<strong>Consultant Name:</strong> " +
-        consultant_name +
-        "<br><strong>Zoom Link:</strong> <a href='" + teamLink + "' target='_blank'><strong>Zoom</strong></a>";
-
-      requestBox.appendChild(requestElement);
-      requestBox.appendChild(document.createElement("hr"));
-    };
-
-    addRequest("Ali Ahmed", "https://zoom.us/");
-    addRequest("Zahid Sami", "https://zoom.us/");
-    addRequest("Zahid Sami", "https://zoom.us/");
-    addRequest("Zahid Sami", "https://zoom.us/");
-    addRequest("Zahid Sami", "https://zoom.us/");
-    addRequest("Zahid Sami", "https://zoom.us/");
+  methods: {
+    goToConsultants() {
+      this.$router.push("/Explore");
+    },
   },
-}
+};
 </script>
-
-
-
 
 <script setup>
 import Navbar from "./Navbar.vue";
@@ -121,31 +125,36 @@ main {
 }
 .title {
   background-color: indigo;
-  border: 1px solid #ddd; 
-  padding: 10px; 
+  border: 1px solid #ddd;
+  padding: 10px;
   border-radius: 10px;
 }
-p{
-    font-size: 22px;
-    font-weight: bold;
-    font-style: italic;
+p {
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
 }
 
-  #cases {
+#cases {
   margin-top: 50px;
   text-align: center;
   font-weight: bold;
-  
-
 }
 #request_box {
-  background-color: white;
-  border: solid 1px;
-  height: 400px;
-  width: 1142px;
-  overflow: auto;
-  margin: 0 auto;
-  border-radius: 10px;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
+.request-card {
+  flex: 1 0 200px;
+  max-width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 1px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
 </style>

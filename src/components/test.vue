@@ -56,6 +56,7 @@ export default {
     },
   },
 };
+//ثباحو
 </script>
 <script setup>
 import Navbar from "./Navbar.vue";
