@@ -12,6 +12,7 @@ import ConsultantDetails from "../components/ConsultantDetails.vue";
 import test from "../components/test.vue";
 import contactUs from "../components/contactUs.vue";
 import NotFound from "../components/NotFound.vue";
+import userRequest from "../components/userRequest.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 import { getAuth } from "firebase/auth";
@@ -81,6 +82,11 @@ const routes = [
     path: "/contactUs",
     name: "contactUs",
     component: contactUs,
+  },
+  {
+    path: "/:userRequest",
+    name: "userRequest",
+    component: userRequest,
   },
   {
     path: "/:notFound",
