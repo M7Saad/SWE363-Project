@@ -62,7 +62,7 @@ export default {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
-          this.$router.push("/");
+          this.$router.push(this.$route.query.redirect || "/");
         })
         .catch((error) => {
           const errorCode = error.code;
