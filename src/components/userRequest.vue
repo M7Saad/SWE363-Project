@@ -6,9 +6,9 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="title">
-              <h1>Mustashark request page</h1>
+              <h1 style="color: white; margin: 10px;">Mustashark request page</h1>
             </div>
-            <p>
+            <p class="text_title">
               Mustashark is your all-encompassing financial consultancy web
               application. Our dedicated consultants will respond soon to
               provide expert advice tailored to your unique financial situation.
@@ -20,21 +20,20 @@
         </div>
       </div>
       <h1 id="cases">Your requests</h1>
-      <div id="request_box">
+      <div class="request_box">
         <div
           class="request-card"
           v-for="(request, index) in requests"
           :key="index"
         >
-          <strong>Consultant Name:</strong><br />
-          {{ request.consultant_name }}
-          <br />
-          <strong>Team Link:</strong><br /><a
-            :href="request.teamLink"
-            target="_blank"
-            >(Visit Team)</a
+          <strong>Consultant Name:</strong><br /><p class="name">
+          {{ request.consultant_name }}</p><hr>
+          <strong class="ZoomLink_title">Zoom Link:</strong><br /><a
+            :href="request.ZoomLink"
+            target="_blank" class="Zoomlink"
+            >Zoom</a
           ><br />
-          <strong>State:</strong><br />{{ request.state }}
+          <strong class="state_title">State:</strong><br /><p :class="getStateClass(request.state)">{{ request.state }}</p>
         </div>
       </div>
     </main>
@@ -52,17 +51,32 @@ export default {
       requests: [
         {
           consultant_name: "Ali ahmed",
-          teamLink: "https://www.google.com",
+          ZoomLink: "https://www.google.com",
           state: "not accepte yet",
         },
         {
           consultant_name: "Ahmed Ali",
-          teamLink: "https://www.google.com",
+          ZoomLink: "https://www.google.com",
           state: "rejected",
         },
         {
           consultant_name: "Ahmed Ali",
-          teamLink: "https://www.google.com",
+          ZoomLink: "https://www.google.com",
+          state: "accepted",
+        },
+        {
+          consultant_name: "Ahmed Ali",
+          ZoomLink: "https://www.google.com",
+          state: "accepted",
+        },
+        {
+          consultant_name: "Ahmed Ali",
+          ZoomLink: "https://www.google.com",
+          state: "accepted",
+        },
+        {
+          consultant_name: "Ahmed Ali",
+          ZoomLink: "https://www.google.com",
           state: "accepted",
         },
       ],
@@ -71,6 +85,16 @@ export default {
   methods: {
     goToConsultants() {
       this.$router.push("/Explore");
+    },
+  },
+  methods: {
+    getStateClass(state) {
+      return {
+        'state': true,
+        'not-accepted': state === 'not accepte yet',
+        'accepted': state === 'accepted',
+        'rejected': state === 'rejected',
+      };
     },
   },
 };
@@ -133,6 +157,7 @@ main {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 10px;
+  display: inline-block;
 }
 p {
   font-size: 22px;
@@ -152,13 +177,75 @@ p {
 }
 
 .request-card {
-  flex: 1 0 200px;
-  max-width: 200px;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 1px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.request_box{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.name {
+  font-size: large;
+  font-weight: bold;
+  color: darkslategray;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.ZoomLink_title{
+  font-size: 20px;
+}
+.Zoomlink {
+  display: inline-block;
+  margin-top: 5px; 
+  padding: 10px 15px; 
+  background-color: #007bff; 
+  color: #fff; 
+  text-decoration: none;
+  border-radius: 10px; 
+  transition: background-color 0.3s ease; 
+
+}
+.Zoomlink:hover {
+  background-color: #051d37; 
+}
+.state_title{
+  font-size: 20px;
+  margin-top: 5px; 
+}
+.state {
+  display: inline-block;
+  margin-top: 5px; 
+  padding: 8px 12px; 
+  border-radius: 5px; 
+  font-size: 20px;
+  background-color: #ddd; 
+  color: #333; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+
+}
+.state.accepted {
+  background-color: #28a745;
+  color: #fff;
+}
+.state.rejected {
+  background-color: #dc3545;
+  color: #fff;
+}
+.state.not-accepted {
+  background-color: #ffc107;
+  color: #fff;
+}
+.text_title{
+  margin-top: 20px;
 }
 </style>
