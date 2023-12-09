@@ -33,13 +33,19 @@
 
         <button type="submit">Login</button>
       </form>
+      <button @click="signInWithGoogle">Sign in with Google</button>
     </div>
     <Footer />
   </div>
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 export default {
   beforeRouteEnter(to, from, next) {
@@ -57,6 +63,23 @@ export default {
     };
   },
   methods: {
+    async signInWithGoogle() {
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log(user);
+      } catch (error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error(errorCode, errorMessage, email, credential);
+      }
+    },
     login(submitEvent) {
       this.email = submitEvent.target.elements.email.value;
       this.password = submitEvent.target.elements.password.value;
