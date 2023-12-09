@@ -4,7 +4,10 @@
 
     <main>
       <div class="consultant-info-container">
-        <div class="consultant-card card border-dark mb-3 d-flex flex-row">
+        <div
+          class="consultant-card card border-dark mb-3 d-flex flex-row"
+          style="width: 1400px"
+        >
           <div class="column card border-dark mb-3 d-flex flex-cloumn">
             <div class="p-3">
               <img
@@ -14,16 +17,44 @@
                 class="card-img-top"
               />
               <div class="card-header" style="margin-bottom: 10px">
-                {{ consultant.name }}
+                <strong>{{ consultant.name }}</strong>
               </div>
-              <div class="card-header" style="margin-bottom: 10px">
-                <span class="card-subtitle mb-2 text-muted">Description:</span>
-                <p class="des">{{ consultant.bio }}</p>
+              <!-- ... (Other template code) ... -->
+
+              <div style="margin-bottom: 10px">
+                <div class="accordion" id="descriptionAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseDescription"
+                        aria-expanded="true"
+                        aria-controls="collapseDescription"
+                      >
+                        Read Description
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseDescription"
+                      class="accordion-collapse collapse show"
+                      data-bs-parent="#descriptionAccordion"
+                    >
+                      <div class="accordion-body">
+                        <strong> {{ consultant.bio }}</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <div class="consultancy-types" style="margin-bottom: 10px">
+            <div
+              class="consultancy-types"
+              style="margin-bottom: 10px; font-size: 20px"
+            >
               <h6 class="card-subtitle mb-2 text-muted">Consultancy Types:</h6>
               <ul class="list-group">
                 <li
@@ -35,20 +66,18 @@
                 </li>
               </ul>
             </div>
+
             <div class="experiences" style="margin-bottom: 10px">
               <h6 class="card-subtitle mb-2 text-muted">Experience:</h6>
               <ul class="list-group">
-                <!-- <li
-                  v-for="experience in consultant.expertise"
-                  :key="experience"
-                  class="list-group-item"
-                > -->
-                {{
-                  consultant.expertise
-                }}
-                <!-- </li> -->
+                <li class="list-group-item">
+                  <span class="badge text-bg-warning">{{
+                    consultant.expertise
+                  }}</span>
+                </li>
               </ul>
             </div>
+
             <div class="qualifications" style="margin-bottom: 10px">
               <h6 class="card-subtitle mb-2 text-muted">Qualifications:</h6>
               <ul class="list-group">
@@ -61,21 +90,26 @@
                 </li>
               </ul>
             </div>
-            <div class="price" style="margin-bottom: 10px">
+            <div class="price" style="margin-bottom: 10px; font-size: 20px">
               <h6 class="card-subtitle mb-2 text-muted">Price:</h6>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <p>{{ consultant.price }}</p>
+                  <p>
+                    <span class="badge text-bg-success"
+                      >{{ consultant.price }} SAR</span
+                    >
+                  </p>
                 </li>
               </ul>
             </div>
+            <button @click="bookConsultation" class="btn btn-success">
+              Book Consultation
+            </button>
           </div>
         </div>
-        <div class="d-flex justify-content-between align-items-center mt-3">
-          <button @click="bookConsultation" class="btn btn-success">
-            Book Consultation
-          </button>
-        </div>
+        <div
+          class="d-flex justify-content-between align-items-center mt-3"
+        ></div>
       </div>
     </main>
 
