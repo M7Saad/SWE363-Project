@@ -10,9 +10,9 @@
         <a href="#">Home</a>
 
         <!--Dashboard-->
-        <a v-if="isAdmin" href="/admin">Dashboard</a>
+        <a v-if="isAdmin" href="#/admin">Dashboard</a>
         <!--<a v-else-if="isConsultant" href="/admin">Dashboard1</a> -->
-        <a v-else href="/explore">Dashboard</a>
+        <a v-else href="#/explore">Dashboard</a>
 
         <a href="#/contactUs">Contact</a>
       </div>
