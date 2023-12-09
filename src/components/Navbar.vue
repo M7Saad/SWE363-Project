@@ -31,12 +31,12 @@
         />
         <transition name="slide-fade">
           <div v-show="showSlide" class="slide">
-            <button @click="signOut" style="font-weight: bold;">Sign Out</button>
+            <button @click="signOut" style="font-weight: bold">Sign Out</button>
           </div>
         </transition>
       </div>
 
-      <button v-else @click="signIn" style="font-weight: bold;">Sign In</button>
+      <button v-else @click="signIn" style="font-weight: bold">Sign In</button>
     </nav>
   </header>
 </template>
@@ -151,23 +151,36 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.nav-links a{
+.nav-links a {
   font-weight: bold;
 }
 .logo-container a {
-  text-decoration: none; 
-  color: white; 
-  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
   transition: color 0.3s ease;
 }
 .logo-container h1 {
-  margin: 0; 
-  font-family: 'Roboto','Arial', sans-serif; 
-  font-weight: bold; 
-  letter-spacing: 2px; 
+  margin: 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .logo-container a:hover {
-  color: #949493; 
+  color: #949493;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00a0fc;
 }
 </style>
