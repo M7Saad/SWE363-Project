@@ -83,12 +83,61 @@
           </li>
         </ul>
 
+        <!-- ... existing code ... -->
+
         <hr />
         <ul class="social-media-list">
-          <li><a href="#" target="_blank" class="contact-icon"> </a></li>
-          <li><a href="#" target="_blank" class="contact-icon"> </a></li>
-          <li><a href="#" target="_blank" class="contact-icon"> </a></li>
+          <li>
+            <a href="https://facebook.com/mustashark"
+              ><img src="./assets/facebook.gif" alt="Facebook"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/mustashark"
+              target="_blank"
+              class="contact-icon"
+              ><img src="./assets/twitter.gif" alt="Twitter"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/mustashark"
+              target="_blank"
+              class="contact-icon"
+              ><img src="./assets/instagram.gif" alt="Instagram"
+            /></a>
+          </li>
+          <hr />
+          <li>
+            <a
+              href="https://tiktok.com/@mustashark"
+              target="_blank"
+              class="contact-icon"
+              ><img src="./assets/tiktok.gif" alt="TikTok"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://youtube.com/c/mustashark"
+              target="_blank"
+              class="contact-icon"
+              ><img src="./assets/youtube.gif" alt="YouTube"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              class="contact-icon"
+              ><img src="./assets/whatsapp.gif" alt="WhatsApp"
+            /></a>
+          </li>
         </ul>
+
+        <!-- ... existing code ... -->
+
+        <!-- ... existing code ... -->
       </div>
     </div>
   </section>
@@ -384,5 +433,11 @@ hr {
   font-size: 25px;
   padding: 15px;
   margin-bottom: 15px;
+}
+.social-media-list img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s ease-in-out;
 }
 </style>
