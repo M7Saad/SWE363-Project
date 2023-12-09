@@ -84,7 +84,7 @@ const routes = [
     component: contactUs,
   },
   {
-    path: "/:userRequest",
+    path: "/userRequest",
     name: "userRequest",
     component: userRequest,
   },
