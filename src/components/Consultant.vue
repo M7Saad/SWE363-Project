@@ -3,7 +3,6 @@
     <Navbar />
 
     <div class="main-container">
-
       <div class="offer-container">
         <h2>Add new consulting offer</h2>
         <form class="offer-form">
@@ -30,7 +29,11 @@
             <label for="Experience">Experience:</label>
           </div>
 
-          <div v-for="(qualification, index) in qualifications" :key="index" class="qualification-row">
+          <div
+            v-for="(qualification, index) in qualifications"
+            :key="index"
+            class="qualification-row"
+          >
             <div class="form-floating mb-3">
               <input
                 type="text"
@@ -42,11 +45,15 @@
               />
               <label :for="'qualification' + index">Qualifications:</label>
             </div>
-            <button type="button" @click="removeQualification(index)">Remove</button>
+            <button type="button" @click="removeQualification(index)">
+              Remove
+            </button>
           </div>
 
           <div class="form-floating mb-3">
-            <button type="button" @click="addQualification">Add Qualifications</button>
+            <button type="button" @click="addQualification">
+              Add Qualifications
+            </button>
           </div>
 
           <div class="form-floating mb-3">
@@ -60,8 +67,12 @@
               <option value="Financial Consulting">Financial Consulting</option>
               <option value="Human Resources">Human Resources</option>
               <option value="Strategy Consulting">Strategy Consulting</option>
-              <option value="Information Technology Consulting">Information Technology Consulting</option>
-              <option value="Operations Consulting">Operations Consulting</option>
+              <option value="Information Technology Consulting">
+                Information Technology Consulting
+              </option>
+              <option value="Operations Consulting">
+                Operations Consulting
+              </option>
             </select>
             <label for="consultantType">Consultant Type:</label>
           </div>
@@ -80,22 +91,34 @@
           </div>
           <div class="form-floating mb-3">
             <br />
-            <input type="submit" value="Add" class="add-offer" @click.prevent="submitForm" />
+            <input
+              type="submit"
+              value="Add"
+              class="add-offer"
+              @click.prevent="submitForm"
+            />
           </div>
         </form>
       </div>
 
       <h1 id="cases">Consultation Cases</h1>
       <div class="cases-box">
-        <div class="cases-card" v-for="(request, index) in requests" :key="index">
+        <div
+          class="cases-card"
+          v-for="(request, index) in requests"
+          :key="index"
+        >
           <strong>Name:</strong><br />
           <p class="name">{{ request.user_name }}</p>
-          <hr>
+          <hr />
           <strong>Phone:</strong><br />
           <a :href="request.Phone_number">Call</a>
           <div class="status-dropdown">
             <label for="status">Status:</label>
-            <select v-model="request.status" @change="updateStatus(request, index)">
+            <select
+              v-model="request.status"
+              @change="updateStatus(request, index)"
+            >
               <option value="in_progress">In Progress</option>
               <option value="rejected">Reject</option>
               <option value="finished">Finished</option>
@@ -113,7 +136,7 @@
 export default {
   data() {
     return {
-      qualifications: [{ text: '' }],
+      qualifications: [{ text: "" }],
 
       requests: [
         {
@@ -130,17 +153,16 @@ export default {
         },
       ],
     };
-
   },
   methods: {
     addQualification() {
-      this.qualifications.push({ text: '' });
+      this.qualifications.push({ text: "" });
     },
     removeQualification(index) {
       this.qualifications.splice(index, 1);
     },
     submitForm() {
-      console.log('Form submitted:', this.qualifications);
+      console.log("Form submitted:", this.qualifications);
     },
     updateStatus(request, index) {
       console.log(`Updating status for ${request.user_name} at index ${index}`);
@@ -193,7 +215,6 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  
 }
 
 .cases-card {
@@ -207,7 +228,7 @@ button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .add-offer {
-  background-color: indigo; 
+  background-color: indigo;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -221,6 +242,6 @@ button {
 }
 
 .add-offer:hover {
-  background-color: rgb(137, 71, 184); 
+  background-color: rgb(137, 71, 184);
 }
 </style>

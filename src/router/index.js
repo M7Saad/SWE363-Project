@@ -48,7 +48,7 @@ const routes = [
     component: Consultant,
   },
   {
-    path: "/Admin",
+    path: "/admin",
     name: "Admin",
     component: Admin,
   },
@@ -90,6 +90,7 @@ const routes = [
   },
   {
     path: "/:notFound",
+    name: "NotFound",
     component: NotFound,
   },
 ];

@@ -6,7 +6,9 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="title">
-              <h1 style="color: white; margin: 10px;">Mustashark request page</h1>
+              <h1 style="color: white; margin: 10px">
+                Mustashark request page
+              </h1>
             </div>
             <p class="text_title">
               Mustashark is your all-encompassing financial consultancy web
@@ -26,14 +28,19 @@
           v-for="(request, index) in requests"
           :key="index"
         >
-          <strong>Consultant Name:</strong><br /><p class="name">
-          {{ request.consultant_name }}</p><hr>
+          <strong>Consultant Name:</strong><br />
+          <p class="name">
+            {{ request.consultant_name }}
+          </p>
+          <hr />
           <strong class="ZoomLink_title">Zoom Link:</strong><br /><a
             :href="request.ZoomLink"
-            target="_blank" class="Zoomlink"
+            target="_blank"
+            class="Zoomlink"
             >Zoom</a
           ><br />
-          <strong class="state_title">State:</strong><br /><p :class="getStateClass(request.state)">{{ request.state }}</p>
+          <strong class="state_title">State:</strong><br />
+          <p :class="getStateClass(request.state)">{{ request.state }}</p>
         </div>
       </div>
     </main>
@@ -90,10 +97,10 @@ export default {
   methods: {
     getStateClass(state) {
       return {
-        'state': true,
-        'not-accepted': state === 'not accepte yet',
-        'accepted': state === 'accepted',
-        'rejected': state === 'rejected',
+        state: true,
+        "not-accepted": state === "not accepte yet",
+        accepted: state === "accepted",
+        rejected: state === "rejected",
       };
     },
   },
@@ -185,9 +192,8 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
-.request_box{
+.request_box {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -200,38 +206,35 @@ p {
   margin-top: 10px;
   margin-bottom: 0px;
 }
-.ZoomLink_title{
+.ZoomLink_title {
   font-size: 20px;
 }
 .Zoomlink {
   display: inline-block;
-  margin-top: 5px; 
-  padding: 10px 15px; 
-  background-color: #007bff; 
-  color: #fff; 
+  margin-top: 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
   text-decoration: none;
-  border-radius: 10px; 
-  transition: background-color 0.3s ease; 
-
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 .Zoomlink:hover {
-  background-color: #051d37; 
+  background-color: #051d37;
 }
-.state_title{
+.state_title {
   font-size: 20px;
-  margin-top: 5px; 
+  margin-top: 5px;
 }
 .state {
   display: inline-block;
-  margin-top: 5px; 
-  padding: 8px 12px; 
-  border-radius: 5px; 
+  margin-top: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
   font-size: 20px;
-  background-color: #ddd; 
-  color: #333; 
+  background-color: #ddd;
+  color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
-
-
 }
 .state.accepted {
   background-color: #28a745;
@@ -245,7 +248,7 @@ p {
   background-color: #ffc107;
   color: #fff;
 }
-.text_title{
+.text_title {
   margin-top: 20px;
 }
 </style>

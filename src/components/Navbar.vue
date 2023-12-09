@@ -2,19 +2,19 @@
   <header>
     <div class="logo-container">
       <img src="./assets/logo.png" alt="Logo" class="logo" />
-      <a href=""><h1>Mustashark</h1></a>
+      <a href="/"><h1>Mustashark</h1></a>
     </div>
 
     <nav>
       <div class="nav-links">
-        <a href="">Home</a>
+        <a href="/">Home</a>
 
         <!--Dashboard-->
-        <a v-if="isAdmin" href="admin">Dashboard</a>
+        <a v-if="isAdmin" href="/admin">Dashboard</a>
         <!--<a v-else-if="isConsultant" href="/admin">Dashboard1</a> -->
-        <a v-else href="explore">Dashboard</a>
+        <a v-else href="/explore">Dashboard</a>
 
-        <a href="contactUs">Contact</a>
+        <a href="/contactUs">Contact</a>
       </div>
 
       <div

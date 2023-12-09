@@ -17,19 +17,25 @@
 </template>
 
 <script>
-import { getAuth } from "firebase/auth";
+import { getAuth, onIdTokenChanged } from "firebase/auth";
 export default {
-  beforeRouteEnter(to, from, next) {
+  beforeRouteEnter(_, __, next) {
     const auth = getAuth();
-    if (auth.currentUser && true) {
-      //TODO, change it to the UID of the admin
-      const uid = auth.currentUser.uid;
-      console.log(uid);
-      next();
-    } else {
-      next("/:notFound");
-    }
+    onIdTokenChanged(auth, async (user) => {
+      if (user) {
+        const idTokenResult = await user.getIdTokenResult();
+        // Check if the user is an admin.
+        if (idTokenResult.claims.admin) {
+          next();
+        } else {
+          next("/goaway");
+        }
+      } else {
+        next("/goaway");
+      }
+    });
   },
+  // ...
   data() {
     return {
       requests: [
