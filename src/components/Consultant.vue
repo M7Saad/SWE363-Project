@@ -198,7 +198,7 @@ button {
 
 .cases-card {
   width: 200px;
-  border: 1px solid #ccc;
+  border: 5px solid black;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
