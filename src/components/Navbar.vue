@@ -8,7 +8,12 @@
     <nav>
       <div class="nav-links">
         <a href="#">Home</a>
-        <a href="#">Dashboard</a>
+
+        <!--Dashboard-->
+        <a v-if="isAdmin" href="/admin">Dashboard</a>
+        <!--<a v-else-if="isConsultant" href="/admin">Dashboard1</a> -->
+        <a v-else href="/explore">Dashboard</a>
+
         <a href="#/contactUs">Contact</a>
       </div>
 
@@ -50,6 +55,8 @@ export default {
   name: "Navbar",
   data() {
     return {
+      isAdmin: false,
+      isConsultant: false,
       user: null,
       showSlide: false,
     };
@@ -67,7 +74,13 @@ export default {
   },
   created() {
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
+      //get user type
+      if (user) {
+        const idTokenResult = await user.getIdTokenResult();
+        this.isAdmin = idTokenResult.claims.admin;
+        //this.isConsultant = idTokenResult.claims.consultant;
+      }
       this.user = user;
     });
   },
