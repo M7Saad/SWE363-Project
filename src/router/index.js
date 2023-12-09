@@ -14,7 +14,7 @@ import contactUs from "../components/contactUs.vue";
 import NotFound from "../components/NotFound.vue";
 import userRequest from "../components/userRequest.vue";
 
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { getAuth } from "firebase/auth";
 const routes = [
   {
@@ -95,7 +95,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
