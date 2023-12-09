@@ -3,7 +3,7 @@
   <div class="main-container">
     <div class="login-container">
       <h2>Sign in</h2>
-      <form @submit.prevent="login">
+      <form @submit.prevent="login" id="loginForm">
         <div class="form-floating mb-3">
           <input
             type="email"
@@ -31,9 +31,19 @@
         <br />
         <br />
 
-        <button type="submit">Login</button>
+        <!-- <button type="submit">Login</button> -->
       </form>
-      <button @click="signInWithGoogle">Sign in with Google</button>
+      <!-- <button @click="signInWithGoogle">Sign in with Google</button> -->
+      <button class="login-button" type="submit" form="loginForm">LOGIN</button>
+      <button class="google-login-button" @click="signInWithGoogle">
+        <img
+          src="./assets/google-logo.png"
+          alt="Google Logo"
+          class="google-logo"
+        />
+        SIGN IN WITH GOOGLE
+      </button>
+      <template> </template>
     </div>
     <Footer />
   </div>
@@ -140,5 +150,42 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   width: 100%;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-button,
+.google-login-button {
+  padding: 10px 20px;
+  margin: 10px;
+  justify-content: center;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-button {
+  background-color: #8e44ad;
+  color: #fff;
+}
+
+.google-login-button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 </style>
