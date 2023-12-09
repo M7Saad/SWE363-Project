@@ -16,9 +16,9 @@
               Explore Consultants
             </button>
           </div>
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
             <img :src="imageUrl" alt="Illustration" class="img-fluid" />
-          </div>
+          </div> -->
         </div>
         <div class="row mt-5">
           <div class="col-md-4">
