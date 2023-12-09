@@ -40,7 +40,7 @@
 
           <div class="price">{{ consultant.price }}$</div>
 
-          <button class="btn btn-primary" @click="bookConsultant(consultant)">
+          <button class="btn btn-success" @click="bookConsultant(consultant)">
             Book
           </button>
         </div>
@@ -138,6 +138,7 @@ import Footer from "./Footer.vue";
   margin-right: 10px;
   padding: 10px;
   font-size: 1.2em;
+  border-radius: 8px;
 }
 
 .consultants-grid {
@@ -152,6 +153,7 @@ import Footer from "./Footer.vue";
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+  background-color: indigo;
 }
 
 .consultant-card img {
@@ -162,22 +164,24 @@ import Footer from "./Footer.vue";
 .name {
   font-size: large;
   font-weight: bold;
-  color: darkslategray;
+  color: rgb(255, 255, 255);
   margin-top: 10px;
   margin-bottom: 0px;
 }
 
 .tag {
   display: inline-block;
-  background-color: bisque;
+  background-color: rgb(172, 177, 69);
   padding: 1px 8px;
+  color: white;
   border-radius: 5px;
   font-size: 0.8em;
 }
 
 .price {
-  margin-top: 4px;
-
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #ffffff;
   font-size: 1.1em;
   font-weight: bold;
 }
