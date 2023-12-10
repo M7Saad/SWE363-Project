@@ -13,6 +13,7 @@ import test from "../components/test.vue";
 import contactUs from "../components/contactUs.vue";
 import NotFound from "../components/NotFound.vue";
 import userRequest from "../components/userRequest.vue";
+import ChatBot from "../components/ChatBot.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 import { getAuth } from "firebase/auth";
@@ -87,6 +88,11 @@ const routes = [
     path: "/userRequest",
     name: "userRequest",
     component: userRequest,
+  },
+  {
+    path: "/chat",
+    name: "Chatbot",
+    component: ChatBot,
   },
   {
     path: "/:notFound",
