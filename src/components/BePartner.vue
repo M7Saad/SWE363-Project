@@ -132,18 +132,30 @@ export default {
       this.qualifications.splice(index, 1);
     },
     submitForm() {
+      if (
+        !this.description.trim() ||
+        !this.qualifications[0].text.trim() ||
+        !this.consultancyTypes.trim() ||
+        !this.experience.trim() ||
+        !this.price
+      ) {
+        alert("All fields are required.");
+        return;
+      }
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
         if (user) {
           const name = user.displayName;
-          const url = user.photoURL;
+          var url = user.photoURL;
+          const uid = user.uid;
           if (!url) {
             url =
               "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
           }
           //create a new object
+          console.log(uid)
           const consultant = new Consultant(
-            user.uid,
+            uid,
             name,
             this.experience,
             this.price,

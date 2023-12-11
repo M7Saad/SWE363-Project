@@ -9,6 +9,7 @@ export class Consultant {
     consultancyTypes,
     description
   ) {
+    this.userId = userId;
     this.name = name;
     this.experience = experience;
     this.price = price;
