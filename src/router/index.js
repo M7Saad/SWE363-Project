@@ -28,9 +28,20 @@ const routes = [
     component: () => import("../components/Explore.vue"),
   },
   {
-    path: "/Consultant",
-    name: "Consultant",
-    component: () => import("../components/Consultant.vue"),
+    path: "/partner",
+    name: "bePartner",
+    component: () => import("../components/BePartner.vue"),
+    beforeEnter: (to, from, next) => {
+      const auth = getAuth();
+      if (auth.currentUser) {
+        next();
+      } else {
+        next({
+          path: "/login",
+          query: { redirect: to.fullPath },
+        });
+      }
+    },
   },
   {
     path: "/admin",
