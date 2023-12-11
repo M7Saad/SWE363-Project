@@ -1,67 +1,51 @@
-// src/router/index.js
-import App from "../App.vue";
-import Home from "../components/Home.vue";
-import LogIn from "../components/LogIn.vue";
-import SignUp from "../components/SignUp.vue";
-import profile from "../components/profile.vue";
-import Explore from "../components/Explore.vue";
-import Consultant from "../components/Consultant.vue";
-import Admin from "../components/Admin.vue";
-import ConsultantInfo from "../components/ConsultantInfo.vue";
-import ConsultantDetails from "../components/ConsultantDetails.vue";
-import test from "../components/test.vue";
-import contactUs from "../components/contactUs.vue";
-import NotFound from "../components/NotFound.vue";
-import userRequest from "../components/userRequest.vue";
-import ChatBot from "../components/ChatBot.vue";
-
 import { createRouter, createWebHistory } from "vue-router";
 import { getAuth } from "firebase/auth";
+
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("../components/Home.vue"),
   },
   {
     path: "/signup",
     name: "SignUp",
-    component: SignUp,
+    component: () => import("../components/SignUp.vue"),
   },
   {
     path: "/login",
     name: "LogIn",
-    component: LogIn,
+    component: () => import("../components/LogIn.vue"),
   },
   {
     path: "/profile",
     name: "profile",
-    component: profile,
+    component: () => import("../components/profile.vue"),
   },
   {
     path: "/explore",
     name: "explore",
-    component: Explore,
+    component: () => import("../components/Explore.vue"),
   },
   {
     path: "/Consultant",
     name: "Consultant",
-    component: Consultant,
+    component: () => import("../components/Consultant.vue"),
   },
   {
     path: "/admin",
     name: "Admin",
-    component: Admin,
+    component: () => import("../components/Admin.vue"),
   },
   {
     path: "/ConsultantInfo",
     name: "ConsultantInfo",
-    component: ConsultantInfo,
+    component: () => import("../components/ConsultantInfo.vue"),
   },
   {
     path: "/ConsultantDetails",
     name: "ConsultantDetails",
-    component: ConsultantDetails,
+    component: () => import("../components/ConsultantDetails.vue"),
     beforeEnter: (to, from, next) => {
       const auth = getAuth();
       if (auth.currentUser) {
@@ -77,27 +61,27 @@ const routes = [
   {
     path: "/test",
     name: "test",
-    component: test,
+    component: () => import("../components/test.vue"),
   },
   {
     path: "/contactUs",
     name: "contactUs",
-    component: contactUs,
+    component: () => import("../components/contactUs.vue"),
   },
   {
     path: "/userRequest",
     name: "userRequest",
-    component: userRequest,
+    component: () => import("../components/userRequest.vue"),
   },
   {
     path: "/chat",
     name: "Chatbot",
-    component: ChatBot,
+    component: () => import("../components/ChatBot.vue"),
   },
   {
     path: "/:notFound",
     name: "NotFound",
-    component: NotFound,
+    component: () => import("../components/NotFound.vue"),
   },
 ];
 
@@ -122,4 +106,5 @@ router.beforeEach((to, from, next) => {
   }
 });
 */
+
 export default router;
