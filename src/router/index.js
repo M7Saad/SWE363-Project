@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const routes = [
   {
@@ -16,6 +16,20 @@ const routes = [
     path: "/login",
     name: "LogIn",
     component: () => import("../components/LogIn.vue"),
+    beforeEnter: (to, from, next) => {
+      let called = false;
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (!called) {
+          called = true;
+          if (user) {
+            next("/");
+          } else {
+            next();
+          }
+        }
+      });
+    },
   },
   {
     path: "/profile",
@@ -32,15 +46,21 @@ const routes = [
     name: "bePartner",
     component: () => import("../components/BePartner.vue"),
     beforeEnter: (to, from, next) => {
+      let called = false;
       const auth = getAuth();
-      if (auth.currentUser) {
-        next();
-      } else {
-        next({
-          path: "/login",
-          query: { redirect: to.fullPath },
-        });
-      }
+      onAuthStateChanged(auth, (user) => {
+        if (!called) {
+          called = true;
+          if (user) {
+            next();
+          } else {
+            next({
+              path: "/login",
+              query: { redirect: to.fullPath },
+            });
+          }
+        }
+      });
     },
   },
   {
