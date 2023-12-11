@@ -68,6 +68,8 @@
                     :src="partner.logoUrl"
                     :alt="partner.name"
                     class="img-fluid"
+                    width="130"
+                    height="130"
                   />
                 </div>
               </transition-group>
