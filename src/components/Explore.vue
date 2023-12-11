@@ -29,19 +29,30 @@
         >
           <img :src="consultant.photo" alt="card-img-top" />
           <p class="name">{{ consultant.name }}</p>
-        <div class="tags">
-          <div
-            v-for="type in consultant.consultancyTypes"
-            :key="type"
-            class="tag"
-          >
-            {{ type }}
+          <div class="tags">
+            <div
+              v-for="type in consultant.consultancyTypes"
+              :key="type"
+              class="tag"
+            >
+              {{ type }}
+            </div>
           </div>
-        </div>
 
-          <div class="price">{{ consultant.price }} $ <p style="display: inline; font-size: small;">per Hour</p></div>
+          <div class="price">
+            {{ consultant.price }} $
+            <p style="display: inline; font-size: small">per Hour</p>
+          </div>
 
-          <button class="btn btn-success"  style="background-color: rgb(1, 89, 88); border-color: aliceblue; width: 100px;" @click="bookConsultant(consultant)">
+          <button
+            class="btn btn-success"
+            style="
+              background-color: rgb(1, 89, 88);
+              border-color: aliceblue;
+              width: 100px;
+            "
+            @click="bookConsultant(consultant)"
+          >
             Book
           </button>
         </div>
@@ -150,7 +161,7 @@ import Footer from "./Footer.vue";
 
 .consultant-card {
   width: 240px;
-  border: 1px solid  rgb(199, 255, 237);
+  border: 1px solid rgb(199, 255, 237);
   border-radius: 10px;
   padding: 10px;
   text-align: center;
@@ -165,7 +176,7 @@ import Footer from "./Footer.vue";
 .name {
   font-size: large;
   font-weight: bold;
-  color: rgb(2,53,53);
+  color: rgb(2, 53, 53);
   margin-top: 10px;
   margin-bottom: 0px;
 }
@@ -182,7 +193,7 @@ import Footer from "./Footer.vue";
 .price {
   margin-top: 8px;
   margin-bottom: 8px;
-  color: rgb(2,53,53);
+  color: rgb(2, 53, 53);
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -191,5 +202,4 @@ import Footer from "./Footer.vue";
   font-weight: bold;
   text-align: center;
 }
-
 </style>

@@ -59,7 +59,11 @@
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 export default {
   beforeRouteEnter(to, from, next) {
     const auth = getAuth();
@@ -89,12 +93,20 @@ export default {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
-          const user = userCredential.user;
-          //add name, photoURL
-          user.displayName = this.name;
-          user.photoURL = this.photoURL;
-          console.log(user);
-          console.log(user.displayName);
+          const user = userCredential;
+          //update user profile
+          updateProfile(auth.currentUser, {
+            displayName: this.name,
+            photoURL: this.photoURL,
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
           console.log("Registration completed");
           this.$router.push("/");
         })

@@ -8,6 +8,7 @@
         <form class="offer-form">
           <div class="form-floating mb-3">
             <input
+              v-model="description"
               description="description"
               type="text"
               class="form-control"
@@ -19,6 +20,7 @@
           </div>
           <div class="form-floating mb-3">
             <input
+              v-model="experience"
               name="Experience"
               type="text"
               class="form-control"
@@ -58,6 +60,7 @@
 
           <div class="form-floating mb-3">
             <select
+              v-model="consultancyTypes"
               name="consultantType"
               class="form-control"
               id="consultantType"
@@ -78,6 +81,7 @@
           </div>
           <div class="form-floating mb-3">
             <input
+              v-model="price"
               name="price"
               type="number"
               class="form-control"
@@ -107,10 +111,17 @@
 </template>
 
 <script>
+import { pushConsultant } from "../classes.js";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
   data() {
     return {
+      description: "",
       qualifications: [{ text: "" }],
+      consultancyTypes: "",
+      experience: "",
+      price: "",
+      experience: "",
     };
   },
   methods: {
@@ -121,7 +132,29 @@ export default {
       this.qualifications.splice(index, 1);
     },
     submitForm() {
-      console.log("Form submitted:", this.qualifications);
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const name = user.displayName;
+          const url = user.photoURL;
+          //create a new object
+          const consultant = new Consultant(
+            name,
+            this.experience,
+            this.price,
+            url,
+            this.qualifications,
+            this.consultancyTypes,
+            this.description
+          );
+          //push it to the firebase database realtime
+          pushConsultant(consultant, true);
+        } else {
+          console.log("No user is signed in");
+          //go to login page
+          $router.push("/login");
+        }
+      });
     },
     updateStatus(request, index) {
       console.log(`Updating status for ${request.user_name} at index ${index}`);
@@ -131,6 +164,7 @@ export default {
 </script>
 
 <script setup>
+import { Consultant } from "../classes.js";
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 </script>
