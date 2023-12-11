@@ -8,7 +8,6 @@
     <img :src="user.photoURL" alt="User Avatar" />
     <p>Email Verified: {{ user.emailVerified }}</p>
     <p>User ID: {{ user.uid }}</p>
-    <p>Bio: {{ bio }}</p>
   </div>
 </template>
 

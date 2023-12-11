@@ -52,7 +52,7 @@ export default {
         photo: test.photo,
         qualifications: test.qualifications,
         consultancyTypes: test.consultancyTypes,
-        bio: test.bio,
+        description: test.description,
       });
       console.log("Consultant stored in Firebase!");
     },
