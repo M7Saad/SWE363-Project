@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modal</title>
+  <link href="popup.css" rel="stylesheet">
+  <script defer src="popup.js"></script>
+</head>
+<body>
+<div class="payment-container">
+    <header class="payment-header">
+        <h1>Payment</h1>
+      </header>
+  <div class="amount-display">
+    <p>XXX SAR</p>
+  </div>
+  <h4>Payment method</h4>
+  <div class="payment-method">
+    <button id="cardButton" class="method-button active">Card Payment</button>
+    <button id="cashButton"  data-modal-target="#modal" class="method-button">Cash Payment</button>
+  </div>
+
+
+  <form class="payment-form">
+    <input type="text" id="cardNumber" placeholder="Card Number" >
+    <div class="expiry-cvv">
+      <input type="text" id="expiryDate" placeholder="Expiry Date" >
+      <input type="text" id="cvv" placeholder="CVV" >
+    </div>
+    <input type="text" id="name" placeholder="Name">
+</form>
+
+
+    <button data-modal-target="#modal" class="pay-now">Pay Now</button>
+
+
+
+ 
+  <div class="modal" id="modal">
+
+    <div class="modal-header">
+      <div class="title">Payment Successful</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+        Payment is successfully completed, you can track your reservations from reservations page
+    </div>
+
+  </div>
+  <div id="overlay"></div>
+  
+</body>
+</html>

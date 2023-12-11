@@ -1,0 +1,153 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.payment-container {
+    width: 50%; 
+    max-width: 600px; 
+    margin: 400px ; 
+    background-color: #f4f4f4;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); 
+}
+.payment-header {
+    background-color: #4d58f3;
+    color: #fff;
+    padding: 15px 30px; 
+    text-align: center;
+    height: 80px; 
+}
+.amount-display {
+    background-color: #4d58f3;
+    color: #fff;
+    text-align: center;
+    font-size: 2.5em; 
+    padding: 30px 0; 
+}
+.payment-method {
+    padding: 20px 40px; 
+    text-align: center;
+}
+.method-button {
+    background-color: #f4f4f4;
+    border: 2px solid #4d58f3;
+    padding: 15px 30px; 
+    margin: 10px 10px; 
+    cursor: pointer;
+    font-weight: bold;
+}
+.method-button.active {
+    background-color: #4d58f3;
+    color: #fff;
+    border-color: #4d58f3;
+}
+.payment-form {
+    padding: 30px; 
+}
+.payment-form input, .payment-form button {
+    width: 100%;
+    padding: 20px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.expiry-cvv {
+    display: flex;
+    justify-content: space-between;
+}
+.expiry-cvv input {
+    width: calc(50% - 15px); 
+}
+.pay-now {
+    width: 80%;
+    padding: 20px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #4d58f3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10% ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 30px 30px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
