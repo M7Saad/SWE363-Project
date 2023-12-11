@@ -81,6 +81,7 @@ export default {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         console.log(user);
+        this.$router.push(this.$route.query.redirect || "/");
       } catch (error) {
         // Handle Errors here.
         const errorCode = error.code;
