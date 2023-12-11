@@ -68,9 +68,25 @@
                     :src="partner.logoUrl"
                     :alt="partner.name"
                     class="img-fluid"
+                    width="130"
+                    height="130"
                   />
                 </div>
               </transition-group>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12">
+            <h2 class="head">Interested in Becoming a Partner?</h2>
+            <p class="text-center">
+              Collaborate with us on our journey to create positive change.
+              Become an advisor and explore partnership opportunities with us.
+            </p>
+            <div class="text-center">
+              <button class="btn btn-primary" @click="bepartner">
+                Get Involved
+              </button>
             </div>
           </div>
         </div>
@@ -103,6 +119,9 @@ export default {
   methods: {
     goToConsultants() {
       this.$router.push("/Explore");
+    },
+    bepartner() {
+      this.$router.push("/partner");
     },
   },
 };

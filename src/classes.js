@@ -6,7 +6,7 @@ export class Consultant {
     photo,
     qualifications,
     consultancyTypes,
-    bio
+    description
   ) {
     this.name = name;
     this.expertise = expertise;
@@ -14,7 +14,7 @@ export class Consultant {
     this.photo = photo;
     this.qualifications = qualifications;
     this.consultancyTypes = consultancyTypes;
-    this.bio = bio;
+    this.description = description;
   }
 }
 

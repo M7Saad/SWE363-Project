@@ -100,32 +100,6 @@
           </div>
         </form>
       </div>
-
-      <h1 id="cases">Consultation Cases</h1>
-      <div class="cases-box">
-        <div
-          class="cases-card"
-          v-for="(request, index) in requests"
-          :key="index"
-        >
-          <strong>Name:</strong><br />
-          <p class="name">{{ request.user_name }}</p>
-          <hr />
-          <strong>Phone:</strong><br />
-          <a :href="request.Phone_number">Call</a>
-          <div class="status-dropdown">
-            <label for="status">Status:</label>
-            <select
-              v-model="request.status"
-              @change="updateStatus(request, index)"
-            >
-              <option value="in_progress">In Progress</option>
-              <option value="rejected">Reject</option>
-              <option value="finished">Finished</option>
-            </select>
-          </div>
-        </div>
-      </div>
     </div>
 
     <Footer />
@@ -137,21 +111,6 @@ export default {
   data() {
     return {
       qualifications: [{ text: "" }],
-
-      requests: [
-        {
-          user_name: "Ali Ahmed",
-          Phone_number: "34455666",
-        },
-        {
-          user_name: "Ahmed Ali",
-          Phone_number: "34455666",
-        },
-        {
-          user_name: "Ahmed Ali",
-          Phone_number: "34455666",
-        },
-      ],
     };
   },
   methods: {
