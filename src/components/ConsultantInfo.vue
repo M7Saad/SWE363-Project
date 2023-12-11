@@ -72,7 +72,7 @@
               <ul class="list-group">
                 <li class="list-group-item">
                   <span class="badge text-bg-warning">{{
-                    consultant.expertise
+                    consultant.experience
                   }}</span>
                 </li>
               </ul>

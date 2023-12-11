@@ -47,7 +47,7 @@ export default {
       const consultantRef = dbRef(db, "consultants/" + test.name);
       await set(consultantRef, {
         name: test.name,
-        expertise: test.expertise,
+        experience: test.experience,
         price: test.price,
         photo: test.photo,
         qualifications: test.qualifications,

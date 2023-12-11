@@ -1,7 +1,7 @@
 export class Consultant {
   constructor(
     name,
-    expertise,
+    experience,
     price,
     photo,
     qualifications,
@@ -9,7 +9,7 @@ export class Consultant {
     description
   ) {
     this.name = name;
-    this.expertise = expertise;
+    this.experience = experience;
     this.price = price;
     this.photo = photo;
     this.qualifications = qualifications;

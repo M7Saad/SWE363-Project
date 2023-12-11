@@ -98,7 +98,7 @@ export default {
         this.consultants.push(
           new Consultant(
             data[id].name,
-            data[id].expertise,
+            data[id].experience,
             data[id].price,
             data[id].photo,
             data[id].qualifications,
