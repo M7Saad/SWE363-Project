@@ -17,9 +17,10 @@
         <a href="/contactUs">Contact</a>
       </div>
 
+      <div v-if="loading">Loading...</div>
       <div
         class="user-container"
-        v-if="user"
+        v-else-if="user"
         @mouseover="showSlide = true"
         @mouseleave="showSlide = false"
       >
@@ -55,6 +56,7 @@ export default {
   name: "Navbar",
   data() {
     return {
+      loading: true,
       isAdmin: false,
       isConsultant: false,
       user: null,
@@ -81,6 +83,7 @@ export default {
         this.isAdmin = idTokenResult.claims.admin;
         //this.isConsultant = idTokenResult.claims.consultant;
       }
+      this.loading = false;
       this.user = user;
     });
   },
