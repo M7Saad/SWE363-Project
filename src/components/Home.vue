@@ -12,7 +12,7 @@
               provide expert advice personalized to your unique financial
               situation.
             </p>
-            <button class="btn btn-primary" @click="goToConsultants">
+            <button class="btn btn-primary" style="background-color: rgb(0, 143, 140); border-color: aliceblue;"  @click="goToConsultants">
               Explore Consultants
             </button>
           </div>
