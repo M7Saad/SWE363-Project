@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("src\\components\\assets\\bg.png");
+  background-color: rgb(216, 255, 219) ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
