@@ -137,8 +137,13 @@ export default {
         if (user) {
           const name = user.displayName;
           const url = user.photoURL;
+          if (!url) {
+            url =
+              "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
+          }
           //create a new object
           const consultant = new Consultant(
+            user.uid,
             name,
             this.experience,
             this.price,

@@ -1,5 +1,6 @@
 export class Consultant {
   constructor(
+    userId,
     name,
     experience,
     price,
