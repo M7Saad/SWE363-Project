@@ -5,8 +5,14 @@
     <div class="content">
       <h1>Consultant Requests</h1>
       <div v-for="request in requests" :key="request.id" class="request">
-        <h2>{{ request.name }}</h2>
-        <p>{{ request.description }}</p>
+        <div>
+          <h2>Name: {{ request.name }}</h2>
+          <p>Description: {{ request.description }}</p>
+          <p>Price: {{ request.price }} $</p>
+          <p>Experience: {{ request.experience }} years</p>
+          <p>Qualifications: {{ request.qualifications }}</p>
+          <p>Consultancy Types: {{ request.consultancyTypes }}</p>
+        </div>
         <button @click="approveRequest(request.id)">Approve</button>
         <button @click="rejectRequest(request.id)">Reject</button>
       </div>
@@ -17,7 +23,9 @@
 </template>
 
 <script>
+import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth, onIdTokenChanged } from "firebase/auth";
+import { Consultant } from "../classes.js";
 export default {
   beforeRouteEnter(_, __, next) {
     const auth = getAuth();
@@ -38,20 +46,41 @@ export default {
   // ...
   data() {
     return {
-      requests: [
-        { id: 1, name: "Ali Ahmed", description: "Financial Consulting" },
-        {
-          id: 2,
-          name: "Zahid Sami",
-          description: "Human Resources Consulting",
-        },
-        {
-          id: 2,
-          name: "Zahid Sami",
-          description: "Human Resources Consulting",
-        },
-      ],
+      requests: [],
     };
+  },
+  created() {
+    console.log("created");
+    const db = getDatabase();
+    const usersRef = ref(db, "Users");
+
+    //hey
+    onValue(usersRef, (snapshot) => {
+      console.log(snapshot.val());
+      const data = snapshot.val();
+      this.requests = []; // Clear the existing requests
+
+      for (let userId in data) {
+        const user = data[userId];
+        if (user.pending) {
+          console.log(user.pending);
+          for (let requestId in user.pending) {
+            const request = user.pending[requestId];
+            this.requests.push(
+              new Consultant(
+                request.name,
+                request.experience,
+                request.price,
+                request.photo,
+                request.qualifications,
+                request.consultancyTypes,
+                request.description
+              )
+            );
+          }
+        }
+      }
+    });
   },
   methods: {
     approveRequest(id) {
