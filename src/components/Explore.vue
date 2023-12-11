@@ -108,6 +108,7 @@ export default {
       for (let id in data) {
         this.consultants.push(
           new Consultant(
+            data[id].id,
             data[id].name,
             data[id].experience,
             data[id].price,
