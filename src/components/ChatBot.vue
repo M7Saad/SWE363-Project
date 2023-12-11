@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import "deep-chat";
+//import "deep-chat";
 
 export default {
   data() {

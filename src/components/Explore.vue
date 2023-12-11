@@ -29,7 +29,7 @@
         >
           <img :src="consultant.photo" alt="card-img-top" />
           <p class="name">{{ consultant.name }}</p>
-
+        <div class="tags">
           <div
             v-for="type in consultant.consultancyTypes"
             :key="type"
@@ -37,10 +37,11 @@
           >
             {{ type }}
           </div>
+        </div>
 
-          <div class="price">{{ consultant.price }}$</div>
+          <div class="price">{{ consultant.price }} $ <p style="display: inline; font-size: small;">per Hour</p></div>
 
-          <button class="btn btn-success" @click="bookConsultant(consultant)">
+          <button class="btn btn-success"  style="background-color: rgb(1, 89, 88); border-color: aliceblue; width: 100px;" @click="bookConsultant(consultant)">
             Book
           </button>
         </div>
@@ -144,16 +145,16 @@ import Footer from "./Footer.vue";
 .consultants-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 40px;
 }
 
 .consultant-card {
-  width: 200px;
-  border: 1px solid #ccc;
+  width: 240px;
+  border: 1px solid  rgb(199, 255, 237);
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  background-color: indigo;
+  background-color: rgb(232, 250, 245);
 }
 
 .consultant-card img {
@@ -164,14 +165,14 @@ import Footer from "./Footer.vue";
 .name {
   font-size: large;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgb(2,53,53);
   margin-top: 10px;
   margin-bottom: 0px;
 }
 
 .tag {
   display: inline-block;
-  background-color: rgb(172, 177, 69);
+  background-color: rgb(0, 143, 140);
   padding: 1px 8px;
   color: white;
   border-radius: 5px;
@@ -181,7 +182,7 @@ import Footer from "./Footer.vue";
 .price {
   margin-top: 8px;
   margin-bottom: 8px;
-  color: #ffffff;
+  color: rgb(2,53,53);
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -190,4 +191,5 @@ import Footer from "./Footer.vue";
   font-weight: bold;
   text-align: center;
 }
+
 </style>

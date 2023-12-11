@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 header {
-  background-color: indigo;
+  background-color: rgb(1,89,88);
   color: white;
   display: flex;
   justify-content: space-between;
