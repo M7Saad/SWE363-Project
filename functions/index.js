@@ -32,10 +32,11 @@ exports.getConsultants = onRequest({ cors: true }, (req, res) => {
   res.status(200).send(ans);
 });
 
-//imports
+
+//be a partner 
 const xss = require("xss");
 const validator = require("validator");
-exports.bePartner = onRequest(async (req, res) => {
+exports.bePartner = onRequest({ cors: true }, (req, res) => {
   if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed");
     return;
