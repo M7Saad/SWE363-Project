@@ -132,40 +132,15 @@ export default {
       this.qualifications.splice(index, 1);
     },
     submitForm() {
-      if (
-        !this.description.trim() ||
-        !this.qualifications[0].text.trim() ||
-        !this.consultancyTypes.trim() ||
-        !this.experience.trim() ||
-        !this.price
-      ) {
-        alert("All fields are required.");
-        return;
-      }
+      //validate the form first
+
+      //here, use if else
+
+      //leave this as it is (don't change it)
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          const name = user.displayName;
-          var url = user.photoURL;
-          const uid = user.uid;
-          if (!url) {
-            url =
-              "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
-          }
-          //create a new object
-          console.log(uid)
-          const consultant = new Consultant(
-            uid,
-            name,
-            this.experience,
-            this.price,
-            url,
-            this.qualifications,
-            this.consultancyTypes,
-            this.description
-          );
-          //push it to the firebase database realtime
-          pushConsultant(consultant, true);
+          //send the data to the backend
         } else {
           console.log("No user is signed in");
           //go to login page
@@ -235,9 +210,7 @@ button {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .add-offer {
   background-color: indigo;
