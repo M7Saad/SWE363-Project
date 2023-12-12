@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,900;1,700;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,900;1,700;1,900&display=swap");
 
 body {
   margin: 0;
@@ -10,6 +9,14 @@ body {
   background-attachment: fixed;
 }
 
+body {
+  background-image: url("src\\components\\assets\\bg2.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+}
+
 #app {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }

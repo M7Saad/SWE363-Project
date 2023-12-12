@@ -135,43 +135,52 @@ export default {
       //validate the form first
 
       //here, use if else
+      if (!this.description) {
+        alert("Please provide a description.");
+      } else if (!this.experience) {
+        alert("Please provide your experience.");
+      } else if (!this.consultancyTypes) {
+        alert("Please select a consultancy type.");
+      } else if (isNaN(parseFloat(this.price)) || parseFloat(this.price) < 0) {
+        alert("Please provide a valid price greater than 0.");
+      } else {
+        //leave this as it is (don't change it)
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            let token = await user.getIdToken(true);
+            //wait for the token
 
-      //leave this as it is (don't change it)
-      const auth = getAuth();
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          let token = await user.getIdToken(true);
-          //wait for the token
-
-          console.log("user is signed in" + token);
-          axios
-            .post(
-              "https://bepartner-hqm6vxtfbq-uc.a.run.app",
-              {
-                description: this.description,
-                experience: this.experience,
-                qualifications: this.qualifications,
-                consultancyTypes: this.consultancyTypes,
-                price: this.price,
-              },
-
-              {
-                headers: {
-                  Authorization: `${token}`,
+            console.log("user is signed in" + token);
+            axios
+              .post(
+                "https://bepartner-hqm6vxtfbq-uc.a.run.app",
+                {
+                  description: this.description,
+                  experience: this.experience,
+                  qualifications: this.qualifications,
+                  consultancyTypes: this.consultancyTypes,
+                  price: this.price,
                 },
-              }
-            )
-            .then((response) => {
-              console.log(response);
-              //go to the home
-              this.$router.push("/");
-            });
-        } else {
-          console.log("No user is signed in");
-          //go to login page
-          $router.push("/login");
-        }
-      });
+
+                {
+                  headers: {
+                    Authorization: `${token}`,
+                  },
+                }
+              )
+              .then((response) => {
+                console.log(response);
+                //go to the home
+                this.$router.push("/");
+              });
+          } else {
+            console.log("No user is signed in");
+            //go to login page
+            $router.push("/login");
+          }
+        });
+      }
     },
     updateStatus(request, index) {
       console.log(`Updating status for ${request.user_name} at index ${index}`);
@@ -194,7 +203,7 @@ import Footer from "./Footer.vue";
 }
 
 button {
-  background-color: indigo;
+  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -237,7 +246,7 @@ button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .add-offer {
-  background-color: indigo;
+  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -251,6 +260,6 @@ button {
 }
 
 .add-offer:hover {
-  background-color: rgb(137, 71, 184);
+  background-color: #3ca6a6;
 }
 </style>

@@ -42,7 +42,11 @@
                       data-bs-parent="#descriptionAccordion"
                     >
                       <div class="accordion-body">
-                        <strong> {{ consultant.bio }}</strong>
+                        I am an experienced Financial and Strategy Consultant<br />
+                        with a decade of expertise in aiding startups and<br />
+                        SMEs. With an MBA in Finance, he offers tailored,<br />
+                        tech-integrated solutions for business growth and<br />
+                        financial stability."
                       </div>
                     </div>
                   </div>
