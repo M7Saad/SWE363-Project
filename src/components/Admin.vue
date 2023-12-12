@@ -101,7 +101,7 @@ export default {
       const auth = getAuth();
       let token = await auth.currentUser.getIdToken(true);
       axios.post(
-        "http://127.0.0.1:5001/swe363-321-project/us-central1/makeUserConsultant",
+        "https://makeuserconsultant-hqm6vxtfbq-uc.a.run.app",
         {
           uid: consultant.userId,
         },
