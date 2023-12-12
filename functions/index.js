@@ -107,6 +107,7 @@ exports.makeUserConsultant = onRequest({ cors: true }, (req, res) => {
       //change the user's role
       admin.auth().setCustomUserClaims(consultant.uid, { consultant: true })
       console.log("User is now a consultant");
+      res.status(200).send("User is now a consultant");
     }
     else{
       res.status(401).send("Unauthorized");}
