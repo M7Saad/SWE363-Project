@@ -20,5 +20,14 @@ def get_user(username):
         return jsonify({"error": "User not found"}), 404
 
 
+import requests
+
+
+def start():
+    url = "http://127.0.0.1:5001/swe363-321-project/us-central1/sayHello"
+    response = requests.get(url)
+    print(response.text)
+
+
 if __name__ == "__main__":
-    app.run(port=6969)
+    start()
