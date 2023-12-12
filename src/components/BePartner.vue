@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { pushConsultant } from "../classes.js";
+import axios from "axios";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
   data() {
@@ -138,9 +138,34 @@ export default {
 
       //leave this as it is (don't change it)
       const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, async (user) => {
         if (user) {
-          //send the data to the backend
+          let token = await user.getIdToken(true);
+          //wait for the token
+
+          console.log("user is signed in" + token);
+          axios
+            .post(
+              "https://bepartner-hqm6vxtfbq-uc.a.run.app",
+              {
+                description: this.description,
+                experience: this.experience,
+                qualifications: this.qualifications,
+                consultancyTypes: this.consultancyTypes,
+                price: this.price,
+              },
+
+              {
+                headers: {
+                  Authorization: `${token}`,
+                },
+              }
+            )
+            .then((response) => {
+              console.log(response);
+              //go to the home
+              this.$router.push("/");
+            });
         } else {
           console.log("No user is signed in");
           //go to login page
@@ -156,7 +181,6 @@ export default {
 </script>
 
 <script setup>
-import { Consultant } from "../classes.js";
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 </script>
