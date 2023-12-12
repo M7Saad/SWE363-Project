@@ -258,12 +258,13 @@ import Footer from "./Footer.vue";
 
 <style scoped>
 .main-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 button {
   background-color: #026773;
   color: white;
