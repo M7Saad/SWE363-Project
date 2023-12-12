@@ -9,7 +9,6 @@
           <div class="form-floating mb-3">
             <input
               v-model="description"
-              description="description"
               type="text"
               class="form-control"
               id="description"
@@ -17,11 +16,14 @@
               required
             />
             <label for="description">Description:</label>
+            <div v-if="alertMessages.description" class="alert">
+              {{ alertMessages.description }}
+            </div>
           </div>
+
           <div class="form-floating mb-3">
             <input
               v-model="experience"
-              name="Experience"
               type="text"
               class="form-control"
               id="Experience"
@@ -29,6 +31,9 @@
               required
             />
             <label for="Experience">Experience:</label>
+            <div v-if="alertMessages.experience" class="alert">
+              {{ alertMessages.experience }}
+            </div>
           </div>
 
           <div
@@ -78,11 +83,13 @@
               </option>
             </select>
             <label for="consultantType">Consultant Type:</label>
+            <div v-if="alertMessages.consultancyTypes" class="alert">
+              {{ alertMessages.consultancyTypes }}
+            </div>
           </div>
           <div class="form-floating mb-3">
             <input
               v-model="price"
-              name="price"
               type="number"
               class="form-control"
               id="price"
@@ -92,6 +99,9 @@
               max="3000"
             />
             <label for="price">Price:</label>
+            <div v-if="alertMessages.price" class="alert">
+              {{ alertMessages.price }}
+            </div>
           </div>
           <div class="form-floating mb-3">
             <br />
@@ -121,8 +131,39 @@ export default {
       consultancyTypes: "",
       experience: "",
       price: "",
-      experience: "",
+      alertMessages: {
+        description: "",
+        experience: "",
+        consultancyTypes: "",
+        price: "",
+      },
     };
+  },
+  watch: {
+    description(newVal) {
+      if (newVal && this.alertMessages.description) {
+        this.alertMessages.description = "";
+      }
+    },
+    experience(newVal) {
+      if (newVal && this.alertMessages.experience) {
+        this.alertMessages.experience = "";
+      }
+    },
+    consultancyTypes(newVal) {
+      if (newVal && this.alertMessages.consultancyTypes) {
+        this.alertMessages.consultancyTypes = "";
+      }
+    },
+    price(newVal) {
+      if (
+        !isNaN(parseFloat(newVal)) &&
+        parseFloat(newVal) > 0 &&
+        this.alertMessages.price
+      ) {
+        this.alertMessages.price = "";
+      }
+    },
   },
   methods: {
     addQualification() {
@@ -132,55 +173,76 @@ export default {
       this.qualifications.splice(index, 1);
     },
     submitForm() {
-      //validate the form first
+      // Reset the alert messages
+      this.alertMessages = {
+        description: "",
+        experience: "",
+        consultancyTypes: "",
+        price: "",
+      };
 
-      //here, use if else
+      // Validate the form
       if (!this.description) {
-        alert("Please provide a description.");
-      } else if (!this.experience) {
-        alert("Please provide your experience.");
-      } else if (!this.consultancyTypes) {
-        alert("Please select a consultancy type.");
-      } else if (isNaN(parseFloat(this.price)) || parseFloat(this.price) < 0) {
-        alert("Please provide a valid price greater than 0.");
-      } else {
-        //leave this as it is (don't change it)
-        const auth = getAuth();
-        onAuthStateChanged(auth, async (user) => {
-          if (user) {
-            let token = await user.getIdToken(true);
-            //wait for the token
-
-            console.log("user is signed in" + token);
-            axios
-              .post(
-                "https://bepartner-hqm6vxtfbq-uc.a.run.app",
-                {
-                  description: this.description,
-                  experience: this.experience,
-                  qualifications: this.qualifications,
-                  consultancyTypes: this.consultancyTypes,
-                  price: this.price,
-                },
-
-                {
-                  headers: {
-                    Authorization: `${token}`,
-                  },
-                }
-              )
-              .then((response) => {
-                console.log(response);
-                //go to the home
-                this.$router.push("/");
-              });
-          } else {
-            console.log("No user is signed in");
-            //go to login page
-            $router.push("/login");
-          }
-        });
+        this.alertMessages.description = "Please provide a description.";
       }
+      if (!this.experience) {
+        this.alertMessages.experience = "Please provide your experience.";
+      }
+      if (!this.consultancyTypes) {
+        this.alertMessages.consultancyTypes =
+          "Please select a consultancy type.";
+      }
+      if (isNaN(parseFloat(this.price)) || parseFloat(this.price) < 0) {
+        this.alertMessages.price =
+          "Please provide a valid price greater than 0.";
+      }
+
+      // Check if any errors exist
+      if (
+        !this.description ||
+        !this.experience ||
+        !this.consultancyTypes ||
+        isNaN(parseFloat(this.price)) ||
+        parseFloat(this.price) < 0
+      ) {
+        return; // Stop submission if there are errors
+      }
+      //leave this as it is (don't change it)
+      const auth = getAuth();
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          let token = await user.getIdToken(true);
+          //wait for the token
+
+          console.log("user is signed in" + token);
+          axios
+            .post(
+              "https://bepartner-hqm6vxtfbq-uc.a.run.app",
+              {
+                description: this.description,
+                experience: this.experience,
+                qualifications: this.qualifications,
+                consultancyTypes: this.consultancyTypes,
+                price: this.price,
+              },
+
+              {
+                headers: {
+                  Authorization: `${token}`,
+                },
+              }
+            )
+            .then((response) => {
+              console.log(response);
+              //go to the home
+              this.$router.push("/");
+            });
+        } else {
+          console.log("No user is signed in");
+          //go to login page
+          $router.push("/login");
+        }
+      });
     },
     updateStatus(request, index) {
       console.log(`Updating status for ${request.user_name} at index ${index}`);
@@ -261,5 +323,10 @@ button {
 
 .add-offer:hover {
   background-color: #3ca6a6;
+}
+
+.alert {
+  color: red;
+  margin-top: 5px;
 }
 </style>
