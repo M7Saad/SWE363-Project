@@ -32,8 +32,7 @@ exports.getConsultants = onRequest({ cors: true }, (req, res) => {
   res.status(200).send(ans);
 });
 
-
-//be a partner 
+//be a partner
 const xss = require("xss");
 const validator = require("validator");
 exports.bePartner = onRequest({ cors: true }, (req, res) => {
@@ -59,10 +58,11 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
 
         //if there is no photo, request the user to put one
         if (!PHOTO) {
-          PHOTO = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
+          PHOTO =
+            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
         }
 
-        if(!NAME){
+        if (!NAME) {
           NAME = UID;
         }
 
@@ -100,17 +100,17 @@ exports.makeUserConsultant = onRequest({ cors: true }, (req, res) => {
   const consultant = req.body;
 
   //check that the sender is an admin
-  admin.auth()
-  .verifyIdToken(token)
-  .then((claims) => {
-    if (claims.admin === true) {
-      //change the user's role
-      admin.auth().setCustomUserClaims(consultant.uid, { consultant: true })
-      console.log("User is now a consultant");
-      res.status(200).send("User is now a consultant");
-    }
-    else{
-      res.status(401).send("Unauthorized");}
-  });
-
+  admin
+    .auth()
+    .verifyIdToken(token)
+    .then((claims) => {
+      if (claims.admin === true) {
+        //change the user's role
+        admin.auth().setCustomUserClaims(consultant.uid, { consultant: true });
+        console.log("User is now a consultant");
+        res.status(200).send("User is now a consultant");
+      } else {
+        res.status(401).send("Unauthorized");
+      }
+    });
 });
