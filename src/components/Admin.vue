@@ -15,7 +15,7 @@
           <p>Consultancy Types: {{ request.consultancyTypes }}</p>
         </div>
         <button @click="approveRequest(request)">Approve</button>
-        <button @click="removeRequest(request)">Reject</button>
+        <button @click="removeRequest(request.userId)">Reject</button>
       </div>
     </div>
 
