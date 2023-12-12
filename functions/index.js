@@ -59,8 +59,7 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
 
         //if there is no photo, request the user to put one
         if (!PHOTO) {
-          res.status(400).send("Photo is required to be a consultant");
-          return;
+          PHOTO = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
         }
 
         const sanitizedConsultant = {
