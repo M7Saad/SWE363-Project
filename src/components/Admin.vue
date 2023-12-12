@@ -26,6 +26,7 @@
 <script>
 import { getDatabase, ref, onValue, remove, set } from "firebase/database";
 import { getAuth, onIdTokenChanged } from "firebase/auth";
+import axios from "axios";
 
 //we will process everything from the client side
 //no need to use cloud functions because there is no business logic
@@ -95,6 +96,21 @@ export default {
         consultancyTypes: consultant.consultancyTypes,
         description: consultant.description,
       });
+      //make the user a consultant
+      //regenerate the token
+      const auth = getAuth();
+      let token = await auth.currentUser.getIdToken(true);
+      axios.post(
+        "http://127.0.0.1:5001/swe363-321-project/us-central1/makeUserConsultant",
+        {
+          uid: consultant.userId,
+        },
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
       this.removeRequest(consultant.userId);
     },
     async removeRequest(req) {

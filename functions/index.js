@@ -52,14 +52,18 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
       .verifyIdToken(token)
       .then(async (decodedToken) => {
         const UID = decodedToken.uid;
-        const NAME = decodedToken.name;
-        const PHOTO = decodedToken.picture;
+        let NAME = decodedToken.name;
+        let PHOTO = decodedToken.picture;
 
         console.log("uid: ", UID, "name: ", NAME, PHOTO);
 
         //if there is no photo, request the user to put one
         if (!PHOTO) {
           PHOTO = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
+        }
+
+        if(!NAME){
+          NAME = UID;
         }
 
         const sanitizedConsultant = {
@@ -84,4 +88,28 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
     console.error("Error saving consultant data: ", error);
     res.status(500).send("Error saving consultant data");
   }
+});
+
+exports.makeUserConsultant = onRequest({ cors: true }, (req, res) => {
+  if (req.method !== "POST") {
+    res.status(405).send("Method Not Allowed");
+    return;
+  }
+  //get the token from the header, the request body
+  const token = req.headers.authorization;
+  const consultant = req.body;
+
+  //check that the sender is an admin
+  admin.auth()
+  .verifyIdToken(token)
+  .then((claims) => {
+    if (claims.admin === true) {
+      //change the user's role
+      admin.auth().setCustomUserClaims(consultant.uid, { consultant: true })
+      console.log("User is now a consultant");
+    }
+    else{
+      res.status(401).send("Unauthorized");}
+  });
+
 });
