@@ -110,6 +110,11 @@ const routes = [
     component: () => import("../components/ChatBot.vue"),
   },
   {
+    path: "/consultant",
+    name: "consultant",
+    component: () => import("../components/Consultant.vue"),
+  },
+  {
     path: "/:notFound",
     name: "NotFound",
     component: () => import("../components/NotFound.vue"),

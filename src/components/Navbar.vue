@@ -11,7 +11,7 @@
 
         <!--Dashboard-->
         <a v-if="isAdmin" href="/admin">Dashboard</a>
-        <!--<a v-else-if="isConsultant" href="/admin">Dashboard1</a> -->
+        <a v-else-if="isConsultant" href="/consultant">Dashboard</a>
         <a v-else href="/explore">Dashboard</a>
 
         <a href="/contactUs">Contact</a>
@@ -81,7 +81,7 @@ export default {
       if (user) {
         const idTokenResult = await user.getIdTokenResult();
         this.isAdmin = idTokenResult.claims.admin;
-        //this.isConsultant = idTokenResult.claims.consultant;
+        this.isConsultant = idTokenResult.claims.consultant;
       }
       this.loading = false;
       this.user = user;

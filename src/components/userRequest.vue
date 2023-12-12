@@ -191,9 +191,7 @@ p {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .request_box {
   width: 100%;
@@ -236,9 +234,7 @@ p {
   font-size: 20px;
   background-color: #ddd;
   color: #333;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .state.accepted {
   background-color: #28a745;

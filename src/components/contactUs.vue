@@ -200,9 +200,7 @@ body {
   text-align: center;
   margin: 0 auto;
   padding: 40px 0;
-  font:
-    300 80px "Oswald",
-    sans-serif;
+  font: 300 80px "Oswald", sans-serif;
   text-transform: uppercase;
   letter-spacing: 6px;
 }
@@ -253,9 +251,7 @@ textarea {
   justify-content: center;
   display: block;
   margin-top: 10px;
-  font:
-    700 20px "Lato",
-    sans-serif;
+  font: 700 20px "Lato", sans-serif;
   letter-spacing: 2px;
   font-size: 30px;
 }
@@ -279,9 +275,7 @@ textarea {
 }
 
 .contact-text {
-  font:
-    300 20px "Lato",
-    sans-serif;
+  font: 300 20px "Lato", sans-serif;
   letter-spacing: 1.9px;
 }
 

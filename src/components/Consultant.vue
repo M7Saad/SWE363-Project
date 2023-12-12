@@ -3,104 +3,6 @@
     <Navbar />
 
     <div class="main-container">
-      <div class="offer-container">
-        <h2>Add new consulting offer</h2>
-        <form class="offer-form">
-          <div class="form-floating mb-3">
-            <input
-              description="description"
-              type="text"
-              class="form-control"
-              id="description"
-              placeholder="Your description"
-              required
-            />
-            <label for="description">Description:</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              name="Experience"
-              type="text"
-              class="form-control"
-              id="Experience"
-              placeholder="Your experience"
-              required
-            />
-            <label for="Experience">Experience:</label>
-          </div>
-
-          <div
-            v-for="(qualification, index) in qualifications"
-            :key="index"
-            class="qualification-row"
-          >
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                :id="'qualification' + index"
-                :placeholder="'Qualifications ' + (index + 1)"
-                v-model="qualification.text"
-                required
-              />
-              <label :for="'qualification' + index">Qualifications:</label>
-            </div>
-            <button type="button" @click="removeQualification(index)">
-              Remove
-            </button>
-          </div>
-
-          <div class="form-floating mb-3">
-            <button type="button" @click="addQualification">
-              Add Qualifications
-            </button>
-          </div>
-
-          <div class="form-floating mb-3">
-            <select
-              name="consultantType"
-              class="form-control"
-              id="consultantType"
-              required
-            >
-              <option value="" disabled selected>Select Consultant Type</option>
-              <option value="Financial Consulting">Financial Consulting</option>
-              <option value="Human Resources">Human Resources</option>
-              <option value="Strategy Consulting">Strategy Consulting</option>
-              <option value="Information Technology Consulting">
-                Information Technology Consulting
-              </option>
-              <option value="Operations Consulting">
-                Operations Consulting
-              </option>
-            </select>
-            <label for="consultantType">Consultant Type:</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              name="price"
-              type="number"
-              class="form-control"
-              id="price"
-              placeholder="Enter your Price per hour"
-              required
-              min="100"
-              max="3000"
-            />
-            <label for="price">Price:</label>
-          </div>
-          <div class="form-floating mb-3">
-            <br />
-            <input
-              type="submit"
-              value="Add"
-              class="add-offer"
-              @click.prevent="submitForm"
-            />
-          </div>
-        </form>
-      </div>
-
       <h1 id="cases">Consultation Cases</h1>
       <div class="cases-box">
         <div
@@ -225,9 +127,7 @@ button {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .add-offer {
   background-color: indigo;
