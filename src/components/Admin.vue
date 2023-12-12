@@ -7,14 +7,15 @@
       <div v-for="request in requests" :key="request.id" class="request">
         <div>
           <h2>Name: {{ request.name }}</h2>
+          <p>User ID: {{ request.userId }}</p>
           <p>Description: {{ request.description }}</p>
           <p>Price: {{ request.price }} $</p>
           <p>Experience: {{ request.experience }} years</p>
           <p>Qualifications: {{ request.qualifications }}</p>
           <p>Consultancy Types: {{ request.consultancyTypes }}</p>
         </div>
-        <button @click="approveRequest(request.id)">Approve</button>
-        <button @click="rejectRequest(request.id)">Reject</button>
+        <button @click="approveRequest(request)">Approve</button>
+        <button @click="removeRequest(request)">Reject</button>
       </div>
     </div>
 
@@ -23,9 +24,13 @@
 </template>
 
 <script>
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove, set } from "firebase/database";
 import { getAuth, onIdTokenChanged } from "firebase/auth";
-import { Consultant } from "../classes.js";
+
+//we will process everything from the client side
+//no need to use cloud functions because there is no business logic
+//nor any security concerns
+
 export default {
   beforeRouteEnter(_, __, next) {
     const auth = getAuth();
@@ -50,11 +55,8 @@ export default {
     };
   },
   created() {
-    console.log("created");
     const db = getDatabase();
-    const usersRef = ref(db, "Users");
-
-    //hey
+    const usersRef = ref(db, "users");
     onValue(usersRef, (snapshot) => {
       console.log(snapshot.val());
       const data = snapshot.val();
@@ -63,31 +65,47 @@ export default {
       for (let userId in data) {
         const user = data[userId];
         if (user.pending) {
-          console.log(user.pending);
-          for (let requestId in user.pending) {
-            const request = user.pending[requestId];
-            this.requests.push(
-              new Consultant(
-                request.name,
-                request.experience,
-                request.price,
-                request.photo,
-                request.qualifications,
-                request.consultancyTypes,
-                request.description
-              )
-            );
-          }
+          let request = user.pending;
+          this.requests.push({
+            userId: userId,
+            name: request.name,
+            photo: request.photo,
+            description: request.description,
+            price: request.price,
+            experience: request.experience,
+            qualifications: request.qualifications,
+            consultancyTypes: request.consultancyTypes,
+          });
         }
       }
     });
   },
   methods: {
-    approveRequest(id) {
-      console.log(`Approving request with id ${id}`);
+    async approveRequest(consultant) {
+      //push the consultant to the database
+      const db = getDatabase();
+      const dbRef = ref(db, "consultants/" + consultant.userId);
+      //if the user is already there, then update the data
+      await set(dbRef, {
+        name: consultant.name,
+        experience: consultant.experience,
+        price: consultant.price,
+        photo: consultant.photo,
+        qualifications: consultant.qualifications,
+        consultancyTypes: consultant.consultancyTypes,
+        description: consultant.description,
+      });
+      this.removeRequest(consultant.userId);
     },
-    rejectRequest(id) {
-      console.log(`Rejecting request with id ${id}`);
+    async removeRequest(req) {
+      const db = getDatabase();
+      console.log("Removing request from the database: ", req);
+      const requestRef = ref(db, "users/" + req + "/pending");
+
+      // Remove the request from the database
+      await remove(requestRef);
+
+      console.log("Request removed from the database: ", req);
     },
   },
 };
