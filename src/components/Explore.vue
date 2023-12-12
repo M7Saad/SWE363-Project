@@ -64,8 +64,7 @@
 </template>
 
 <script>
-import { Consultant } from "../classes.js";
-import { getDatabase, ref, onValue } from "firebase/database";
+import axios from "axios";
 
 export default {
   data() {
@@ -100,26 +99,16 @@ export default {
   },
   created() {
     console.log("created");
-    const db = getDatabase();
-    const consultantsRef = ref(db, "consultants");
-    onValue(consultantsRef, (snapshot) => {
-      console.log(snapshot.val());
-      const data = snapshot.val();
-      for (let id in data) {
-        this.consultants.push(
-          new Consultant(
-            data[id].id,
-            data[id].name,
-            data[id].experience,
-            data[id].price,
-            data[id].photo,
-            data[id].qualifications,
-            data[id].consultancyTypes,
-            data[id].bio
-          )
-        );
-      }
-    });
+    //get consultants array from firebase api = https://getconsultants-hqm6vxtfbq-uc.a.run.app
+    //call api with axios
+    axios
+      .get("https://getconsultants-hqm6vxtfbq-uc.a.run.app")
+      .then((response) => {
+        this.consultants = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
   methods: {
     bookConsultant(consultant) {
