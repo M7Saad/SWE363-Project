@@ -146,7 +146,7 @@ export default {
           console.log("user is signed in" + token);
           axios
             .post(
-              "http://127.0.0.1:5001/swe363-321-project/us-central1/bePartner",
+              "https://bepartner-hqm6vxtfbq-uc.a.run.app",
               {
                 description: this.description,
                 experience: this.experience,
@@ -163,7 +163,7 @@ export default {
             )
             .then((response) => {
               console.log(response);
-              //go to the home 
+              //go to the home
               this.$router.push("/");
             });
         } else {
