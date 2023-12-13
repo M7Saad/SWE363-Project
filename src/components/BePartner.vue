@@ -258,13 +258,32 @@ import Footer from "./Footer.vue";
 
 <style scoped>
 .main-container {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  min-height: 90vh;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 }
+
+.offer-container {
+  min-height: 80vh;
+  max-height: 80vh;
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+footer {
+  position: relative;
+  clear: both;
+}
+
 button {
   background-color: #026773;
   color: white;
@@ -281,14 +300,6 @@ button {
 
 .qualification-row button {
   margin-left: 10px;
-}
-
-.offer-container {
-  width: 400px;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cases-box {
@@ -330,4 +341,15 @@ button {
   color: red;
   margin-top: 5px;
 }
+
+/*@media (min-width: 600px) {
+  .offer-container {
+    width: 400px;
+    padding: 20px;
+  }
+
+  .main-container {
+    padding-bottom: 50px;
+  }
+}*/
 </style>
