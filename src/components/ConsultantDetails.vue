@@ -139,7 +139,7 @@ main {
 }
 
 button {
-  background-color: indigo;
+  background-color: rgb(1, 89, 88);
   color: white;
   border: none;
   padding: 10px 20px;
