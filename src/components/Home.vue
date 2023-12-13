@@ -5,7 +5,9 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-6 info">
-            <h1>Welcome to Mustashark!</h1>
+            <h1 style="font-family: 'Secular One', sans-serif">
+              Welcome to Mustashark!
+            </h1>
             <p>
               Mustashark is your comprehensive financial consultancy web
               application. We connect you with seasoned finance consultants to
@@ -223,7 +225,7 @@ img {
   margin-top: 30px;
   text-align: center;
 }
-.card-body{
+.card-body {
   border: 3px solid #026773;
   border-radius: 5px;
 }
