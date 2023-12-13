@@ -44,7 +44,7 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
   //get the token from the header, the request body
   const token = req.headers.authorization;
   const consultant = req.body;
-
+  console.log("consultant: ", consultant);
   try {
     admin
       .auth()
@@ -68,7 +68,8 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
         //validate
         // Validate the data
         if (
-          !validator.isNumeric(String(consultant.price) && consultant.price > 0)
+          !validator.isNumeric(String(consultant.price)) &&
+          consultant.price > 0
         ) {
           return res.status(400).send("Price must be a number, greater than 0");
         }
@@ -77,7 +78,7 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
           return res.status(400).send("Experience is required");
         }
 
-        if (!validator.isLength(consultant.qualifications, { min: 1 })) {
+        if (consultant.qualifications.length == 0) {
           return res.status(400).send("Qualifications are required");
         }
 
