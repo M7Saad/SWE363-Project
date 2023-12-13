@@ -104,6 +104,7 @@ export default {
         email: "",
         paymentCheck: false,
       };
+      this.$router.push("/userRequest");
 
       alert("Your consultation details have been submitted successfully!");
     },
@@ -111,8 +112,11 @@ export default {
 };
 </script>
 <script setup>
+import { useRouter } from "vue-router";
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
+
+const router = useRouter();
 </script>
 
 <style scoped>
