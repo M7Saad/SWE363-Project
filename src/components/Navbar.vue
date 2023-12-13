@@ -10,7 +10,7 @@
         <a href="/">Home</a>
 
         <!-- My Requests for regular users -->
-        <a v-if="user" href="/userRequest">My Requests</a>
+        <a v-if="isUser" href="/userRequest">My Requests</a>
 
         <!--Dashboard-->
         <a v-if="isAdmin" href="/admin">Dashboard</a>
@@ -64,6 +64,7 @@ export default {
       isConsultant: false,
       user: null,
       showSlide: false,
+      isUser: false,
     };
   },
   methods: {
@@ -83,8 +84,13 @@ export default {
       //get user type
       if (user) {
         const idTokenResult = await user.getIdTokenResult();
-        this.isAdmin = idTokenResult.claims.admin;
-        this.isConsultant = idTokenResult.claims.consultant;
+        if (idTokenResult.claims.admin) {
+          this.isAdmin = true;
+        } else if (idTokenResult.claims.consultant) {
+          tthis.isConsultant = true;
+        } else {
+          this.isUser = true;
+        }
       }
       this.loading = false;
       this.user = user;
