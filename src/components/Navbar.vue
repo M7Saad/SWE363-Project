@@ -87,7 +87,7 @@ export default {
         if (idTokenResult.claims.admin) {
           this.isAdmin = true;
         } else if (idTokenResult.claims.consultant) {
-          tthis.isConsultant = true;
+          this.isConsultant = true;
         } else {
           this.isUser = true;
         }
