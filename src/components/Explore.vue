@@ -105,6 +105,12 @@ export default {
       .get("https://getconsultants-hqm6vxtfbq-uc.a.run.app")
       .then((response) => {
         this.consultants = response.data;
+        //convert this.consultants.consultancyTypes from string to array
+        for (const consultant of this.consultants) {
+          if (typeof consultant.consultancyTypes === "string")
+            consultant.consultancyTypes =
+              consultant.consultancyTypes.split(",");
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -156,7 +162,6 @@ import Footer from "./Footer.vue";
   text-align: center;
   background-color: rgb(232, 250, 245);
   border: 5px solid #026773;
-
 }
 
 .consultant-card img {
