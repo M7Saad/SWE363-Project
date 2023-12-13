@@ -9,6 +9,9 @@
       <div class="nav-links">
         <a href="/">Home</a>
 
+        <!-- My Requests for regular users -->
+        <a v-if="user" href="/userRequest">My Requests</a>
+
         <!--Dashboard-->
         <a v-if="isAdmin" href="/admin">Dashboard</a>
         <a v-else-if="isConsultant" href="/consultant">Dashboard</a>
