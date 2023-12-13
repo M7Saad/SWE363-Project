@@ -110,6 +110,8 @@ export default {
           if (typeof consultant.consultancyTypes === "string")
             consultant.consultancyTypes =
               consultant.consultancyTypes.split(",");
+          if (typeof consultant.qualifications === "string")
+            consultant.qualifications = consultant.qualifications.split(",");
         }
       })
       .catch((error) => {
@@ -119,6 +121,7 @@ export default {
   methods: {
     bookConsultant(consultant) {
       localStorage.setItem("chosenConsultant", JSON.stringify(consultant));
+      console.log("consultant", consultant);
       this.$router.push("/consultantInfo");
     },
   },
