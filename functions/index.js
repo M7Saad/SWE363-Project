@@ -129,7 +129,12 @@ exports.makeUserConsultant = onRequest({ cors: true }, (req, res) => {
     .verifyIdToken(token)
     .then((claims) => {
       if (claims.admin === true) {
-        //change the user's role
+        //change the user's role)
+        //check that the user isn't an admin already
+        if (admin.auth().getUser(consultant.uid).customClaims.admin) {
+          res.status(400).send("User is already an admin");
+          return;
+        }
         admin.auth().setCustomUserClaims(consultant.uid, { consultant: true });
         console.log("User is now a consultant");
         res.status(200).send("User is now a consultant");
