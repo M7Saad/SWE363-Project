@@ -5,7 +5,7 @@
     <main>
       <div class="consultant-info-container">
         <div
-          class="consultant-card card border-dark mb-3 d-flex flex-row"
+          class="consultant-card card mb-3 d-flex flex-row"
           style="width: 1400px"
         >
           <div class="column card border-dark mb-3 d-flex flex-cloumn">
@@ -170,8 +170,8 @@ img {
 }
 
 .consultant-card {
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
+  border: 30px solid #026773;
+  border-radius: 20px;
 }
 
 .card-img-top {

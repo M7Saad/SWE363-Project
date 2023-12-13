@@ -223,4 +223,8 @@ img {
   margin-top: 30px;
   text-align: center;
 }
+.card-body{
+  border: 3px solid #026773;
+  border-radius: 5px;
+}
 </style>

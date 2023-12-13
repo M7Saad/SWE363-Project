@@ -151,11 +151,12 @@ import Footer from "./Footer.vue";
 
 .consultant-card {
   width: 240px;
-  border: 1px solid rgb(199, 255, 237);
   border-radius: 10px;
   padding: 10px;
   text-align: center;
   background-color: rgb(232, 250, 245);
+  border: 5px solid #026773;
+
 }
 
 .consultant-card img {

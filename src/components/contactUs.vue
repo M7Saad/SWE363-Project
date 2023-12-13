@@ -148,6 +148,8 @@ import Footer from "./Footer.vue";
   .container {
     max-width: 800px;
     margin: 0 auto;
+    border: 5px solid #026773;
+    border-radius: 10px;
   }
 
   .form-control {
