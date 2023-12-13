@@ -213,15 +213,20 @@ export default {
         if (user) {
           let token = await user.getIdToken(true);
           //wait for the token
+          //change qualifications to array of strings
+          let quali = [];
+          for (let i = 0; i < this.qualifications.length; i++) {
+            quali.push(this.qualifications[i].text);
+          }
+          console.log(quali);
 
-          console.log("user is signed in" + token);
           axios
             .post(
               "https://bepartner-hqm6vxtfbq-uc.a.run.app",
               {
                 description: this.description,
                 experience: this.experience,
-                qualifications: this.qualifications,
+                qualifications: quali,
                 consultancyTypes: this.consultancyTypes,
                 price: this.price,
               },
@@ -277,10 +282,10 @@ import Footer from "./Footer.vue";
   overflow-y: auto;
   border: 5px solid #026773;
 }
-h2{
+h2 {
   text-align: center;
   font-size: 2em;
-  color: #333; 
+  color: #333;
   margin-bottom: 20px;
 }
 button {
@@ -341,7 +346,7 @@ button {
   color: red;
   margin-top: 5px;
 }
-.submit-button-container{
+.submit-button-container {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -356,5 +361,4 @@ button {
     padding-bottom: 50px;
   }
 }*/
-
 </style>
