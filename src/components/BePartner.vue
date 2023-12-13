@@ -103,7 +103,7 @@
               {{ alertMessages.price }}
             </div>
           </div>
-          <div class="form-floating mb-3">
+          <div class="form-floating mb-3 submit-button-container">
             <br />
             <input
               type="submit"
@@ -268,22 +268,21 @@ import Footer from "./Footer.vue";
 }
 
 .offer-container {
-  min-height: 80vh;
-  max-height: 80vh;
-  width: 400px;
+  max-height: 100%;
+  width: 500px;
   padding: 20px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
+  margin-bottom: 300px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  border: 5px solid #026773;
 }
-
-footer {
-  position: relative;
-  clear: both;
+h2{
+  text-align: center;
+  font-size: 2em;
+  color: #333; 
+  margin-bottom: 20px;
 }
-
 button {
   background-color: #026773;
   color: white;
@@ -323,12 +322,13 @@ button {
   background-color: #026773;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -341,6 +341,10 @@ button {
   color: red;
   margin-top: 5px;
 }
+.submit-button-container{
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 /*@media (min-width: 600px) {
   .offer-container {
@@ -352,4 +356,5 @@ button {
     padding-bottom: 50px;
   }
 }*/
+
 </style>
