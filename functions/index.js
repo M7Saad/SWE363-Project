@@ -65,11 +65,34 @@ exports.bePartner = onRequest({ cors: true }, (req, res) => {
         if (!NAME) {
           NAME = UID;
         }
+        //validate
+        // Validate the data
+        if (
+          !validator.isNumeric(String(consultant.price) && consultant.price > 0)
+        ) {
+          return res.status(400).send("Price must be a number, greater than 0");
+        }
+
+        if (!validator.isLength(consultant.experience, { min: 1 })) {
+          return res.status(400).send("Experience is required");
+        }
+
+        if (!validator.isLength(consultant.qualifications, { min: 1 })) {
+          return res.status(400).send("Qualifications are required");
+        }
+
+        if (!validator.isLength(consultant.consultancyTypes, { min: 1 })) {
+          return res.status(400).send("Consultancy types are required");
+        }
+
+        if (!validator.isLength(consultant.description, { min: 1 })) {
+          return res.status(400).send("Description is required");
+        }
 
         const sanitizedConsultant = {
           name: xss(validator.trim(NAME)),
           experience: xss(consultant.experience),
-          price: xss(validator.isNumeric(String(consultant.price))),
+          price: xss(consultant.price),
           photo: xss(validator.trim(PHOTO)),
           qualifications: xss(consultant.qualifications),
           consultancyTypes: xss(validator.trim(consultant.consultancyTypes)),
