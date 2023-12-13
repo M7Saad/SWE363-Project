@@ -6,11 +6,11 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="title">
-              <h1 style="color: white; margin: 10px">
+              <h1 style="font-family: 'Secular One', sans-serif">
                 Mustashark request page
               </h1>
             </div>
-            <p class="text_title">
+            <p>
               Mustashark is your all-encompassing financial consultancy web
               application. Our dedicated consultants will respond soon to
               provide expert advice tailored to your unique financial situation.
@@ -160,16 +160,14 @@ main {
   opacity: 0;
 }
 .title {
-  background-color: indigo;
-  border: 1px solid #ddd;
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
 }
+
 p {
-  font-size: 22px;
-  font-weight: bold;
-  font-style: italic;
+  font-size: 19px;
+  /*font-style: italic;*/
 }
 
 #cases {
@@ -199,13 +197,13 @@ p {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
-.name {
+/*.name {
   font-size: large;
   font-weight: bold;
   color: darkslategray;
   margin-top: 10px;
   margin-bottom: 0px;
-}
+}*/
 .ZoomLink_title {
   font-size: 20px;
 }
