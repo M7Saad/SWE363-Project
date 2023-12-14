@@ -71,7 +71,7 @@
                   <div class="partner">
                     <a href="https://www.kfupm.edu.sa" target="_blank">
                       <img
-                        src="https://upload.wikimedia.org/wikipedia/ar/archive/3/37/20180719130502%21King_Fahd_University_of_Petroleum_%26_Minerals_Logo.png"
+                        src="/src/assets/kfupm.png"
                         alt="KFUPM"
                         class="img-fluid"
                         width="130"
@@ -80,10 +80,10 @@
                     </a>
                   </div>
                   <div class="partner">
-                    <a href="https://www.openai.com/chatgpt" target="_blank">
+                    <a href="" target="_blank">
                       <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png"
-                        alt="ChatGPT"
+                        src=""
+                        alt=""
                         class="img-fluid"
                         width="130"
                         height="130"
@@ -131,13 +131,7 @@ export default {
       partners: [
         {
           name: "Partner1",
-          logoUrl:
-            "https://upload.wikimedia.org/wikipedia/ar/archive/3/37/20180719130502%21King_Fahd_University_of_Petroleum_%26_Minerals_Logo.png",
-        },
-        {
-          name: "Partner2",
-          logoUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png",
+          logoUrl: "/src/assets/kfupm.png",
         },
       ],
     };
