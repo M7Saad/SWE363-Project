@@ -68,9 +68,9 @@ export default {
     getStateClass(state) {
       return {
         state: true,
-        "not-accepted": state === "Not accepted",
+        "not-accepted": state === "pending",
         accepted: state === "Accepted",
-        rejected: state === "Rejected",
+        finished: state === "finished",
       };
     },
   },
@@ -228,22 +228,22 @@ p {
   display: inline-block;
   margin-top: 5px;
   padding: 8px 12px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 20px;
   background-color: #ddd;
   color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .state.accepted {
-  background-color: #28a745;
+  background-color: #236133;
   color: #fff;
 }
-.state.rejected {
-  background-color: #dc3545;
+.state.finished {
+  background-color: #191651;
   color: #fff;
 }
 .state.not-accepted {
-  background-color: #ffc107;
+  background-color: #b99422;
   color: #fff;
 }
 .text_title {
