@@ -168,7 +168,7 @@ input {
 }
 
 button {
-  background-color: indigo;
+  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;
