@@ -108,7 +108,14 @@
                 Become an advisor and explore partnership opportunities with us.
               </p>
               <div class="text-center">
-                <button class="btn btn-primary" @click="bepartner">
+                <button
+                  class="btn btn-primary"
+                  @click="bepartner"
+                  style="
+                    background-color: rgb(0, 143, 140);
+                    border-color: aliceblue;
+                  "
+                >
                   Get Involved
                 </button>
               </div>
@@ -271,6 +278,10 @@ img {
 .scroll-down-button a:hover {
   background-color: rgba(0, 143, 140, 1);
   transform: scale(1.1);
+}
+
+.btn btn-primary :hover {
+  background-color: rgba(93, 174, 173, 0.7);
 }
 
 .arrow {
