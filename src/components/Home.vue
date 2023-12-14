@@ -24,78 +24,94 @@
             >
               Explore Consultants
             </button>
+
+            <!-- Circular Scroll Button with Arrow -->
           </div>
-          <!-- <div class="col-lg-6">
-            <img :src="imageUrl" alt="Illustration" class="img-fluid" />
-          </div> -->
-        </div>
-        <div class="row mt-5">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Personal Consultancy</h5>
-                <p class="card-text">
-                  Get personalized financial advice from our expert consultants.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Budgeting Tools</h5>
-                <p class="card-text">
-                  Use our powerful tools to track your expenses and manage your
-                  budget.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">AI Consultant</h5>
-                <p class="card-text">
-                  Learn more about the future finance consultancy with our AI
-                </p>
-              </div>
-            </div>
+          <div class="scroll-down-button">
+            <a href="#exploreContent" @click.prevent="scrollToContent">
+              <span class="arrow"></span>
+            </a>
           </div>
         </div>
 
-        <div class="row mt-5">
-          <div class="col-12">
-            <h2 class="head">Our Partners</h2>
-            <div class="partners">
-              <transition-group name="fade" tag="div" class="partners-row">
-                <div
-                  v-for="(partner, index) in partners"
-                  :key="index"
-                  class="partner"
-                >
-                  <img
-                    :src="partner.logoUrl"
-                    :alt="partner.name"
-                    class="img-fluid"
-                    width="130"
-                    height="130"
-                  />
+        <div id="exploreContent">
+          <div class="row mt-5">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Personal Consultancy</h5>
+                  <p class="card-text">
+                    Get personalized financial advice from our expert
+                    consultants.
+                  </p>
                 </div>
-              </transition-group>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Budgeting Tools</h5>
+                  <p class="card-text">
+                    Use our powerful tools to track your expenses and manage
+                    your budget.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">AI Consultant</h5>
+                  <p class="card-text">
+                    Learn more about the future finance consultancy with our AI
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12">
-            <h2 class="head">Interested in Becoming a Partner?</h2>
-            <p class="text-center">
-              Collaborate with us on our journey to create positive change.
-              Become an advisor and explore partnership opportunities with us.
-            </p>
-            <div class="text-center">
-              <button class="btn btn-primary" @click="bepartner">
-                Get Involved
-              </button>
+          <div class="row mt-5">
+            <div class="col-12">
+              <h2 class="head">Our Partners</h2>
+              <div class="partners">
+                <transition-group name="fade" tag="div" class="partners-row">
+                  <div class="partner">
+                    <a href="https://www.kfupm.edu.sa" target="_blank">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/ar/archive/3/37/20180719130502%21King_Fahd_University_of_Petroleum_%26_Minerals_Logo.png"
+                        alt="KFUPM"
+                        class="img-fluid"
+                        width="130"
+                        height="130"
+                      />
+                    </a>
+                  </div>
+                  <div class="partner">
+                    <a href="https://www.openai.com/chatgpt" target="_blank">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png"
+                        alt="ChatGPT"
+                        class="img-fluid"
+                        width="130"
+                        height="130"
+                      />
+                    </a>
+                  </div>
+                </transition-group>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-12">
+              <h2 class="head">Interested in Becoming a Partner?</h2>
+              <p class="text-center">
+                Collaborate with us on our journey to create positive change.
+                Become an advisor and explore partnership opportunities with us.
+              </p>
+              <div class="text-center">
+                <button class="btn btn-primary" @click="bepartner">
+                  Get Involved
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -131,6 +147,12 @@ export default {
     },
     bepartner() {
       this.$router.push("/partner");
+    },
+    scrollToContent() {
+      const exploreContent = document.getElementById("exploreContent");
+      if (exploreContent) {
+        exploreContent.scrollIntoView({ behavior: "smooth" });
+      }
     },
   },
 };
@@ -228,5 +250,35 @@ img {
 .card-body {
   border: 3px solid #026773;
   border-radius: 5px;
+}
+
+.scroll-down-button {
+  text-align: center;
+  margin-top: -7rem;
+  margin-bottom: 8rem;
+}
+
+.scroll-down-button a {
+  display: inline-block;
+  background-color: rgba(0, 143, 140, 0.7);
+  border-radius: 50%;
+  padding: 15px;
+  transition: all 0.3s ease-in-out;
+  width: 50px;
+  height: 50px;
+}
+
+.scroll-down-button a:hover {
+  background-color: rgba(0, 143, 140, 1);
+  transform: scale(1.1);
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 </style>
