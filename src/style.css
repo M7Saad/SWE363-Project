@@ -2,38 +2,43 @@
 
 @font-face {
   font-family: "Secular One";
-  src: url("src\\components\\fonts\\SecularOne-Regular.ttf") format("truetype");
+  src: url("/src/components/fonts/SecularOne-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 
 @font-face {
   font-family: "Montserra";
-  src: url("src\\components\\fonts\\Montserrat-Regular.ttf") format("truetype");
+  src: url("/src/components/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 
 @font-face {
   font-family: "Raleway";
-  src: url("src\\components\\fonts\\Raleway-Regular.ttf") format("truetype");
+  src: url("/src/components/fonts/Raleway-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url("src\\components\\fonts\\Nunito-Regular.ttf") format("truetype");
+  src: url("/src/components/fonts/Nunito-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 
 @font-face {
   font-family: "Roboto Condensed";
-  src: url("src\\components\\fonts\\RobotoCondensed-Regular.ttf")
+  src: url("/src/components/fonts/RobotoCondensed-Regular.ttf")
     format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 
 body {
@@ -46,7 +51,7 @@ body {
 }
 
 body {
-  background-image: url("src\\components\\assets\\bg2.png");
+  background-image: url("/src/components/assets/bg2.png");
   background-size: cover;
   height: 100vh;
   margin: 0;
