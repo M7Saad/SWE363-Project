@@ -49,44 +49,14 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       imageUrl:
         "https://victoria.mediaplanet.com/app/uploads/sites/105/2019/08/MainImage_A5-2.jpg",
 
-      requests: [
-        {
-          consultant_name: "Ali ahmed",
-          ZoomLink: "https://www.google.com",
-          state: "not accepte",
-        },
-        {
-          consultant_name: "Ahmed Ali",
-          ZoomLink: "https://www.google.com",
-          state: "rejected",
-        },
-        {
-          consultant_name: "Ahmed Ali",
-          ZoomLink: "https://www.google.com",
-          state: "accepted",
-        },
-        {
-          consultant_name: "Ahmed Ali",
-          ZoomLink: "https://www.google.com",
-          state: "accepted",
-        },
-        {
-          consultant_name: "Ahmed Ali",
-          ZoomLink: "https://www.google.com",
-          state: "accepted",
-        },
-        {
-          consultant_name: "Ahmed Ali",
-          ZoomLink: "https://www.google.com",
-          state: "accepted",
-        },
-      ],
+      requests: [],
     };
   },
   methods: {
@@ -98,11 +68,41 @@ export default {
     getStateClass(state) {
       return {
         state: true,
-        "not-accepted": state === "not accepte",
-        accepted: state === "accepted",
-        rejected: state === "rejected",
+        "not-accepted": state === "Not accepted",
+        accepted: state === "Accepted",
+        rejected: state === "Rejected",
       };
     },
+  },
+  created() {
+    console.log("created");
+    //get consultants array from firebase api
+    //call api with axios
+    axios
+      .post("https://getrequests-hqm6vxtfbq-uc.a.run.app", {
+        //token
+        token: localStorage.getItem("token"),
+      })
+      .then((response) => {
+        //split the response data into an array
+        //for each request in the response
+        response.data.forEach((request) => {
+          //push the request to the requests array
+          if (typeof request != "object") {
+            return;
+          }
+
+          console.log(request);
+          this.requests.push({
+            consultant_name: request.consultantName,
+            ZoomLink: request.ZoomLink,
+            state: "Accepted",
+          });
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
 };
 </script>

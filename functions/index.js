@@ -190,7 +190,21 @@ exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
     email: xss(details.email),
     paymentCheck: xss(details.paymentCheck),
   };
-
+  ///
+  //add consultant UID to the details
+  sanitizedDetails.consultantUID = consultantUID;
+  //get the name of the consultant
+  await admin
+    .auth()
+    .getUser(consultantUID)
+    .then((userRecord) => {
+      sanitizedDetails.consultantName = userRecord.displayName;
+    })
+    .catch((error) => {
+      console.log("Error fetching user data:", error);
+    });
+  console.log("sanitized details: ", sanitizedDetails);
+  ///
   const db = admin.database();
   //save the details in the database, user
   const ref = db.ref(`users/${UID}` + "/consultantRequest");
@@ -199,4 +213,33 @@ exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
   const ref2 = db.ref(`users/${consultantUID}` + "/consultantRequest");
   ref2.push(sanitizedDetails);
   res.status(200).send("Consultant request sent successfully");
+});
+
+exports.getRequests = onRequest({ cors: true }, async (req, res) => {
+  //get the token from the header, the request body
+  const token = req.body.token;
+  let UID;
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    UID = decodedToken.uid;
+  } catch (error) {
+    console.error(error);
+    res.status(401).send("Unauthorized, maybe refresh the page?");
+  }
+  const db = admin.database();
+  const ref = db.ref(`users/${UID}` + "/consultantRequest");
+
+  try {
+    const snapshot = await ref.once("value");
+    const ans = [];
+    snapshot.forEach((childSnapshot) => {
+      const childData = childSnapshot.val();
+      ans.push(childData);
+    });
+    console.log("requests: ", ans);
+    res.status(200).send(ans);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error retrieving data");
+  }
 });
