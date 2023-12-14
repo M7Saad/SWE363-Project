@@ -13,14 +13,14 @@
           :key="index"
         >
           <strong>Name:</strong><br />
-          <p class="name">{{ request.user_name }}</p>
+          <p class="name">{{ request.clientName }}</p>
           <hr />
           <strong>issue:</strong><br />
           <p class="issue">{{ request.issue }}</p>
           <strong>income:</strong><br />
           <p class="income">{{ request.income }}</p>
           <strong>Phone:</strong><br />
-          <a :href="request.Phone_number">Call</a>
+          <a :href="request.phoneNumber">{{ request.phoneNumber }}</a>
           <div class="status-dropdown">
             <label for="status">Status:</label>
             <select
@@ -41,35 +41,12 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       qualifications: [{ text: "" }],
-
-      requests: [
-        {
-          user_name: "Ali Ahmed",
-          Phone_number: "34455666",
-          income:"33333",
-          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
-
-        },
-        {
-          user_name: "Ahmed Ali",
-          Phone_number: "34455666",
-          income:"33333",
-          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
-
-        },
-        {
-          user_name: "Ahmed Ali",
-          Phone_number: "34455666",
-          income:"33333",
-          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
-
-
-        },
-      ],
+      requests: [],
     };
   },
   methods: {
@@ -83,8 +60,43 @@ export default {
       console.log("Form submitted:", this.qualifications);
     },
     updateStatus(request, index) {
-      console.log(`Updating status for ${request.user_name} at index ${index}`);
+      console.log(
+        `Updating status for ${request.clientName} at index ${index}`
+      );
     },
+  },
+  created() {
+    console.log("created");
+    //get consultants array from firebase api
+    //call api with axios
+    axios
+      .post("https://getrequests-hqm6vxtfbq-uc.a.run.app", {
+        //token
+        token: localStorage.getItem("token"),
+      })
+      .then((response) => {
+        //split the response data into an array
+        //for each request in the response
+        response.data.forEach((request) => {
+          //push the request to the requests array
+          if (typeof request != "object") {
+            return;
+          }
+
+          console.log(request);
+          this.requests.push({
+            clientName: request.clientName,
+            ZoomLink: request.ZoomLink,
+            issue: request.issue,
+            state: "Accepted",
+            income: request.income,
+            phoneNumber: request.phoneNumber,
+          });
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
 };
 </script>
