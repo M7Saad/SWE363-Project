@@ -35,7 +35,11 @@
           v-for="consultant in filteredConsultants"
           :key="consultant.id"
         >
-          <img :src="consultant.photo" alt="card-img-top" />
+          <img
+            :src="consultant.photo"
+            alt="card-img-top"
+            style="height: 180px; width: 180px"
+          />
           <p class="name">{{ consultant.name }}</p>
           <div class="tags">
             <div
