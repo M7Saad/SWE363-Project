@@ -2,7 +2,7 @@
   <Navbar />
   <div class="main-container">
     <div class="login-container">
-      <h2>Sign up</h2>
+      <h2 style="font-family: 'Secular One', sans-serif">Sign up</h2>
       <form @submit.prevent="signUp" class="signup-form">
         <div class="form-floating mb-3">
           <input

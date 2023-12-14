@@ -191,8 +191,13 @@ exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
     paymentCheck: xss(details.paymentCheck),
   };
   ///
-  //add consultant UID to the details
+  //add consultant UID, name to the details
   sanitizedDetails.consultantUID = consultantUID;
+
+  //add client UID, name to the details
+  sanitizedDetails.clientName = NAME;
+  sanitizedDetails.clientUID = UID;
+
   //get the name of the consultant
   await admin
     .auth()

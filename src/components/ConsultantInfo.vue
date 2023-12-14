@@ -53,7 +53,7 @@
           <div class="card-body">
             <div
               class="consultancy-types"
-              style="margin-bottom: 10px; font-size: 20px"
+              style="margin-bottom: 10px; font-size: 16px"
             >
               <h6 class="card-subtitle mb-2 text-muted">Consultancy Types:</h6>
               <ul class="list-group">
@@ -71,7 +71,7 @@
               <h6 class="card-subtitle mb-2 text-muted">Experience:</h6>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <span class="badge text-bg-warning">{{
+                  <span class="badge text-bg-warning" style="font-size: 14px">{{
                     consultant.experience
                   }}</span>
                 </li>

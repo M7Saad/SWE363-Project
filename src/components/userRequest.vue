@@ -21,7 +21,9 @@
           </div>
         </div>
       </div>
-      <h1 id="cases">Your requests</h1>
+      <h1 id="cases" style="font-family: 'Secular One', sans-serif">
+        Your requests
+      </h1>
       <div class="request_box">
         <div
           class="request-card"
@@ -68,9 +70,9 @@ export default {
     getStateClass(state) {
       return {
         state: true,
-        "not-accepted": state === "Not accepted",
+        "not-accepted": state === "pending",
         accepted: state === "Accepted",
-        rejected: state === "Rejected",
+        finished: state === "finished",
       };
     },
   },
@@ -114,15 +116,25 @@ import Footer from "./Footer.vue";
 
 <style scoped>
 html,
-body,
-#app {
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
+  overflow: auto;
 }
 
 main {
   padding: 20px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.request_box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .row {
@@ -191,12 +203,6 @@ p {
   padding: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.request_box {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
 /*.name {
   font-size: large;
   font-weight: bold;
@@ -211,7 +217,7 @@ p {
   display: inline-block;
   margin-top: 5px;
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #175698;
   color: #fff;
   text-decoration: none;
   border-radius: 10px;
@@ -228,22 +234,22 @@ p {
   display: inline-block;
   margin-top: 5px;
   padding: 8px 12px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 20px;
   background-color: #ddd;
   color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .state.accepted {
-  background-color: #28a745;
+  background-color: #236133;
   color: #fff;
 }
-.state.rejected {
-  background-color: #dc3545;
+.state.finished {
+  background-color: #191651;
   color: #fff;
 }
 .state.not-accepted {
-  background-color: #ffc107;
+  background-color: #b99422;
   color: #fff;
 }
 .text_title {
