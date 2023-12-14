@@ -24,6 +24,12 @@
       </div>
 
       <div class="consultants-grid">
+        <loading
+          :active.sync="isLoading"
+          :is-full-page="true"
+          loader="dots"
+          class="vld-icon"
+        ></loading>
         <div
           class="consultant-card"
           v-for="consultant in filteredConsultants"
@@ -67,10 +73,15 @@
 
 <script>
 import axios from "axios";
+import Loading from "vue-loading-overlay";
 
 export default {
+  components: {
+    Loading,
+  },
   data() {
     return {
+      isLoading: false,
       searchTerm: "",
       searchType: "",
       consultants: [],
@@ -100,6 +111,7 @@ export default {
     },
   },
   created() {
+    this.isLoading = true;
     console.log("created");
     //get consultants array from firebase api = https://getconsultants-hqm6vxtfbq-uc.a.run.app
     //call api with axios
@@ -115,9 +127,11 @@ export default {
           if (typeof consultant.qualifications === "string")
             consultant.qualifications = consultant.qualifications.split(",");
         }
+        this.isLoading = false;
       })
       .catch((error) => {
         console.error(error);
+        this.isLoading = false;
       });
   },
   methods: {
@@ -269,5 +283,16 @@ import Footer from "./Footer.vue";
   .head {
     font-size: x-large; /* Adjusts heading size on very small screens */
   }
+}
+.vld-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  right: 30%;
+  bottom: 50%;
 }
 </style>
