@@ -15,6 +15,8 @@
           <strong>Name:</strong><br />
           <p class="name">{{ request.user_name }}</p>
           <hr />
+          <strong>issue:</strong><br />
+          <p class="issue">{{ request.issue }}</p>
           <strong>income:</strong><br />
           <p class="income">{{ request.income }}</p>
           <strong>Phone:</strong><br />
@@ -48,17 +50,23 @@ export default {
         {
           user_name: "Ali Ahmed",
           Phone_number: "34455666",
-          income:"33333"
+          income:"33333",
+          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
+
         },
         {
           user_name: "Ahmed Ali",
           Phone_number: "34455666",
-          income:"33333"
+          income:"33333",
+          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
+
         },
         {
           user_name: "Ahmed Ali",
           Phone_number: "34455666",
-          income:"33333"
+          income:"33333",
+          issue:"i have problem with wspgjk jdj ggmklmg k kgskdklg me fnk nklmkgmkfdkl",
+
 
         },
       ],
