@@ -151,7 +151,7 @@ import Footer from "./Footer.vue";
 }
 
 button {
-  background-color: indigo;
+  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -179,7 +179,7 @@ button {
 }
 
 .login-button {
-  background-color: #8e44ad;
+  background-color: #026773;
   color: #fff;
 }
 
