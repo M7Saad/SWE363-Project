@@ -59,7 +59,7 @@ export default {
         {
           consultant_name: "Ali ahmed",
           ZoomLink: "https://www.google.com",
-          state: "not accepte yet",
+          state: "not accepte",
         },
         {
           consultant_name: "Ahmed Ali",
@@ -98,7 +98,7 @@ export default {
     getStateClass(state) {
       return {
         state: true,
-        "not-accepted": state === "not accepte yet",
+        "not-accepted": state === "not accepte",
         accepted: state === "accepted",
         rejected: state === "rejected",
       };
@@ -183,7 +183,7 @@ p {
 
 .request-card {
   width: 200px;
-  border: 1px solid #ccc;
+  border: 5px solid #026773;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
