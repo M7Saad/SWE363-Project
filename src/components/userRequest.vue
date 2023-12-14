@@ -79,13 +79,10 @@ export default {
     //get consultants array from firebase api
     //call api with axios
     axios
-      .post(
-        "http://127.0.0.1:5001/swe363-321-project/us-central1/getRequests",
-        {
-          //token
-          token: localStorage.getItem("token"),
-        }
-      )
+      .post("https://getrequests-hqm6vxtfbq-uc.a.run.app", {
+        //token
+        token: localStorage.getItem("token"),
+      })
       .then((response) => {
         //split the response data into an array
         //for each request in the response
