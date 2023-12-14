@@ -90,6 +90,20 @@
                       />
                     </a>
                   </div>
+                  <div class="partner">
+                    <a
+                      href="https://developers.google.com/calendar/api/guides/overview"
+                      target="_blank"
+                    >
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
+                        alt="ChatGPT"
+                        class="img-fluid"
+                        width="130"
+                        height="130"
+                      />
+                    </a>
+                  </div>
                 </transition-group>
               </div>
             </div>
@@ -138,6 +152,10 @@ export default {
           name: "Partner2",
           logoUrl:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png",
+        },
+        {
+          name: "Partner3",
+          logoUrl: "https://developers.google.com/calendar/api/guides/overview",
         },
       ],
     };
@@ -285,6 +303,10 @@ img {
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+#exploreContent {
+  margin-top: -5rem;
 }
 @media (max-width: 992px) {
   .info,
