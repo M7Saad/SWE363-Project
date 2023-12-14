@@ -3,7 +3,7 @@
   src: url("/src/components/fonts/SecularOne-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   src: url("/src/components/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   src: url("/src/components/fonts/Raleway-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   src: url("/src/components/fonts/Nunito-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 
 @font-face {
@@ -36,19 +36,19 @@
     format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto Condensed";
-  src: url("src\\components\\fonts\\Lato-Regular.ttf") format("truetype");
+  src: url("/src/components/fonts/Lato-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto Condensed";
-  src: url("src\\components\\fonts\\Lato-Italic.ttf") format("truetype");
+  src: url("/src/components/fonts/Lato-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
