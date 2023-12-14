@@ -40,7 +40,7 @@
         </transition>
       </div>
 
-      <button v-else @click="signIn" style="font-weight: bold">Sign In</button>
+      <button v-else @click="signIn" style="font-weight: bold; margin-left: 10px;">Sign In</button>
     </nav>
   </header>
 </template>
