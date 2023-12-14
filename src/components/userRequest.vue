@@ -35,11 +35,11 @@
             {{ request.consultant_name }}
           </p>
           <hr />
-          <strong class="ZoomLink_title">Zoom Link:</strong><br /><a
-            :href="request.ZoomLink"
+          <strong class="googleLink_title">google Link:</strong><br /><a
+            :href="request.googleLink"
             target="_blank"
-            class="Zoomlink"
-            >Zoom</a
+            class="googlelink"
+            >google meeting</a
           ><br />
           <strong class="state_title">State:</strong><br />
           <p :class="getStateClass(request.state)">{{ request.state }}</p>
@@ -97,7 +97,7 @@ export default {
           console.log(request);
           this.requests.push({
             consultant_name: request.consultantName,
-            ZoomLink: request.ZoomLink,
+            googleLink: request.googleLink,
             state: "Accepted",
           });
         });
@@ -210,10 +210,11 @@ p {
   margin-top: 10px;
   margin-bottom: 0px;
 }*/
-.ZoomLink_title {
+.googleLink_title {
   font-size: 20px;
 }
-.Zoomlink {
+
+.googlelink {
   display: inline-block;
   margin-top: 5px;
   padding: 10px 15px;
@@ -223,7 +224,7 @@ p {
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
-.Zoomlink:hover {
+.googlelink:hover {
   background-color: #051d37;
 }
 .state_title {
