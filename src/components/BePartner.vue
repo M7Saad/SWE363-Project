@@ -270,6 +270,7 @@ import Footer from "./Footer.vue";
   align-items: center;
   justify-content: center;
   overflow-y: auto;
+  margin: 40px;
 }
 
 .offer-container {
