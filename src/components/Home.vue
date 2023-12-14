@@ -25,17 +25,13 @@
               Explore Consultants
             </button>
 
-            <!-- Circular Scroll Button with Arrow -->
           </div>
-          <div class="scroll-down-button">
-            <a href="#exploreContent" @click.prevent="scrollToContent">
-              <span class="arrow"></span>
-            </a>
-          </div>
+          
         </div>
 
         <div id="exploreContent">
           <div class="row mt-5">
+            <h2 class="head">Our Services</h2>
             <div class="col-md-4">
               <div class="card">
                 <div class="card-body">
@@ -280,5 +276,52 @@ img {
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+@media (max-width: 992px) {
+  .info,
+  .img-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partners-row {
+    justify-content: center;
+  }
+}
+
+/* Adjustments for even smaller screens */
+@media (max-width: 768px) {
+  .info,
+  .card-body {
+    padding: 15px;
+  }
+
+  .info {
+    margin-bottom: 50px;
+  }
+
+  .scroll-down-button {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 1rem;
+  }
 }
 </style>

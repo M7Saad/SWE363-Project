@@ -1,11 +1,13 @@
 <template>
   <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="logo-container">
       <img src="./assets/logo.png" alt="Logo" class="logo" />
-      <a href="/"><h1>Mustashark</h1></a>
+      <a href="/" ><h1 class="head">Mustashark</h1></a>
     </div>
+    <button class="hamburger" @click="toggleNav">&#9776;</button>
 
-    <nav>
+    <nav :class="{ 'active': navActive }">
       <div class="nav-links">
         <a href="/">Home</a>
 
@@ -65,9 +67,13 @@ export default {
       user: null,
       showSlide: false,
       isUser: false,
+      navActive: false,
     };
   },
   methods: {
+    toggleNav() {
+      this.navActive = !this.navActive;
+    },
     signIn() {
       //go to login page
       this.$router.push("/login");
@@ -100,6 +106,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 header {
   background-color: rgb(1, 89, 88);
   color: white;
@@ -207,5 +215,60 @@ button {
 
 .logo-container a:hover {
   color: #949493;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  
+  .hamburger {
+    display: inline-flex;
+    width: 30px;
+  }
+  .logo {
+  height: 40px;
+  width: 45px;
+}
+
+  .nav-links,
+  .user-container {
+    display: none;
+  }
+
+  .head{
+    font-size: medium;
+  }
+  .active .nav-links,
+  .active .user-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+ 
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+
+  nav.active {
+    display: block;
+    align-items: center;
+    width: 10;
+
+  }
+ 
+
 }
 </style>
