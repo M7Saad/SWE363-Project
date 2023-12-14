@@ -15,6 +15,8 @@
           <strong>Name:</strong><br />
           <p class="name">{{ request.user_name }}</p>
           <hr />
+          <strong>income:</strong><br />
+          <p class="income">{{ request.income }}</p>
           <strong>Phone:</strong><br />
           <a :href="request.Phone_number">Call</a>
           <div class="status-dropdown">
@@ -46,14 +48,18 @@ export default {
         {
           user_name: "Ali Ahmed",
           Phone_number: "34455666",
+          income:"33333"
         },
         {
           user_name: "Ahmed Ali",
           Phone_number: "34455666",
+          income:"33333"
         },
         {
           user_name: "Ahmed Ali",
           Phone_number: "34455666",
+          income:"33333"
+
         },
       ],
     };
