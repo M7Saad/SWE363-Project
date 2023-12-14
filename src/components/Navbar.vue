@@ -112,15 +112,30 @@ header {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.nav-links {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
-  margin: 0 15px;
+  margin: 0 10px;
   color: white;
-
   text-decoration: none;
   text-transform: uppercase;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .user-container {
@@ -128,20 +143,42 @@ nav {
 }
 
 button {
-  background-color: white;
-  color: indigo;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  align-content: center;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
+}
+
+.slide button:hover {
+  background-color: white;
+  color: black;
+}
+.slide {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  background-color: rgba(1, 89, 88);
+  padding: 2px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
 }
 
 .user-photo {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  margin: 18px;
+  margin: 0 10px;
   cursor: pointer;
+  border: 2px solid white;
+  transition: border-color 0.3s ease;
+}
+
+.user-photo:hover {
+  border-color: #00a0fc;
 }
 
 .logo-container {
@@ -154,24 +191,13 @@ button {
   width: 95px;
 }
 
-.slide {
-  position: absolute;
-  width: 120px;
-  right: 0;
-  background-color: white;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.nav-links a {
-  font-weight: bold;
-}
 .logo-container a {
   text-decoration: none;
   color: white;
   font-family: "Roboto", sans-serif;
   transition: color 0.3s ease;
 }
+
 .logo-container h1 {
   margin: 0;
   font-family: "Roboto", "Arial", sans-serif;
@@ -181,18 +207,5 @@ button {
 
 .logo-container a:hover {
   color: #949493;
-}
-
-.nav-links a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #00a0fc;
 }
 </style>
