@@ -21,7 +21,9 @@
           </div>
         </div>
       </div>
-      <h1 id="cases">Your requests</h1>
+      <h1 id="cases" style="font-family: 'Secular One', sans-serif">
+        Your requests
+      </h1>
       <div class="request_box">
         <div
           class="request-card"
@@ -114,15 +116,25 @@ import Footer from "./Footer.vue";
 
 <style scoped>
 html,
-body,
-#app {
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
+  overflow: auto;
 }
 
 main {
   padding: 20px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.request_box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .row {
@@ -190,12 +202,6 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.request_box {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
 }
 /*.name {
   font-size: large;
