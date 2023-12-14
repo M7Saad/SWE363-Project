@@ -82,8 +82,8 @@
                   <div class="partner">
                     <a href="" target="_blank">
                       <img
-                        src=""
-                        alt=""
+                        src="/src/assets/chatgpt.png"
+                        alt="ChatGPT"
                         class="img-fluid"
                         width="130"
                         height="130"
@@ -96,7 +96,7 @@
                       target="_blank"
                     >
                       <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg"
+                        src="/src/assets/google_calendar.svg"
                         alt="ChatGPT"
                         class="img-fluid"
                         width="130"
