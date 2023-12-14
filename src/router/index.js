@@ -79,14 +79,20 @@ const routes = [
     component: () => import("../components/ConsultantDetails.vue"),
     beforeEnter: (to, from, next) => {
       const auth = getAuth();
-      if (auth.currentUser) {
-        next();
-      } else {
-        next({
-          path: "/login",
-          query: { redirect: to.fullPath },
-        });
-      }
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          user.getIdToken().then((token) => {
+            localStorage.setItem("token", token);
+            console.log("token: ", token);
+            next();
+          });
+        } else {
+          next({
+            path: "/login",
+            query: { redirect: to.fullPath },
+          });
+        }
+      });
     },
   },
   {
