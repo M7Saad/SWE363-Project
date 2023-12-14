@@ -71,10 +71,12 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "ConsultationDetails",
   data() {
     return {
+      consultant: JSON.parse(localStorage.getItem("chosenConsultant")),
       details: {
         issue: "",
         income: "",
@@ -85,16 +87,47 @@ export default {
     };
   },
   methods: {
-    submitForm() {
+    async submitForm() {
+      //get the consultant id
+
       if (!this.details.paymentCheck) {
         alert("Please add your payment information.");
         return;
       }
 
-      // Here you would usually make a request to your backend service to
-      // submit the consultation details. For the sake of this example,
-      // we're just logging the details to the console.
-      console.log(this.details);
+      if (
+        !this.details.issue ||
+        !this.details.income ||
+        !this.details.phoneNumber ||
+        !this.details.email
+      ) {
+        alert("Please fill all the fields.");
+        return;
+      }
+
+      if (this.details.income < 0) {
+        alert("Please enter a valid income.");
+        return;
+      }
+      if (this.details.phoneNumber.length != 10) {
+        alert("Please enter a valid phone number. Format: 05XXXXXXXX");
+        return;
+      }
+      this.details.phoneNumber = this.details.phoneNumber.trim();
+      const token = localStorage.getItem("token");
+      // send data to server
+      const response = await axios.post(
+        "https://sendconsultantrequest-hqm6vxtfbq-uc.a.run.app",
+        {
+          consultantUID: "DfRjPrBSPiP1ekTNW8Ov5jy4Vso1",
+          details: this.details,
+        },
+        {
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+      );
 
       // Reset form
       this.details = {

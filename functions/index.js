@@ -26,6 +26,8 @@ exports.getConsultants = onRequest({ cors: true }, (req, res) => {
   ref.on("value", (snapshot) => {
     snapshot.forEach((childSnapshot) => {
       const childData = childSnapshot.val();
+      //in the childData, add the UID
+      childData.uid = childSnapshot.key;
       ans.push(childData);
     });
   });
@@ -142,4 +144,59 @@ exports.makeUserConsultant = onRequest({ cors: true }, (req, res) => {
         res.status(401).send("Unauthorized");
       }
     });
+});
+
+exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
+  if (req.method !== "POST") {
+    res.status(405).send("Method Not Allowed");
+    return;
+  }
+
+  // Get the token from the header, the request body
+  const token = req.headers.authorization;
+  const details = req.body.details;
+  const consultantUID = req.body.consultantUID;
+
+  let UID;
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    UID = decodedToken.uid;
+    NAME = decodedToken.name;
+  } catch (error) {
+    console.error(error);
+    res.status(401).send("Unauthorized, maybe refresh the page?");
+  }
+  // Validate and sanitize the details
+  if (!validator.isEmail(details.email)) {
+    return res.status(400).send("Invalid email");
+  }
+
+  if (
+    !validator.isMobilePhone(details.phoneNumber) &&
+    !/^05\d{8}$/.test(details.phoneNumber)
+  ) {
+    console.log("Invalid phone number", details.phoneNumber);
+    return res.status(400).send("Invalid phone number");
+  }
+
+  if (!validator.isLength(details.issue, { min: 1 })) {
+    return res.status(400).send("Issue is required");
+  }
+
+  const sanitizedDetails = {
+    issue: xss(details.issue),
+    income: xss(details.income),
+    phoneNumber: xss(details.phoneNumber),
+    email: xss(details.email),
+    paymentCheck: xss(details.paymentCheck),
+  };
+
+  const db = admin.database();
+  //save the details in the database, user
+  const ref = db.ref(`users/${UID}` + "/consultantRequest");
+  ref.push(sanitizedDetails);
+  //save the details in the database, consultant
+  const ref2 = db.ref(`users/${consultantUID}` + "/consultantRequest");
+  ref2.push(sanitizedDetails);
+  res.status(200).send("Consultant request sent successfully");
 });
