@@ -119,7 +119,7 @@ export default {
       const response = await axios.post(
         "https://sendconsultantrequest-hqm6vxtfbq-uc.a.run.app",
         {
-          consultantUID: "DfRjPrBSPiP1ekTNW8Ov5jy4Vso1",
+          consultantUID: this.consultant.uid,
           details: this.details,
         },
         {
