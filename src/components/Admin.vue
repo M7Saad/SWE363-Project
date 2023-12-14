@@ -166,7 +166,7 @@ main {
 }
 
 button {
-  background-color:#026773;
+  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;

@@ -24,9 +24,7 @@
             >
               Explore Consultants
             </button>
-
           </div>
-          
         </div>
 
         <div id="exploreContent">

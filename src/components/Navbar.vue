@@ -1,13 +1,13 @@
 <template>
   <header>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <div class="logo-container">
       <img src="./assets/logo.png" alt="Logo" class="logo" />
-      <a href="/" ><h1 class="head">Mustashark</h1></a>
+      <a href="/"><h1 class="head">Mustashark</h1></a>
     </div>
     <button class="hamburger" @click="toggleNav">&#9776;</button>
 
-    <nav :class="{ 'active': navActive }">
+    <nav :class="{ active: navActive }">
       <div class="nav-links">
         <a href="/">Home</a>
 
@@ -37,12 +37,18 @@
         />
         <transition name="slide-fade">
           <div v-show="showSlide" class="slide">
-            <button @click="signOut" style="font-weight: bold; ">Sign Out</button>
+            <button @click="signOut" style="font-weight: bold">Sign Out</button>
           </div>
         </transition>
       </div>
 
-      <button v-else @click="signIn" style="font-weight: bold; margin-left: 10px;">Sign In</button>
+      <button
+        v-else
+        @click="signIn"
+        style="font-weight: bold; margin-left: 10px"
+      >
+        Sign In
+      </button>
     </nav>
   </header>
 </template>
@@ -106,8 +112,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 header {
   background-color: rgb(1, 89, 88);
   color: white;
@@ -230,22 +234,21 @@ button {
 
 /* Responsive styles */
 @media (max-width: 600px) {
-  
   .hamburger {
     display: inline-flex;
     width: 30px;
   }
   .logo {
-  height: 40px;
-  width: 45px;
-}
+    height: 40px;
+    width: 45px;
+  }
 
   .nav-links,
   .user-container {
     display: none;
   }
 
-  .head{
+  .head {
     font-size: medium;
   }
   .active .nav-links,
@@ -255,8 +258,6 @@ button {
     width: 100%;
     padding: 0;
   }
-
- 
 
   .nav-links {
     flex-direction: column;
@@ -268,9 +269,6 @@ button {
     display: block;
     align-items: center;
     width: 10;
-
   }
- 
-
 }
 </style>
