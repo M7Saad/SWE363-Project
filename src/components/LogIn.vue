@@ -2,7 +2,9 @@
   <Navbar />
   <div class="main-container">
     <div class="login-container">
-      <h2>Sign in</h2>
+      <h2 style="color: aliceblue; font-family: 'Secular One', sans-serif">
+        Sign in
+      </h2>
       <form @submit.prevent="login" id="loginForm">
         <div class="form-floating mb-3">
           <input
@@ -25,7 +27,7 @@
           <label for="password">Password</label>
         </div>
         <br />
-        <router-link to="/signup"
+        <router-link to="/signup" class="m" style="color: aliceblue"
           >Don't have an account? Sign up here</router-link
         >
         <br />
@@ -140,7 +142,7 @@ import Footer from "./Footer.vue";
 .login-container {
   width: 400px;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: rgb(1, 89, 88);
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -151,7 +153,6 @@ import Footer from "./Footer.vue";
 }
 
 button {
-  background-color: #026773;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -170,6 +171,8 @@ button {
   padding: 10px 20px;
   margin: 10px;
   justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -178,8 +181,14 @@ button {
   transition: background-color 0.3s ease;
 }
 
+.login-button:hover,
+.google-login-button:hover {
+  background-color: white;
+  color: rgb(1, 89, 88);
+}
+
 .login-button {
-  background-color: #026773;
+  background-color: #097480;
   color: #fff;
 }
 

@@ -2,7 +2,9 @@
   <Navbar />
   <div class="main-container">
     <div class="login-container">
-      <h2 style="font-family: 'Secular One', sans-serif">Sign up</h2>
+      <h2 style="font-family: 'Secular One', sans-serif; color: aliceblue">
+        Sign up
+      </h2>
       <form @submit.prevent="signUp" class="signup-form">
         <div class="form-floating mb-3">
           <input
@@ -51,7 +53,9 @@
         <button type="submit">Sign up</button>
       </form>
       <div class="login-link">
-        <router-link to="/login">Already have an account? Sign in</router-link>
+        <router-link to="/login" style="color: aliceblue"
+          >Already have an account? Sign in</router-link
+        >
       </div>
     </div>
   </div>
@@ -168,13 +172,22 @@ input {
 }
 
 button {
-  background-color: #026773;
+  padding: 10px 20px;
+  margin: 10px;
+  justify-content: center;
+  background-color: #097480;
   color: white;
   border: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
+  border-radius: 20px;
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: rgb(1, 89, 88);
 }
 
 .login-link {
@@ -198,8 +211,14 @@ button {
 .login-container {
   width: 400px;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: rgb(1, 89, 88);
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+h2 {
+  align-items: center;
+  margin-left: 35%;
 }
 </style>
