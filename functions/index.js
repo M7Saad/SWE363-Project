@@ -161,7 +161,11 @@ exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);
     UID = decodedToken.uid;
-    NAME = decodedToken.name;
+    if (decodedToken.name) {
+      NAME = decodedToken.name;
+    } else {
+      NAME = UID;
+    }
   } catch (error) {
     console.error(error);
     res.status(401).send("Unauthorized, maybe refresh the page?");
@@ -203,7 +207,9 @@ exports.sendConsultantRequest = onRequest({ cors: true }, async (req, res) => {
     .auth()
     .getUser(consultantUID)
     .then((userRecord) => {
-      sanitizedDetails.consultantName = userRecord.displayName;
+      if (userRecord.displayName)
+        sanitizedDetails.consultantName = userRecord.displayName;
+      else sanitizedDetails.consultantName = consultantUID;
     })
     .catch((error) => {
       console.log("Error fetching user data:", error);
