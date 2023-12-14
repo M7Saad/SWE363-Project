@@ -33,7 +33,7 @@
 
               <li class="list-item">
                 <span class="contact-text phone">
-                  <a href="tel:012-675-5576" title="Give me a call"><strong>(012) 675-5576</strong></a>
+                  <a href="tel:012-675-5576" title="Give me a call"><strong>(966) 5364-76070</strong></a>
                 </span>
               </li>
 
