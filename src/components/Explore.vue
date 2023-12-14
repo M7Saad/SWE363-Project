@@ -203,4 +203,71 @@ import Footer from "./Footer.vue";
   font-weight: bold;
   text-align: center;
 }
+.consultants-page {
+  padding: 20px;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows the search bar and select to wrap on smaller screens */
+  gap: 10px; /* Replaces margin-right on .search-bar for better control */
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 120px; /* Prevents the search bar from becoming too small on narrow screens */
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 8px;
+}
+
+.consultants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.consultant-card {
+  width: 100%; /* Makes the card width flexible */
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(232, 250, 245);
+  border: 5px solid #026773;
+}
+
+.consultant-card img {
+  max-width: 100%; /* Makes image responsive */
+  border-radius: 10px;
+  height: auto;
+}
+
+/* ... other styles ... */
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column; /* Stacks the search bar and dropdown on top of each other */
+  }
+
+  .search-bar {
+    width: 100%; /* Full width on small screens */
+    margin-bottom: 10px; /* Add space between the search bar and dropdown */
+  }
+}
+
+@media (max-width: 480px) {
+  .consultant-card {
+    padding: 5px; /* Reduce padding on very small screens */
+  }
+
+  .consultant-card img {
+    width: 100%; /* Ensures image fills the card on small screens */
+  }
+
+  .head {
+    font-size: x-large; /* Adjusts heading size on very small screens */
+  }
+}
 </style>
