@@ -97,7 +97,14 @@ export default {
 
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
-        .then(() => {
+        .then((userCredential) => {
+          // Get the user
+          const user = userCredential.user;
+          // Get the token
+          user.getIdToken().then((token) => {
+            //save the token in local storage
+            localStorage.setItem("token", token);
+          });
           this.$router.push(this.$route.query.redirect || "/");
         })
         .catch((error) => {
