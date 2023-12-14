@@ -179,13 +179,13 @@ main {
 
 p {
   font-size: 19px;
-  /*font-style: italic;*/
 }
 
 #cases {
   margin-top: 50px;
   text-align: center;
   font-weight: bold;
+  margin-top: -2rem;
 }
 #request_box {
   display: flex;
