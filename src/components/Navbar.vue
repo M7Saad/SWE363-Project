@@ -37,7 +37,7 @@
         />
         <transition name="slide-fade">
           <div v-show="showSlide" class="slide">
-            <button @click="signOut" style="font-weight: bold">Sign Out</button>
+            <button @click="signOut" style="font-weight: bold; ">Sign Out</button>
           </div>
         </transition>
       </div>
@@ -132,6 +132,8 @@ nav {
 
 .nav-links a {
   margin: 0 10px;
+  width: 140px;
+  text-align: center;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
@@ -167,7 +169,7 @@ button {
 }
 .slide {
   position: absolute;
-  width: 100px;
+  width: 120px;
   right: 0;
   background-color: rgba(1, 89, 88);
   padding: 2px;

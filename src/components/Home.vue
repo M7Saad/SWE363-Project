@@ -32,7 +32,6 @@
         <div id="exploreContent">
           <h2 class="head">Our Services</h2>
           <div class="row mt-5">
-            <h2 class="head">Our Services</h2>
             <div class="col-md-4">
               <div class="card">
                 <div class="card-body">

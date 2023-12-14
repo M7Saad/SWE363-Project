@@ -91,26 +91,7 @@
 
             <hr />
 
-            <ul class="social-media-list">
-              <li>
-                <a
-                  href="https://twitter.com/mustashark"
-                  target="_blank"
-                  class="contact-icon"
-                >
-                  <img src="./assets/twitter.gif" alt="Twitter" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/1234567890"
-                  target="_blank"
-                  class="contact-icon"
-                >
-                  <img src="./assets/whatsapp.gif" alt="WhatsApp" />
-                </a>
-              </li>
-            </ul>
+          
           </div>
         </div>
       </div>

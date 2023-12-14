@@ -78,6 +78,13 @@
               <option value="Information Technology Consulting">
                 Information Technology Consulting
               </option>
+              <option value="Information Technology Consulting">
+                Invesment Consulting
+              </option>
+              <option value="Information Technology Consulting">
+                 
+                Islamic Invesments Consulting
+              </option>
               <option value="Operations Consulting">
                 Operations Consulting
               </option>
