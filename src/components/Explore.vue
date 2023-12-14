@@ -2,7 +2,9 @@
   <div id="app">
     <Navbar />
     <main class="consultants-page">
-      <p class="head">Explore Our Consultants</p>
+      <p class="head" style="font-family: 'Secular One', sans-serif">
+        Explore Our Consultants
+      </p>
 
       <div class="search-bar-container">
         <input

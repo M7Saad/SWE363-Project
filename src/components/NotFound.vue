@@ -1,6 +1,8 @@
 <template>
   <center>
-    <h1 style="color: red">Not Found! 404!</h1>
+    <h1 style="color: red =font-family: 'Secular One', sans-serif">
+      Not Found! 404!
+    </h1>
     <h2>
       You probably were typing the links manually. Make sure not to mess with
       that and follow routes :]

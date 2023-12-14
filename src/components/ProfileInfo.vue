@@ -5,7 +5,9 @@
       alt="Mustasharak Logo"
       class="logo"
     />
-    <h2>Fill Your Profile Info</h2>
+    <h2 style="font-family: 'Secular One', sans-serif">
+      Fill Your Profile Info
+    </h2>
     <form @submit.prevent="fillProfileInfo">
       <div class="input-group">
         <span class="input-group-text">First and last name</span>

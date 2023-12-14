@@ -3,7 +3,9 @@
     <Navbar />
 
     <div class="main-container">
-      <h1 id="cases">Consultation Cases</h1>
+      <h1 id="cases" style="font-family: 'Secular One', sans-serif">
+        Consultation Cases
+      </h1>
       <div class="cases-box">
         <div
           class="cases-card"
